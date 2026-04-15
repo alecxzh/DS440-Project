@@ -1,0 +1,8 @@
+pandas
+numpy
+yfinance
+ta
+groq
+google-genai
+openai>=1.0
+python-dotenv

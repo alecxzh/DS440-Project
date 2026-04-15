@@ -1,0 +1,791 @@
+provider,variant,row_index,ticker,date,window_start,window_end,window_n_days,stance,direction,confidence,reason,parse_error,parsed_json,raw_text
+zai,2,0,AAPL,2022-01-14 00:00:00,2022-01-03 00:00:00,2022-01-14 00:00:00,10,NEUTRAL,,0.5,"Technical indicators show a consolidation phase with low volatility (Volatility_10d=0.0051) and a stable RSI. Bayesian indicators suggest a 50% probability of an upward move, implying a balanced outlook.",,"{""upside_downside_summary"": ""The Posterior_Trend increases from 0.3333 to 0.5, indicating a shift toward a neutral stance. Posterior_Up remains at 0.5 throughout the window, suggesting balanced probabilities for upside and downside."", ""large_move_summary"": ""The large move on 2022-01-05 (Is_Large_Move=True) coincides with a drop in Posterior_Trend to 0.2, highlighting how volatility can temporarily reduce trend confidence."", ""combined_narrative"": ""Technical indicators show a consolidation phase with low volatility (Volatility_10d=0.0051) and a stable RSI. Bayesian indicators suggest a 50% probability of an upward move, implying a balanced outlook."", ""stance"": ""NEUTRAL"", ""confidence"": 0.5, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""Volatility_10d=0.0051105497221088"", ""RSI_14=null""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend increases from 0.3333 to 0.5, indicating a shift toward a neutral stance. Posterior_Up remains at 0.5 throughout the window, suggesting balanced probabilities for upside and downside."",
+  ""large_move_summary"": ""The large move on 2022-01-05 (Is_Large_Move=True) coincides with a drop in Posterior_Trend to 0.2, highlighting how volatility can temporarily reduce trend confidence."",
+  ""combined_narrative"": ""Technical indicators show a consolidation phase with low volatility (Volatility_10d=0.0051) and a stable RSI. Bayesian indicators suggest a 50% probability of an upward move, implying a balanced outlook."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.5,
+  ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""Volatility_10d=0.0051105497221088"", ""RSI_14=null""]
+}
+```"
+zai,2,1,AAPL,2022-01-28 00:00:00,2022-01-18 00:00:00,2022-01-28 00:00:00,9,BULLISH,,0.6,"The price dropped from 166.16 to 155.80 over the first seven days, with the 10-day SMA (161.13) remaining above the price. The 2022-01-28 close at 166.67 broke above the 10-day SMA, and the high of 166.69 suggests the price is testing the moving average. The Bayesian indicators show a divergence: the trend probability is low, but the probability of an up move is high, driven by the recent price action.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.5 to 0.25, indicating a shift toward downside probability. Posterior_Up drops from 0.5 to 0.67, suggesting a higher likelihood of an upside move despite the trend decline."", ""large_move_summary"": ""Large moves on 2022-01-19 and 2022-01-28 are associated with high volatility and significant price swings, contrasting with the quieter days where price action was subdued."", ""combined_narrative"": ""The price dropped from 166.16 to 155.80 over the first seven days, with the 10-day SMA (161.13) remaining above the price. The 2022-01-28 close at 166.67 broke above the 10-day SMA, and the high of 166.69 suggests the price is testing the moving average. The Bayesian indicators show a divergence: the trend probability is low, but the probability of an up move is high, driven by the recent price action."", ""stance"": ""BULLISH"", ""confidence"": 0.6, ""grounding"": [""Posterior_Trend=0.25"", ""Posterior_Up=0.6666666666666667"", ""Close=166.67433166503906"", ""High=166.69390660020625"", ""SMA_10=161.13190765380858"", ""Is_Large_Move=True""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.5 to 0.25, indicating a shift toward downside probability. Posterior_Up drops from 0.5 to 0.67, suggesting a higher likelihood of an upside move despite the trend decline."",
+  ""large_move_summary"": ""Large moves on 2022-01-19 and 2022-01-28 are associated with high volatility and significant price swings, contrasting with the quieter days where price action was subdued."",
+  ""combined_narrative"": ""The price dropped from 166.16 to 155.80 over the first seven days, with the 10-day SMA (161.13) remaining above the price. The 2022-01-28 close at 166.67 broke above the 10-day SMA, and the high of 166.69 suggests the price is testing the moving average. The Bayesian indicators show a divergence: the trend probability is low, but the probability of an up move is high, driven by the recent price action."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.6,
+  ""grounding"": [""Posterior_Trend=0.25"", ""Posterior_Up=0.6666666666666667"", ""Close=166.67433166503906"", ""High=166.69390660020625"", ""SMA_10=161.13190765380858"", ""Is_Large_Move=True""]
+}
+```"
+zai,2,2,AAPL,2022-02-11 00:00:00,2022-01-31 00:00:00,2022-02-11 00:00:00,10,BULLISH,,0.55,"The technical indicators, such as SMA_10 and EMA_10, show a general upward trend until the last two days, where they decline. The Bayesian indicators, particularly Posterior_Trend and Posterior_Up, remain positive, suggesting a continued likelihood of an upward move despite recent volatility. The combination of a positive trend and high volatility implies potential for significant price swings in the next few days.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.25 and rising to 0.5 by the end. Posterior_Up follows a similar trajectory, increasing from 0.25 to 0.5, indicating a growing probability of an upward move. The Prior_Up starts at 0.25 and ends at 0.4167, suggesting a consistent but slightly less aggressive bullish bias."", ""large_move_summary"": ""The large-move days on 2022-02-10 and 2022-02-11 are associated with a drop in Posterior_Up to 0.1345 and 0.1515, respectively, while Posterior_Trend remains elevated. These days show a significant negative return (-0.0236 and -0.0202) and high volatility, contrasting with the quieter days where Posterior_Up values are higher."", ""combined_narrative"": ""The technical indicators, such as SMA_10 and EMA_10, show a general upward trend until the last two days, where they decline. The Bayesian indicators, particularly Posterior_Trend and Posterior_Up, remain positive, suggesting a continued likelihood of an upward move despite recent volatility. The combination of a positive trend and high volatility implies potential for significant price swings in the next few days."", ""stance"": ""BULLISH"", ""confidence"": 0.55, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""SMA_10=169.81249389648437"", ""EMA_10=168.17765025769205"", ""Return=-0.0202183780997942""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.25 and rising to 0.5 by the end. Posterior_Up follows a similar trajectory, increasing from 0.25 to 0.5, indicating a growing probability of an upward move. The Prior_Up starts at 0.25 and ends at 0.4167, suggesting a consistent but slightly less aggressive bullish bias."",
+  ""large_move_summary"": ""The large-move days on 2022-02-10 and 2022-02-11 are associated with a drop in Posterior_Up to 0.1345 and 0.1515, respectively, while Posterior_Trend remains elevated. These days show a significant negative return (-0.0236 and -0.0202) and high volatility, contrasting with the quieter days where Posterior_Up values are higher."",
+  ""combined_narrative"": ""The technical indicators, such as SMA_10 and EMA_10, show a general upward trend until the last two days, where they decline. The Bayesian indicators, particularly Posterior_Trend and Posterior_Up, remain positive, suggesting a continued likelihood of an upward move despite recent volatility. The combination of a positive trend and high volatility implies potential for significant price swings in the next few days."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.55,
+  ""grounding"": [
+    ""Posterior_Trend=0.5"",
+    ""Posterior_Up=0.5"",
+    ""SMA_10=169.81249389648437"",
+    ""EMA_10=168.17765025769205"",
+    ""Return=-0.0202183780997942""
+  ]
+}
+```"
+zai,2,3,AAPL,2022-02-25 00:00:00,2022-02-14 00:00:00,2022-02-25 00:00:00,9,NEUTRAL,,0.5,"The technical indicators show a downward trend with a negative MACD and RSI below 50, while the Bayesian indicators suggest a neutral trend with a slight probability of an upward move, particularly following large price swings.",,"{""upside_downside_summary"": ""Posterior_Trend remains at 0.4166666666666667, indicating a neutral stance, while Posterior_Up fluctuates between 0.3333333333333333 and 0.7659574468085106, suggesting a slight bias toward upside potential despite the trend."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-02-15 and 2022-02-17 correspond to periods of high Posterior_Up (0.7659574468085106 and 0.169811320754717), while quieter days show lower Posterior_Up values."", ""combined_narrative"": ""The technical indicators show a downward trend with a negative MACD and RSI below 50, while the Bayesian indicators suggest a neutral trend with a slight probability of an upward move, particularly following large price swings."", ""stance"": ""NEUTRAL"", ""confidence"": 0.5, ""grounding"": [""Posterior_Trend=0.4166666666666667"", ""Posterior_Up=0.7659574468085106"", ""Posterior_Up=0.169811320754717"", ""MACD=-2.137269112180462"", ""RSI_14=42.67364609617221""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains at 0.4166666666666667, indicating a neutral stance, while Posterior_Up fluctuates between 0.3333333333333333 and 0.7659574468085106, suggesting a slight bias toward upside potential despite the trend."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-02-15 and 2022-02-17 correspond to periods of high Posterior_Up (0.7659574468085106 and 0.169811320754717), while quieter days show lower Posterior_Up values."",
+  ""combined_narrative"": ""The technical indicators show a downward trend with a negative MACD and RSI below 50, while the Bayesian indicators suggest a neutral trend with a slight probability of an upward move, particularly following large price swings."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.5,
+  ""grounding"": [
+    ""Posterior_Trend=0.4166666666666667"",
+    ""Posterior_Up=0.7659574468085106"",
+    ""Posterior_Up=0.169811320754717"",
+    ""MACD=-2.137269112180462"",
+    ""RSI_14=42.67364609617221""
+  ]
+}
+```"
+zai,2,4,AAPL,2022-03-11 00:00:00,2022-02-28 00:00:00,2022-03-11 00:00:00,10,NEUTRAL,,0.65,"The technical indicators (SMA_10 and SMA_20) are bearish, with the 10-day SMA (158.45) below the 20-day SMA (161.09) on the last date. However, the Bayesian indicators show a strong posterior probability of an up move (0.7407) and a shift in trend probability (0.5), suggesting the market may be overreacting to recent volatility.",,"{""upside_downside_summary"": ""Posterior_Trend remains at 0.5 for the first five days, indicating an equal probability of an uptrend or downtrend. The trend shifts to 0.5 again on March 9, but the prior probability of an up move (Prior_Up) drops to 0.4167, while the posterior probability of an up move (Posterior_Up) rises to 0.7407, suggesting a higher likelihood of an upside move despite the prior."", ""large_move_summary"": ""Large moves occurred on March 2, March 7, March 9, and March 10, with Posterior_Up increasing to 0.7273 and 0.7407 respectively. These days show a strong positive Bayesian signal (Posterior_Up > 0.5) contrasting with the technical indicators (SMA_10 > SMA_20) which were bearish."", ""combined_narrative"": ""The technical indicators (SMA_10 and SMA_20) are bearish, with the 10-day SMA (158.45) below the 20-day SMA (161.09) on the last date. However, the Bayesian indicators show a strong posterior probability of an up move (0.7407) and a shift in trend probability (0.5), suggesting the market may be overreacting to recent volatility."", ""stance"": ""NEUTRAL"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.5"", ""Prior_Up=0.4167"", ""Posterior_Up=0.7407"", ""SMA_10=158.45"", ""SMA_20=161.09""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains at 0.5 for the first five days, indicating an equal probability of an uptrend or downtrend. The trend shifts to 0.5 again on March 9, but the prior probability of an up move (Prior_Up) drops to 0.4167, while the posterior probability of an up move (Posterior_Up) rises to 0.7407, suggesting a higher likelihood of an upside move despite the prior."",
+  ""large_move_summary"": ""Large moves occurred on March 2, March 7, March 9, and March 10, with Posterior_Up increasing to 0.7273 and 0.7407 respectively. These days show a strong positive Bayesian signal (Posterior_Up > 0.5) contrasting with the technical indicators (SMA_10 > SMA_20) which were bearish."",
+  ""combined_narrative"": ""The technical indicators (SMA_10 and SMA_20) are bearish, with the 10-day SMA (158.45) below the 20-day SMA (161.09) on the last date. However, the Bayesian indicators show a strong posterior probability of an up move (0.7407) and a shift in trend probability (0.5), suggesting the market may be overreacting to recent volatility."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.65,
+  ""grounding"": [""Posterior_Trend=0.5"", ""Prior_Up=0.4167"", ""Posterior_Up=0.7407"", ""SMA_10=158.45"", ""SMA_20=161.09""]
+}
+```"
+zai,2,5,AAPL,2022-03-25 00:00:00,2022-03-14 00:00:00,2022-03-25 00:00:00,10,BULLISH,,0.85,"The combination of a rising Posterior_Trend, high Posterior_Up, and a bullish MACD histogram suggests continued upside potential. The SMA_10 (160.99) is well above SMA_20 (159.72), and the RSI_14 (63.33) indicates room for growth without overbought conditions. The 10-day volatility (0.0166) is low, supporting a steady upward trajectory.",,"{""upside_downside_summary"": ""The Posterior_Trend increases from 0.25 to 0.833, indicating a shift from neutral to a strong bullish bias. Posterior_Up rises from 0.416 to 0.833, showing a high probability of upward movement. The Prior_Up remains stable at 0.666, reinforcing the positive outlook."", ""large_move_summary"": ""Large-move days (True) on March 14, 15, 18, 22, and 24 show strong upward momentum, while quieter days (False) on March 17, 21, and 25 exhibit consolidation. The MACD histogram grows from -1.07 to 2.16, confirming the trend's strength."", ""combined_narrative"": ""The combination of a rising Posterior_Trend, high Posterior_Up, and a bullish MACD histogram suggests continued upside potential. The SMA_10 (160.99) is well above SMA_20 (159.72), and the RSI_14 (63.33) indicates room for growth without overbought conditions. The 10-day volatility (0.0166) is low, supporting a steady upward trajectory."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.833"", ""Posterior_Up=0.833"", ""MACD_hist=2.1593026435825635"", ""SMA_10=160.98838806152344"", ""SMA_20=159.72054901123047"", ""RSI_14=63.32812652073928""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend increases from 0.25 to 0.833, indicating a shift from neutral to a strong bullish bias. Posterior_Up rises from 0.416 to 0.833, showing a high probability of upward movement. The Prior_Up remains stable at 0.666, reinforcing the positive outlook."",
+  ""large_move_summary"": ""Large-move days (True) on March 14, 15, 18, 22, and 24 show strong upward momentum, while quieter days (False) on March 17, 21, and 25 exhibit consolidation. The MACD histogram grows from -1.07 to 2.16, confirming the trend's strength."",
+  ""combined_narrative"": ""The combination of a rising Posterior_Trend, high Posterior_Up, and a bullish MACD histogram suggests continued upside potential. The SMA_10 (160.99) is well above SMA_20 (159.72), and the RSI_14 (63.33) indicates room for growth without overbought conditions. The 10-day volatility (0.0166) is low, supporting a steady upward trajectory."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [
+    ""Posterior_Trend=0.833"",
+    ""Posterior_Up=0.833"",
+    ""MACD_hist=2.1593026435825635"",
+    ""SMA_10=160.98838806152344"",
+    ""SMA_20=159.72054901123047"",
+    ""RSI_14=63.32812652073928""
+  ]
+}
+```"
+zai,2,6,AAPL,2022-04-08 00:00:00,2022-03-28 00:00:00,2022-04-08 00:00:00,10,BEARISH,,0.65,"Technical indicators show a downward trend with the 10-day SMA (171.35) below the 20-day SMA (166.17) and a negative MACD histogram (-0.13). The Bayesian indicators have converged to a neutral probability of 0.42, reflecting the recent price weakness.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.92 to 0.42, indicating a shift from a strong positive bias to a neutral stance. Posterior_Up follows a similar downward trajectory, dropping from 0.92 to 0.42, suggesting the probability of an upside move has decreased."", ""large_move_summary"": ""The large-move day on 2022-04-04 (Is_Large_Move=True) briefly spiked Posterior_Up to 0.95, but the subsequent decline in trend and probability suggests the move was not sustained."", ""combined_narrative"": ""Technical indicators show a downward trend with the 10-day SMA (171.35) below the 20-day SMA (166.17) and a negative MACD histogram (-0.13). The Bayesian indicators have converged to a neutral probability of 0.42, reflecting the recent price weakness."", ""stance"": ""BEARISH"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.4166666666666667"", ""Posterior_Up=0.4166666666666667"", ""SMA_10=171.345703125"", ""SMA_20=166.16704559326172"", ""MACD_hist=-0.1284246417536421""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.92 to 0.42, indicating a shift from a strong positive bias to a neutral stance. Posterior_Up follows a similar downward trajectory, dropping from 0.92 to 0.42, suggesting the probability of an upside move has decreased."",
+  ""large_move_summary"": ""The large-move day on 2022-04-04 (Is_Large_Move=True) briefly spiked Posterior_Up to 0.95, but the subsequent decline in trend and probability suggests the move was not sustained."",
+  ""combined_narrative"": ""Technical indicators show a downward trend with the 10-day SMA (171.35) below the 20-day SMA (166.17) and a negative MACD histogram (-0.13). The Bayesian indicators have converged to a neutral probability of 0.42, reflecting the recent price weakness."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.65,
+  ""grounding"": [
+    ""Posterior_Trend=0.4166666666666667"",
+    ""Posterior_Up=0.4166666666666667"",
+    ""SMA_10=171.345703125"",
+    ""SMA_20=166.16704559326172"",
+    ""MACD_hist=-0.1284246417536421""
+  ]
+}
+```"
+zai,2,7,AAPL,2022-04-22 00:00:00,2022-04-11 00:00:00,2022-04-22 00:00:00,9,BEARISH,,0.65,"The SMA_10 and SMA_20 are trending downward, with the 10-day SMA dropping from 170.38 to 163.34, while the 20-day SMA declines from 166.91 to 167.57. The RSI_14 falls from 43.90 to 39.83, suggesting weakening momentum. The MACD remains negative, with the histogram deepening to -1.07, reinforcing the bearish technical setup. The Bayesian indicators, while not fully bearish, show a declining probability of an immediate upside move.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.533 and ending at 0.333, while Prior_Up stays constant at 0.416. Posterior_Up fluctuates between 0.222 and 0.416, indicating a probabilistic leaning towards upside that is not yet decisive."", ""large_move_summary"": ""Large-move days occur on 2022-04-11 (True) and 2022-04-14 (True), with the latter coinciding with a drop in Posterior_Up to 0.142. These events introduce significant volatility, contrasting with the quieter days where Posterior_Up stabilizes around 0.416."", ""combined_narrative"": ""The SMA_10 and SMA_20 are trending downward, with the 10-day SMA dropping from 170.38 to 163.34, while the 20-day SMA declines from 166.91 to 167.57. The RSI_14 falls from 43.90 to 39.83, suggesting weakening momentum. The MACD remains negative, with the histogram deepening to -1.07, reinforcing the bearish technical setup. The Bayesian indicators, while not fully bearish, show a declining probability of an immediate upside move."", ""stance"": ""BEARISH"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.333"", ""Prior_Up=0.416"", ""Posterior_Up=0.151"", ""SMA_10=163.33987426757812"", ""SMA_20=167.56961059570312"", ""RSI_14=39.827837220082806"", ""MACD=-0.8516025139775252""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.533 and ending at 0.333, while Prior_Up stays constant at 0.416. Posterior_Up fluctuates between 0.222 and 0.416, indicating a probabilistic leaning towards upside that is not yet decisive."",
+  ""large_move_summary"": ""Large-move days occur on 2022-04-11 (True) and 2022-04-14 (True), with the latter coinciding with a drop in Posterior_Up to 0.142. These events introduce significant volatility, contrasting with the quieter days where Posterior_Up stabilizes around 0.416."",
+  ""combined_narrative"": ""The SMA_10 and SMA_20 are trending downward, with the 10-day SMA dropping from 170.38 to 163.34, while the 20-day SMA declines from 166.91 to 167.57. The RSI_14 falls from 43.90 to 39.83, suggesting weakening momentum. The MACD remains negative, with the histogram deepening to -1.07, reinforcing the bearish technical setup. The Bayesian indicators, while not fully bearish, show a declining probability of an immediate upside move."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.65,
+  ""grounding"": [""Posterior_Trend=0.333"", ""Prior_Up=0.416"", ""Posterior_Up=0.151"", ""SMA_10=163.33987426757812"", ""SMA_20=167.56961059570312"", ""RSI_14=39.827837220082806"", ""MACD=-0.8516025139775252""]
+}
+```"
+zai,2,8,AAPL,2022-05-06 00:00:00,2022-04-25 00:00:00,2022-05-06 00:00:00,10,NEUTRAL,,0.5,"The technical indicators show a downtrend with the price below the 10-day SMA, while the Bayesian indicators suggest a gradual but uncertain shift toward a positive trend. The recent volatility and large moves have not yet translated into a high probability of an upside breakout.",,"{""upside_downside_summary"": ""Posterior_Trend increases from 0.33 to 0.58, indicating a shift toward a bullish bias. Posterior_Up remains low (0.14-0.58), suggesting the probability of a strong upward move is currently limited."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occurred on 2022-04-26 and 2022-04-28, coinciding with sharp drops in price and negative Bayesian indicators, while quieter days saw stable or improving trends."", ""combined_narrative"": ""The technical indicators show a downtrend with the price below the 10-day SMA, while the Bayesian indicators suggest a gradual but uncertain shift toward a positive trend. The recent volatility and large moves have not yet translated into a high probability of an upside breakout."", ""stance"": ""NEUTRAL"", ""confidence"": 0.5, ""grounding"": [""Posterior_Trend=0.58"", ""Posterior_Up=0.58"", ""Close=154.33"", ""SMA_10=156.30"", ""RSI_14=42.73"", ""MACD_hist=-0.446""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend increases from 0.33 to 0.58, indicating a shift toward a bullish bias. Posterior_Up remains low (0.14-0.58), suggesting the probability of a strong upward move is currently limited."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occurred on 2022-04-26 and 2022-04-28, coinciding with sharp drops in price and negative Bayesian indicators, while quieter days saw stable or improving trends."",
+  ""combined_narrative"": ""The technical indicators show a downtrend with the price below the 10-day SMA, while the Bayesian indicators suggest a gradual but uncertain shift toward a positive trend. The recent volatility and large moves have not yet translated into a high probability of an upside breakout."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.5,
+  ""grounding"": [
+    ""Posterior_Trend=0.58"",
+    ""Posterior_Up=0.58"",
+    ""Close=154.33"",
+    ""SMA_10=156.30"",
+    ""RSI_14=42.73"",
+    ""MACD_hist=-0.446""
+  ]
+}
+```"
+zai,2,9,AAPL,2022-05-20 00:00:00,2022-05-09 00:00:00,2022-05-20 00:00:00,10,NEUTRAL,,0.55,"The price has declined from 152.02 to 135.01, with the 10-day SMA (142.60) still above the current price, indicating a bearish technical trend. However, the Posterior_Up probability has risen to 0.42 by the end of the window, suggesting the Bayesian model is beginning to price in a potential reversal. The MACD histogram remains negative, but the signal line is flattening, hinting at a possible stabilization.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.22 and 0.83, indicating a higher probability of an upside move despite the price decline. The Prior_Up stays constant at 0.5, suggesting the Bayesian model relies on the posterior updates to drive the directional signal."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) coincide with significant drops in price and a spike in Posterior_Up, such as on 2022-05-11 and 2022-05-12, while quieter days (False) show lower posterior probabilities."", ""combined_narrative"": ""The price has declined from 152.02 to 135.01, with the 10-day SMA (142.60) still above the current price, indicating a bearish technical trend. However, the Posterior_Up probability has risen to 0.42 by the end of the window, suggesting the Bayesian model is beginning to price in a potential reversal. The MACD histogram remains negative, but the signal line is flattening, hinting at a possible stabilization."", ""stance"": ""NEUTRAL"", ""confidence"": 0.55, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.4166666666666667"", ""Close=135.006591796875"", ""SMA_10=142.59933319091795"", ""MACD_hist=-1.4045406335810604""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.22 and 0.83, indicating a higher probability of an upside move despite the price decline. The Prior_Up stays constant at 0.5, suggesting the Bayesian model relies on the posterior updates to drive the directional signal."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) coincide with significant drops in price and a spike in Posterior_Up, such as on 2022-05-11 and 2022-05-12, while quieter days (False) show lower posterior probabilities."",
+  ""combined_narrative"": ""The price has declined from 152.02 to 135.01, with the 10-day SMA (142.60) still above the current price, indicating a bearish technical trend. However, the Posterior_Up probability has risen to 0.42 by the end of the window, suggesting the Bayesian model is beginning to price in a potential reversal. The MACD histogram remains negative, but the signal line is flattening, hinting at a possible stabilization."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.55,
+  ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.4166666666666667"", ""Close=135.006591796875"", ""SMA_10=142.59933319091795"", ""MACD_hist=-1.4045406335810604""]
+}
+```"
+zai,2,10,AAPL,2022-06-03 00:00:00,2022-05-23 00:00:00,2022-06-03 00:00:00,9,BULLISH,,0.75,"The combination of a positive Posterior_Trend and the high Posterior_Up values on large-move days suggests the stock is in a favorable state for an upward trajectory. The technical indicators, such as the rising Close price and positive MACD histogram, support this view, pointing to continued strength in the near term.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.416 and 0.789, indicating a higher probability of an upward move than a downward one. The Prior_Up indicator stays relatively stable, suggesting the trend is not driven by a sudden shift in prior beliefs."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occur on 2022-05-23, 2022-05-26, 2022-05-27, and 2022-06-03, coinciding with significant increases in Posterior_Up. These days show a strong upward bias in the Bayesian indicators, contrasting with the quieter days where Posterior_Up is lower."", ""combined_narrative"": ""The combination of a positive Posterior_Trend and the high Posterior_Up values on large-move days suggests the stock is in a favorable state for an upward trajectory. The technical indicators, such as the rising Close price and positive MACD histogram, support this view, pointing to continued strength in the near term."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Up=0.7659574468085106"", ""Posterior_Up=0.4166666666666667"", ""Posterior_Up=0.5"", ""Posterior_Up=0.7659574468085106"", ""Posterior_Up=0.7891156462585035"", ""Posterior_Up=0.5833333333333334"", ""Posterior_Up=0.5"", ""Posterior_Up=0.5833333333333334"", ""Posterior_Up=0.5833333333333334"", ""Posterior_Up=0.2463768115942029"", ""Is_Large_Move=True"", ""Is_Large_Move=False"", ""Is_Large_Move=False"", ""Is_Large_Move=True"", ""Is_Large_Move=True"", ""Is_Large_Move=False"", ""Is_Large_Move=False"", ""Is_Large_Move=True""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.416 and 0.789, indicating a higher probability of an upward move than a downward one. The Prior_Up indicator stays relatively stable, suggesting the trend is not driven by a sudden shift in prior beliefs."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occur on 2022-05-23, 2022-05-26, 2022-05-27, and 2022-06-03, coinciding with significant increases in Posterior_Up. These days show a strong upward bias in the Bayesian indicators, contrasting with the quieter days where Posterior_Up is lower."",
+  ""combined_narrative"": ""The combination of a positive Posterior_Trend and the high Posterior_Up values on large-move days suggests the stock is in a favorable state for an upward trajectory. The technical indicators, such as the rising Close price and positive MACD histogram, support this view, pointing to continued strength in the near term."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.5"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Up=0.7659574468085106"",
+    ""Posterior_Up=0.4166666666666667"",
+    ""Posterior_Up=0.5"",
+    ""Posterior_Up=0.7659574468085106"",
+    ""Posterior_Up=0.7891156462585035"",
+    ""Posterior_Up=0.5833333333333334"",
+    ""Posterior_Up=0.5"",
+    ""Posterior_Up=0.5833333333333334"",
+    ""Posterior_Up=0.5833333333333334"",
+    ""Posterior_Up=0.2463768115942029"",
+    ""Is_Large_Move=True"",
+    ""Is_Large_Move=False"",
+    ""Is_Large_Move=False"",
+    ""Is_Large_Move=True"",
+    ""Is_Large_Move=True"",
+    ""Is_Large_Move=False"",
+    ""Is_Large_Move=False"",
+    ""Is_Large_Move=True""
+  ]
+}
+```"
+zai,2,11,AAPL,2022-06-17 00:00:00,2022-06-06 00:00:00,2022-06-17 00:00:00,10,NEUTRAL,,0.5,"The convergence of Posterior_Trend and Posterior_Up to 0.5, alongside a declining SMA_10 and negative MACD values, suggests the market is in a consolidation phase with no clear directional bias. The recent volatility and large moves have eroded the prior bullish probability, leaving the model uncertain.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.58 to 0.5, while Posterior_Up drops from 0.58 to 0.5, indicating a shift from a probabilistic bullish view to a neutral stance. The Prior_Up remains constant at 0.5, suggesting the prior probability of an upward move is balanced."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-06-09, 2022-06-10, 2022-06-13, and 2022-06-15 correspond to sharp drops in Posterior_Trend and Posterior_Up, reflecting the Bayesian model's reaction to negative price shocks."", ""combined_narrative"": ""The convergence of Posterior_Trend and Posterior_Up to 0.5, alongside a declining SMA_10 and negative MACD values, suggests the market is in a consolidation phase with no clear directional bias. The recent volatility and large moves have eroded the prior bullish probability, leaving the model uncertain."", ""stance"": ""NEUTRAL"", ""confidence"": 0.5, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""SMA_10=135.82791137695312"", ""MACD=-5.067834588318419""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.58 to 0.5, while Posterior_Up drops from 0.58 to 0.5, indicating a shift from a probabilistic bullish view to a neutral stance. The Prior_Up remains constant at 0.5, suggesting the prior probability of an upward move is balanced."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-06-09, 2022-06-10, 2022-06-13, and 2022-06-15 correspond to sharp drops in Posterior_Trend and Posterior_Up, reflecting the Bayesian model's reaction to negative price shocks."",
+  ""combined_narrative"": ""The convergence of Posterior_Trend and Posterior_Up to 0.5, alongside a declining SMA_10 and negative MACD values, suggests the market is in a consolidation phase with no clear directional bias. The recent volatility and large moves have eroded the prior bullish probability, leaving the model uncertain."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.5,
+  ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""SMA_10=135.82791137695312"", ""MACD=-5.067834588318419""]
+}
+```"
+zai,2,12,AAPL,2022-07-01 00:00:00,2022-06-21 00:00:00,2022-07-01 00:00:00,9,BULLISH,,0.75,"The technical indicators (RSI_14 > 40, MACD_hist positive) and Bayesian indicators (Posterior_Trend > 0.5, Posterior_Up > 0.5) consistently support a bullish outlook. The recent volatility and large moves have not broken the trend, with the Posterior_Trend remaining stable at 0.5833.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive (0.5 to 0.5833) throughout the window, indicating a prevailing bullish bias. Posterior_Up fluctuates between 0.4167 and 0.7778, reflecting a high probability of an upward move that is tempered by volatility."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occur on 2022-06-21, 2022-06-23, and 2022-06-28, coinciding with significant upward price action and a spike in Posterior_Up to 0.7778. On these days, the MACD histogram turns positive, and the RSI remains elevated, signaling strong momentum."", ""combined_narrative"": ""The technical indicators (RSI_14 > 40, MACD_hist positive) and Bayesian indicators (Posterior_Trend > 0.5, Posterior_Up > 0.5) consistently support a bullish outlook. The recent volatility and large moves have not broken the trend, with the Posterior_Trend remaining stable at 0.5833."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.5833333333333334"", ""Posterior_Up=0.7777777777777778"", ""RSI_14=49.72664569179052"", ""MACD_hist=0.5899379147675639""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive (0.5 to 0.5833) throughout the window, indicating a prevailing bullish bias. Posterior_Up fluctuates between 0.4167 and 0.7778, reflecting a high probability of an upward move that is tempered by volatility."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occur on 2022-06-21, 2022-06-23, and 2022-06-28, coinciding with significant upward price action and a spike in Posterior_Up to 0.7778. On these days, the MACD histogram turns positive, and the RSI remains elevated, signaling strong momentum."",
+  ""combined_narrative"": ""The technical indicators (RSI_14 > 40, MACD_hist positive) and Bayesian indicators (Posterior_Trend > 0.5, Posterior_Up > 0.5) consistently support a bullish outlook. The recent volatility and large moves have not broken the trend, with the Posterior_Trend remaining stable at 0.5833."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Up=0.7777777777777778"",
+    ""RSI_14=49.72664569179052"",
+    ""MACD_hist=0.5899379147675639""
+  ]
+}
+```"
+zai,2,13,AAPL,2022-07-15 00:00:00,2022-07-05 00:00:00,2022-07-15 00:00:00,9,BULLISH,,0.85,"Technical indicators show a strong upward trend with the 10-day SMA (142.44) comfortably above the 20-day SMA (138.33). The MACD (1.36) is positive and rising, while the RSI (61.08) indicates the stock is not yet overbought. The Bayesian indicators consistently favor an upside scenario, with the Posterior_Trend and Posterior_Up both reaching 0.75 by the end of the window.",,"{""upside_downside_summary"": ""Posterior_Trend increases from 0.58 to 0.75, indicating a shift toward higher probability of an uptrend. Posterior_Up remains high throughout, averaging 0.68, suggesting a strong bias for positive price movement."", ""large_move_summary"": ""The large-move day on 2022-07-07 (Is_Large_Move=True) coincides with a jump in Posterior_Trend to 0.84, while the large-move day on 2022-07-14 (Is_Large_Move=True) coincides with a jump in Posterior_Up to 0.88. These events reinforce the positive Bayesian signals."", ""combined_narrative"": ""Technical indicators show a strong upward trend with the 10-day SMA (142.44) comfortably above the 20-day SMA (138.33). The MACD (1.36) is positive and rising, while the RSI (61.08) indicates the stock is not yet overbought. The Bayesian indicators consistently favor an upside scenario, with the Posterior_Trend and Posterior_Up both reaching 0.75 by the end of the window."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.75"", ""Posterior_Up=0.75"", ""SMA_10=142.44"", ""SMA_20=138.33"", ""MACD=1.36"", ""RSI_14=61.08""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend increases from 0.58 to 0.75, indicating a shift toward higher probability of an uptrend. Posterior_Up remains high throughout, averaging 0.68, suggesting a strong bias for positive price movement."",
+  ""large_move_summary"": ""The large-move day on 2022-07-07 (Is_Large_Move=True) coincides with a jump in Posterior_Trend to 0.84, while the large-move day on 2022-07-14 (Is_Large_Move=True) coincides with a jump in Posterior_Up to 0.88. These events reinforce the positive Bayesian signals."",
+  ""combined_narrative"": ""Technical indicators show a strong upward trend with the 10-day SMA (142.44) comfortably above the 20-day SMA (138.33). The MACD (1.36) is positive and rising, while the RSI (61.08) indicates the stock is not yet overbought. The Bayesian indicators consistently favor an upside scenario, with the Posterior_Trend and Posterior_Up both reaching 0.75 by the end of the window."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [""Posterior_Trend=0.75"", ""Posterior_Up=0.75"", ""SMA_10=142.44"", ""SMA_20=138.33"", ""MACD=1.36"", ""RSI_14=61.08""]
+}
+```"
+zai,2,14,AAPL,2022-07-29 00:00:00,2022-07-18 00:00:00,2022-07-29 00:00:00,10,BULLISH,,0.85,"The combination of a positive Posterior_Trend and rising Posterior_Up suggests a strong likelihood of continued upside over the next few days. Technical indicators like RSI_14 and MACD_hist are also supportive, with RSI_14 peaking at 70.17 and MACD_hist remaining positive. The recent large moves have reinforced the bullish momentum, making a continuation of the uptrend probable.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.666 and ending at 0.583, indicating a persistent bias toward higher prices. Posterior_Up shows a significant increase from 0.333 to 0.839, reflecting a growing probability of an upward move. The Prior_Up values are consistently high, reinforcing the initial bullish outlook."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occurred on 2022-07-19, 2022-07-27, and 2022-07-29, coinciding with strong upward price action and high RSI values. These days are characterized by large positive returns and a spike in Posterior_Up, driving the trend probability higher. Quieter days show more stable Posterior_Trend and Posterior_Up values."", ""combined_narrative"": ""The combination of a positive Posterior_Trend and rising Posterior_Up suggests a strong likelihood of continued upside over the next few days. Technical indicators like RSI_14 and MACD_hist are also supportive, with RSI_14 peaking at 70.17 and MACD_hist remaining positive. The recent large moves have reinforced the bullish momentum, making a continuation of the uptrend probable."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.583"", ""Posterior_Up=0.839"", ""RSI_14=70.166"", ""MACD_hist=1.190"", ""Close=159.45872497558594""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.666 and ending at 0.583, indicating a persistent bias toward higher prices. Posterior_Up shows a significant increase from 0.333 to 0.839, reflecting a growing probability of an upward move. The Prior_Up values are consistently high, reinforcing the initial bullish outlook."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) occurred on 2022-07-19, 2022-07-27, and 2022-07-29, coinciding with strong upward price action and high RSI values. These days are characterized by large positive returns and a spike in Posterior_Up, driving the trend probability higher. Quieter days show more stable Posterior_Trend and Posterior_Up values."",
+  ""combined_narrative"": ""The combination of a positive Posterior_Trend and rising Posterior_Up suggests a strong likelihood of continued upside over the next few days. Technical indicators like RSI_14 and MACD_hist are also supportive, with RSI_14 peaking at 70.17 and MACD_hist remaining positive. The recent large moves have reinforced the bullish momentum, making a continuation of the uptrend probable."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [""Posterior_Trend=0.583"", ""Posterior_Up=0.839"", ""RSI_14=70.166"", ""MACD_hist=1.190"", ""Close=159.45872497558594""]
+}
+```"
+zai,2,15,AAPL,2022-08-12 00:00:00,2022-08-01 00:00:00,2022-08-12 00:00:00,10,BULLISH,,0.75,"The combination of a positive Posterior_Trend and elevated Posterior_Up values suggests a bullish bias, supported by technical indicators like SMA_10 and EMA_10 trending above SMA_20 and EMA_20, respectively, despite recent volatility.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.58 and ending at 0.42, while Posterior_Up fluctuates between 0.42 and 0.84, indicating a higher probability of upside movement than downside."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on August 3, 10, and 12 correspond to periods of significant price volatility and upward momentum, whereas quieter days show lower volatility and more stable trend probabilities."", ""combined_narrative"": ""The combination of a positive Posterior_Trend and elevated Posterior_Up values suggests a bullish bias, supported by technical indicators like SMA_10 and EMA_10 trending above SMA_20 and EMA_20, respectively, despite recent volatility."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.42"", ""Posterior_Up=0.7659574468085106"", ""SMA_10=162.86611785888672"", ""EMA_10=162.79415201614026"", ""RSI_14=74.61618643903402""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.58 and ending at 0.42, while Posterior_Up fluctuates between 0.42 and 0.84, indicating a higher probability of upside movement than downside."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on August 3, 10, and 12 correspond to periods of significant price volatility and upward momentum, whereas quieter days show lower volatility and more stable trend probabilities."",
+  ""combined_narrative"": ""The combination of a positive Posterior_Trend and elevated Posterior_Up values suggests a bullish bias, supported by technical indicators like SMA_10 and EMA_10 trending above SMA_20 and EMA_20, respectively, despite recent volatility."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [""Posterior_Trend=0.42"", ""Posterior_Up=0.7659574468085106"", ""SMA_10=162.86611785888672"", ""EMA_10=162.79415201614026"", ""RSI_14=74.61618643903402""]
+}
+```"
+zai,2,16,AAPL,2022-08-26 00:00:00,2022-08-15 00:00:00,2022-08-26 00:00:00,10,BEARISH,,0.65,"The technical indicators show a bearish divergence with the MACD histogram turning negative and the RSI dropping below 50. The Bayesian indicators, which were previously bullish, have now shifted to a lower probability of an upward trend, suggesting a higher likelihood of continued downside pressure over the next few days.",,"{""upside_downside_summary"": ""Posterior_Trend remains bullish (0.5) for the first five days, but drops to 0.2 on the large-move day of August 22, indicating a shift in probability toward a downside trend. Posterior_Up follows a similar pattern, starting at 0.5 and falling to 0.2 on August 22, before stabilizing at 0.4167 and 0.4667 on the subsequent days."", ""large_move_summary"": ""The large-move day on August 22 (Is_Large_Move=True) coincides with a significant drop in Posterior_Trend (0.5 to 0.2) and Posterior_Up (0.5 to 0.2), reflecting the impact of the price decline on the Bayesian indicators. The subsequent large move on August 26 further reduces Posterior_Trend to 0.1795 and Posterior_Up to 0.4667, amplifying the downside narrative."", ""combined_narrative"": ""The technical indicators show a bearish divergence with the MACD histogram turning negative and the RSI dropping below 50. The Bayesian indicators, which were previously bullish, have now shifted to a lower probability of an upward trend, suggesting a higher likelihood of continued downside pressure over the next few days."", ""stance"": ""BEARISH"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.2"", ""Posterior_Up=0.2"", ""MACD_hist=-0.3246447862390642"", ""RSI_14=58.297060631311176"", ""Close=164.65213012695312""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains bullish (0.5) for the first five days, but drops to 0.2 on the large-move day of August 22, indicating a shift in probability toward a downside trend. Posterior_Up follows a similar pattern, starting at 0.5 and falling to 0.2 on August 22, before stabilizing at 0.4167 and 0.4667 on the subsequent days."",
+  ""large_move_summary"": ""The large-move day on August 22 (Is_Large_Move=True) coincides with a significant drop in Posterior_Trend (0.5 to 0.2) and Posterior_Up (0.5 to 0.2), reflecting the impact of the price decline on the Bayesian indicators. The subsequent large move on August 26 further reduces Posterior_Trend to 0.1795 and Posterior_Up to 0.4667, amplifying the downside narrative."",
+  ""combined_narrative"": ""The technical indicators show a bearish divergence with the MACD histogram turning negative and the RSI dropping below 50. The Bayesian indicators, which were previously bullish, have now shifted to a lower probability of an upward trend, suggesting a higher likelihood of continued downside pressure over the next few days."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.65,
+  ""grounding"": [
+    ""Posterior_Trend=0.2"",
+    ""Posterior_Up=0.2"",
+    ""MACD_hist=-0.3246447862390642"",
+    ""RSI_14=58.297060631311176"",
+    ""Close=164.65213012695312""
+  ]
+}
+```"
+zai,2,17,AAPL,2022-09-09 00:00:00,2022-08-29 00:00:00,2022-09-09 00:00:00,9,NEUTRAL,,0.6,"The technical indicators show a downtrend with the Close price below the SMA_10 and SMA_20. The MACD is negative and diverging from its signal line. The Bayesian indicators remain neutral, and the lack of large moves reinforces a period of stability.",,"{""upside_downside_summary"": ""Posterior_Trend remains constant at 0.3333333333333333, indicating a neutral stance. Posterior_Up is also constant at 0.3333333333333333, suggesting a 33% probability of an upward move. The lack of change in these Bayesian indicators implies no strong directional signal."", ""large_move_summary"": ""No days in the window are classified as Is_Large_Move (all False). The absence of large price movements suggests the market is in a consolidation phase with low volatility."", ""combined_narrative"": ""The technical indicators show a downtrend with the Close price below the SMA_10 and SMA_20. The MACD is negative and diverging from its signal line. The Bayesian indicators remain neutral, and the lack of large moves reinforces a period of stability."", ""stance"": ""NEUTRAL"", ""confidence"": 0.6, ""grounding"": [""Posterior_Trend=0.3333333333333333"", ""Posterior_Up=0.3333333333333333"", ""Close=154.6297149658203"", ""SMA_10=154.9755889892578"", ""MACD=-1.5123080836869178""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains constant at 0.3333333333333333, indicating a neutral stance. Posterior_Up is also constant at 0.3333333333333333, suggesting a 33% probability of an upward move. The lack of change in these Bayesian indicators implies no strong directional signal."",
+  ""large_move_summary"": ""No days in the window are classified as Is_Large_Move (all False). The absence of large price movements suggests the market is in a consolidation phase with low volatility."",
+  ""combined_narrative"": ""The technical indicators show a downtrend with the Close price below the SMA_10 and SMA_20. The MACD is negative and diverging from its signal line. The Bayesian indicators remain neutral, and the lack of large moves reinforces a period of stability."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.6,
+  ""grounding"": [""Posterior_Trend=0.3333333333333333"", ""Posterior_Up=0.3333333333333333"", ""Close=154.6297149658203"", ""SMA_10=154.9755889892578"", ""MACD=-1.5123080836869178""]
+}
+```"
+zai,2,18,AAPL,2022-09-23 00:00:00,2022-09-12 00:00:00,2022-09-23 00:00:00,10,BEARISH,,0.65,"The 10-day SMA (151.70) is below the 20-day SMA (153.34), and the MACD histogram is negative (-0.53), suggesting a downtrend. The declining Posterior_Up probability and negative technical indicators imply a likely continuation of the downward price action.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up declines from 0.68 to 0.42, indicating a shift in probability toward a neutral or bearish state despite the trend's persistence."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-09-12 and 2022-09-13 saw Posterior_Up spike to 0.68 and 0.13 respectively, but these were followed by a decline in probability as the price moved lower."", ""combined_narrative"": ""The 10-day SMA (151.70) is below the 20-day SMA (153.34), and the MACD histogram is negative (-0.53), suggesting a downtrend. The declining Posterior_Up probability and negative technical indicators imply a likely continuation of the downward price action."", ""stance"": ""BEARISH"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.4166666666666667"", ""Posterior_Up=0.4166666666666667"", ""SMA_10=151.70357818603514"", ""SMA_20=153.33958358764647"", ""MACD_hist=-0.5295391337961213""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up declines from 0.68 to 0.42, indicating a shift in probability toward a neutral or bearish state despite the trend's persistence."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-09-12 and 2022-09-13 saw Posterior_Up spike to 0.68 and 0.13 respectively, but these were followed by a decline in probability as the price moved lower."",
+  ""combined_narrative"": ""The 10-day SMA (151.70) is below the 20-day SMA (153.34), and the MACD histogram is negative (-0.53), suggesting a downtrend. The declining Posterior_Up probability and negative technical indicators imply a likely continuation of the downward price action."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.65,
+  ""grounding"": [""Posterior_Trend=0.4166666666666667"", ""Posterior_Up=0.4166666666666667"", ""SMA_10=151.70357818603514"", ""SMA_20=153.33958358764647"", ""MACD_hist=-0.5295391337961213""]
+}
+```"
+zai,2,19,AAPL,2022-10-07 00:00:00,2022-09-26 00:00:00,2022-10-07 00:00:00,10,NEUTRAL,,0.5,"The technical indicators show a downtrend with SMA_10 and SMA_20 declining, and MACD remaining negative. The Bayesian indicators show a shift from neutral to a slight bullish tilt on October 5 and 6, but the high probability of large moves suggests significant volatility. The combination implies a choppy market with potential for both upside and downside.",,"{""upside_downside_summary"": ""Posterior_Trend remains at 0.4166666666666667 for the first 6 days, indicating a neutral stance. It shifts to 0.5 on October 5 and 6, suggesting a slight tilt towards the upside. Posterior_Up fluctuates between 0.4166666666666667 and 0.7536231884057972, reflecting increased probability of an upward move."", ""large_move_summary"": ""Large moves occurred on September 29, 30, October 3, 4, and 7, coinciding with significant drops in price and volatility. These days show a sharp decline in Posterior_Up, dropping to 0.169811320754717 on September 29 and 30, and 0.1604938271604938 on October 3. Quieter days like October 5 and 6 show Posterior_Up stabilizing at 0.5."", ""combined_narrative"": ""The technical indicators show a downtrend with SMA_10 and SMA_20 declining, and MACD remaining negative. The Bayesian indicators show a shift from neutral to a slight bullish tilt on October 5 and 6, but the high probability of large moves suggests significant volatility. The combination implies a choppy market with potential for both upside and downside."", ""stance"": ""NEUTRAL"", ""confidence"": 0.5, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""SMA_10=142.82098999023438"", ""MACD=-4.158668742601122"", ""Is_Large_Move=True""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains at 0.4166666666666667 for the first 6 days, indicating a neutral stance. It shifts to 0.5 on October 5 and 6, suggesting a slight tilt towards the upside. Posterior_Up fluctuates between 0.4166666666666667 and 0.7536231884057972, reflecting increased probability of an upward move."",
+  ""large_move_summary"": ""Large moves occurred on September 29, 30, October 3, 4, and 7, coinciding with significant drops in price and volatility. These days show a sharp decline in Posterior_Up, dropping to 0.169811320754717 on September 29 and 30, and 0.1604938271604938 on October 3. Quieter days like October 5 and 6 show Posterior_Up stabilizing at 0.5."",
+  ""combined_narrative"": ""The technical indicators show a downtrend with SMA_10 and SMA_20 declining, and MACD remaining negative. The Bayesian indicators show a shift from neutral to a slight bullish tilt on October 5 and 6, but the high probability of large moves suggests significant volatility. The combination implies a choppy market with potential for both upside and downside."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.5,
+  ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""SMA_10=142.82098999023438"", ""MACD=-4.158668742601122"", ""Is_Large_Move=True""]
+}
+```"
+zai,2,20,AAPL,2022-10-21 00:00:00,2022-10-10 00:00:00,2022-10-21 00:00:00,10,BULLISH,,0.65,"The combination of a rising Posterior_Trend and the recent large move on 2022-10-21 suggests the price action is gaining momentum. While volatility remains elevated, the technical indicators (RSI and MACD) are trending favorably, supporting a positive outlook for the next few days.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.5 and rising to 0.5833, while Posterior_Up fluctuates between 0.4167 and 0.8, indicating a leaning towards upside despite volatility."", ""large_move_summary"": ""Large-move days (Is_Large_Move) occur on 2022-10-13, 2022-10-14, and 2022-10-21, coinciding with spikes in volatility and significant shifts in the Bayesian indicators, whereas quieter days show stable or converging trends."", ""combined_narrative"": ""The combination of a rising Posterior_Trend and the recent large move on 2022-10-21 suggests the price action is gaining momentum. While volatility remains elevated, the technical indicators (RSI and MACD) are trending favorably, supporting a positive outlook for the next few days."", ""stance"": ""BULLISH"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.5833333333333334"", ""Posterior_Up=0.8"", ""RSI_14=51.36266905159177"", ""MACD_hist=1.0032224185476974"", ""Is_Large_Move=True""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.5 and rising to 0.5833, while Posterior_Up fluctuates between 0.4167 and 0.8, indicating a leaning towards upside despite volatility."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move) occur on 2022-10-13, 2022-10-14, and 2022-10-21, coinciding with spikes in volatility and significant shifts in the Bayesian indicators, whereas quieter days show stable or converging trends."",
+  ""combined_narrative"": ""The combination of a rising Posterior_Trend and the recent large move on 2022-10-21 suggests the price action is gaining momentum. While volatility remains elevated, the technical indicators (RSI and MACD) are trending favorably, supporting a positive outlook for the next few days."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.65,
+  ""grounding"": [
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Up=0.8"",
+    ""RSI_14=51.36266905159177"",
+    ""MACD_hist=1.0032224185476974"",
+    ""Is_Large_Move=True""
+  ]
+}
+```"
+zai,2,21,AAPL,2022-11-04 00:00:00,2022-10-24 00:00:00,2022-11-04 00:00:00,10,BEARISH,,0.85,"The technical indicators show a bearish divergence with the 10-day SMA (145.24) trading below the 20-day SMA (142.38) and the RSI falling to 40.56. The Bayesian indicators confirm this bearish outlook, with the Posterior_Trend and Posterior_Up both declining to 0.33. This combination suggests a high probability of continued downside pressure over the next few trading days.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.58 to 0.33, indicating a shift in probability toward a downtrend. Posterior_Up drops from 0.58 to 0.33, suggesting a reduced likelihood of an upward move compared to the start of the window."", ""large_move_summary"": ""Large-move days on 2022-10-27 and 2022-10-28 saw Posterior_Up spike to 0.86 and 0.87, respectively, reflecting high volatility. Conversely, the large move on 2022-11-02 resulted in a drop to 0.27, highlighting the sensitivity of the Bayesian indicators to sudden price reversals."", ""combined_narrative"": ""The technical indicators show a bearish divergence with the 10-day SMA (145.24) trading below the 20-day SMA (142.38) and the RSI falling to 40.56. The Bayesian indicators confirm this bearish outlook, with the Posterior_Trend and Posterior_Up both declining to 0.33. This combination suggests a high probability of continued downside pressure over the next few trading days."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.33"", ""Posterior_Up=0.33"", ""SMA_10=145.24"", ""SMA_20=142.38"", ""RSI_14=40.56""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.58 to 0.33, indicating a shift in probability toward a downtrend. Posterior_Up drops from 0.58 to 0.33, suggesting a reduced likelihood of an upward move compared to the start of the window."",
+  ""large_move_summary"": ""Large-move days on 2022-10-27 and 2022-10-28 saw Posterior_Up spike to 0.86 and 0.87, respectively, reflecting high volatility. Conversely, the large move on 2022-11-02 resulted in a drop to 0.27, highlighting the sensitivity of the Bayesian indicators to sudden price reversals."",
+  ""combined_narrative"": ""The technical indicators show a bearish divergence with the 10-day SMA (145.24) trading below the 20-day SMA (142.38) and the RSI falling to 40.56. The Bayesian indicators confirm this bearish outlook, with the Posterior_Trend and Posterior_Up both declining to 0.33. This combination suggests a high probability of continued downside pressure over the next few trading days."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [""Posterior_Trend=0.33"", ""Posterior_Up=0.33"", ""SMA_10=145.24"", ""SMA_20=142.38"", ""RSI_14=40.56""]
+}
+```"
+zai,2,22,AAPL,2022-11-18 00:00:00,2022-11-07 00:00:00,2022-11-18 00:00:00,10,BULLISH,,0.75,"The technical indicators show price moving above the 10-day EMA (145.48) and the 20-day EMA (144.37), while the RSI (56.07) suggests bullish momentum. The Bayesian indicators reinforce this with a rising Posterior_Trend and Posterior_Up, implying the market is increasingly confident in an upward trajectory. The combination of technical strength and Bayesian probability points to continued positive price action.",,"{""upside_downside_summary"": ""Posterior_Trend increases from 0.33 to 0.67, indicating a shift toward an upward trend. Posterior_Up rises from 0.33 to 0.67, suggesting a higher probability of an upside move. The trend and probability of an upside move are both increasing over the window."", ""large_move_summary"": ""The large-move days on 2022-11-09 and 2022-11-10 correspond to significant drops and spikes in price, respectively. These events drove the Posterior_Up from 0.33 to 0.68, reflecting a strong Bayesian update toward an upside bias following the volatility."", ""combined_narrative"": ""The technical indicators show price moving above the 10-day EMA (145.48) and the 20-day EMA (144.37), while the RSI (56.07) suggests bullish momentum. The Bayesian indicators reinforce this with a rising Posterior_Trend and Posterior_Up, implying the market is increasingly confident in an upward trajectory. The combination of technical strength and Bayesian probability points to continued positive price action."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Close=148.9021759033203"", ""EMA_10=145.47823220500246"", ""EMA_20=144.3663023386705"", ""RSI_14=56.06569331983256""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend increases from 0.33 to 0.67, indicating a shift toward an upward trend. Posterior_Up rises from 0.33 to 0.67, suggesting a higher probability of an upside move. The trend and probability of an upside move are both increasing over the window."",
+  ""large_move_summary"": ""The large-move days on 2022-11-09 and 2022-11-10 correspond to significant drops and spikes in price, respectively. These events drove the Posterior_Up from 0.33 to 0.68, reflecting a strong Bayesian update toward an upside bias following the volatility."",
+  ""combined_narrative"": ""The technical indicators show price moving above the 10-day EMA (145.48) and the 20-day EMA (144.37), while the RSI (56.07) suggests bullish momentum. The Bayesian indicators reinforce this with a rising Posterior_Trend and Posterior_Up, implying the market is increasingly confident in an upward trajectory. The combination of technical strength and Bayesian probability points to continued positive price action."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Close=148.9021759033203"",
+    ""EMA_10=145.47823220500246"",
+    ""EMA_20=144.3663023386705"",
+    ""RSI_14=56.06569331983256""
+  ]
+}
+```"
+zai,2,23,AAPL,2022-12-02 00:00:00,2022-11-21 00:00:00,2022-12-02 00:00:00,9,BULLISH,,0.8395061728395061,"The combination of a rising Posterior_Trend and a high Posterior_Up suggests a strong probability of continued upside. The technical indicators (SMA_10, EMA_10) are above the longer-term averages, supporting this bullish outlook.",,"{""upside_downside_summary"": ""Posterior_Trend shifts from 0.583 to 0.839, indicating a strong shift toward an uptrend. Posterior_Up increases from 0.583 to 0.583, suggesting a balanced probability of an upward move, while Prior_Up remains constant at 0.583, implying no new fundamental information."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-11-28 and 2022-11-29 drive the shift in Posterior_Trend, while the large move on 2022-11-30 coincides with a high Posterior_Trend value, suggesting these events significantly influence the trend probability."", ""combined_narrative"": ""The combination of a rising Posterior_Trend and a high Posterior_Up suggests a strong probability of continued upside. The technical indicators (SMA_10, EMA_10) are above the longer-term averages, supporting this bullish outlook."", ""stance"": ""BULLISH"", ""confidence"": 0.8395061728395061, ""grounding"": [""Posterior_Trend=0.8395061728395061"", ""Posterior_Up=0.5833333333333333"", ""Prior_Up=0.5833333333333333"", ""SMA_10=145.4869644165039"", ""EMA_10=144.9441509628737""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend shifts from 0.583 to 0.839, indicating a strong shift toward an uptrend. Posterior_Up increases from 0.583 to 0.583, suggesting a balanced probability of an upward move, while Prior_Up remains constant at 0.583, implying no new fundamental information."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-11-28 and 2022-11-29 drive the shift in Posterior_Trend, while the large move on 2022-11-30 coincides with a high Posterior_Trend value, suggesting these events significantly influence the trend probability."",
+  ""combined_narrative"": ""The combination of a rising Posterior_Trend and a high Posterior_Up suggests a strong probability of continued upside. The technical indicators (SMA_10, EMA_10) are above the longer-term averages, supporting this bullish outlook."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.8395061728395061,
+  ""grounding"": [""Posterior_Trend=0.8395061728395061"", ""Posterior_Up=0.5833333333333333"", ""Prior_Up=0.5833333333333333"", ""SMA_10=145.4869644165039"", ""EMA_10=144.9441509628737""]
+}
+```"
+zai,2,24,AAPL,2022-12-16 00:00:00,2022-12-05 00:00:00,2022-12-16 00:00:00,10,BEARISH,,0.85,"Technical indicators like the negative MACD and declining RSI support the bearish Posterior_Trend. The Bayesian indicators, specifically the low and declining Posterior_Up values, reinforce the likelihood of continued downside pressure. The recent large moves have not altered the underlying bearish probability.",,"{""upside_downside_summary"": ""The Posterior_Trend remains consistently bearish at 0.3333333333333333, while the Prior_Up indicator shifts from 0.4166666666666667 to 0.3333333333333333, indicating a weakening of the prior probability for an upside move. The Posterior_Up values fluctuate between 0.2 and 0.5, suggesting a low probability of an immediate upward trend."", ""large_move_summary"": ""The large-move day on 2022-12-06 (Is_Large_Move=True) saw the Prior_Up increase to 0.5, but the Posterior_Up remained at 0.2, showing the large move did not shift the posterior trend. Similarly, the large move on 2022-12-15 (Is_Large_Move=True) resulted in a Posterior_Up of 0.1428571428571428, further highlighting the bearish Posterior_Trend."", ""combined_narrative"": ""Technical indicators like the negative MACD and declining RSI support the bearish Posterior_Trend. The Bayesian indicators, specifically the low and declining Posterior_Up values, reinforce the likelihood of continued downside pressure. The recent large moves have not altered the underlying bearish probability."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.3333333333333333"", ""Prior_Up=0.3333333333333333"", ""Posterior_Up=0.1428571428571428"", ""MACD=-1.994628736462232"", ""RSI_14=35.85642019255275""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend remains consistently bearish at 0.3333333333333333, while the Prior_Up indicator shifts from 0.4166666666666667 to 0.3333333333333333, indicating a weakening of the prior probability for an upside move. The Posterior_Up values fluctuate between 0.2 and 0.5, suggesting a low probability of an immediate upward trend."",
+  ""large_move_summary"": ""The large-move day on 2022-12-06 (Is_Large_Move=True) saw the Prior_Up increase to 0.5, but the Posterior_Up remained at 0.2, showing the large move did not shift the posterior trend. Similarly, the large move on 2022-12-15 (Is_Large_Move=True) resulted in a Posterior_Up of 0.1428571428571428, further highlighting the bearish Posterior_Trend."",
+  ""combined_narrative"": ""Technical indicators like the negative MACD and declining RSI support the bearish Posterior_Trend. The Bayesian indicators, specifically the low and declining Posterior_Up values, reinforce the likelihood of continued downside pressure. The recent large moves have not altered the underlying bearish probability."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [
+    ""Posterior_Trend=0.3333333333333333"",
+    ""Prior_Up=0.3333333333333333"",
+    ""Posterior_Up=0.1428571428571428"",
+    ""MACD=-1.994628736462232"",
+    ""RSI_14=35.85642019255275""
+  ]
+}
+```"
+zai,2,25,AAPL,2022-12-30 00:00:00,2022-12-19 00:00:00,2022-12-30 00:00:00,9,NEUTRAL,,0.55,"The MACD histogram remains negative but is narrowing, and the RSI is elevated, suggesting the stock is in a downtrend but losing momentum. The Bayesian indicators show a persistent probability of an upside move, particularly following large positive days.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.11 and 0.68, indicating a higher probability of an upside move compared to a downside move."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-12-21 and 2022-12-22 correspond to significant increases in Posterior_Up to 0.68 and 0.11, respectively, whereas quieter days show Posterior_Up at 0.33."", ""combined_narrative"": ""The MACD histogram remains negative but is narrowing, and the RSI is elevated, suggesting the stock is in a downtrend but losing momentum. The Bayesian indicators show a persistent probability of an upside move, particularly following large positive days."", ""stance"": ""NEUTRAL"", ""confidence"": 0.55, ""grounding"": [""Posterior_Trend=0.3333333333333333"", ""Posterior_Up=0.3333333333333333"", ""MACD_hist=-0.7904927990440851"", ""RSI_14=37.47311550170968""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.11 and 0.68, indicating a higher probability of an upside move compared to a downside move."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2022-12-21 and 2022-12-22 correspond to significant increases in Posterior_Up to 0.68 and 0.11, respectively, whereas quieter days show Posterior_Up at 0.33."",
+  ""combined_narrative"": ""The MACD histogram remains negative but is narrowing, and the RSI is elevated, suggesting the stock is in a downtrend but losing momentum. The Bayesian indicators show a persistent probability of an upside move, particularly following large positive days."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.55,
+  ""grounding"": [
+    ""Posterior_Trend=0.3333333333333333"",
+    ""Posterior_Up=0.3333333333333333"",
+    ""MACD_hist=-0.7904927990440851"",
+    ""RSI_14=37.47311550170968""
+  ]
+}
+```"
+zai,2,26,AAPL,2023-01-13 00:00:00,2023-01-03 00:00:00,2023-01-13 00:00:00,9,BULLISH,,0.75,"The MACD histogram is positive and rising, and the RSI is above 50, supporting the bullish Bayesian indicators. The SMA_10 is above SMA_20, and the 10-day volatility is low, suggesting a stable trend. The combination of technical and Bayesian signals points to continued upward momentum.",,"{""upside_downside_summary"": ""Posterior_Trend increases from 0.333 to 0.667, indicating a shift toward higher probability of an uptrend. Posterior_Up rises from 0.083 to 0.667, suggesting a growing likelihood of upward price movement. The trend and upside probability are both rising."", ""large_move_summary"": ""Large moves occurred on 2023-01-03 and 2023-01-06, coinciding with significant increases in Posterior_Up. On quieter days, Posterior_Up remained stable or declined, showing that volatility drives the Bayesian probability of an up move."", ""combined_narrative"": ""The MACD histogram is positive and rising, and the RSI is above 50, supporting the bullish Bayesian indicators. The SMA_10 is above SMA_20, and the 10-day volatility is low, suggesting a stable trend. The combination of technical and Bayesian signals points to continued upward momentum."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""MACD_hist=1.13744900023445"", ""RSI_14=51.15529377830208"", ""SMA_10=127.80451202392578"", ""SMA_20=128.90487327575684""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend increases from 0.333 to 0.667, indicating a shift toward higher probability of an uptrend. Posterior_Up rises from 0.083 to 0.667, suggesting a growing likelihood of upward price movement. The trend and upside probability are both rising."",
+  ""large_move_summary"": ""Large moves occurred on 2023-01-03 and 2023-01-06, coinciding with significant increases in Posterior_Up. On quieter days, Posterior_Up remained stable or declined, showing that volatility drives the Bayesian probability of an up move."",
+  ""combined_narrative"": ""The MACD histogram is positive and rising, and the RSI is above 50, supporting the bullish Bayesian indicators. The SMA_10 is above SMA_20, and the 10-day volatility is low, suggesting a stable trend. The combination of technical and Bayesian signals points to continued upward momentum."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""MACD_hist=1.13744900023445"", ""RSI_14=51.15529377830208"", ""SMA_10=127.80451202392578"", ""SMA_20=128.90487327575684""]
+}
+```"
+zai,2,27,AAPL,2023-01-27 00:00:00,2023-01-17 00:00:00,2023-01-27 00:00:00,9,BULLISH,,0.85,"Technical indicators like the SMA_10 and EMA_10 show a clear upward trend, while the MACD histogram remains positive. The Bayesian indicators, particularly the rising Posterior_Up, reinforce this positive outlook. The combination of these factors suggests the stock is in a strong upward trajectory.",,"{""upside_downside_summary"": ""The Posterior_Trend remains bullish throughout the window, while the Prior_Up indicator fluctuates between 0.66 and 0.75, indicating a consistent but not absolute probability of an upward move. The Posterior_Up values rise from 0.67 to 0.90, suggesting a strengthening conviction in the upside direction as the window progresses."", ""large_move_summary"": ""The only large-move day in the window was 2023-01-23, which coincided with a jump in the Prior_Up probability to 0.90 and a confirmed large price increase. This event significantly boosted the Bayesian indicators, whereas the quieter days saw the indicators remain relatively stable."", ""combined_narrative"": ""Technical indicators like the SMA_10 and EMA_10 show a clear upward trend, while the MACD histogram remains positive. The Bayesian indicators, particularly the rising Posterior_Up, reinforce this positive outlook. The combination of these factors suggests the stock is in a strong upward trajectory."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Prior_Up=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Posterior_Trend=0.6666666666666666"", ""Prior_Up=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Posterior_Trend=0.6666666666666666"", ""Prior_Up=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Posterior_Trend=0.75"", ""Prior_Up=0.75"", ""Posterior_Up=0.75"", ""Posterior_Trend=0.75"", ""Prior_Up=0.75"", ""Posterior_Up=0.75"", ""Posterior_Trend=0.6666666666666666"", ""Prior_Up=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Posterior_Trend=0.6666666666666666"", ""Prior_Up=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Posterior_Trend=0.75"", ""Prior_Up=0.75"", ""Posterior_Up=0.75"", ""Is_Large_Move=True"", ""SMA_10=137.24314880371094"", ""EMA_10=137.88111662982806"", ""MACD_hist=1.830990234602978""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend remains bullish throughout the window, while the Prior_Up indicator fluctuates between 0.66 and 0.75, indicating a consistent but not absolute probability of an upward move. The Posterior_Up values rise from 0.67 to 0.90, suggesting a strengthening conviction in the upside direction as the window progresses."",
+  ""large_move_summary"": ""The only large-move day in the window was 2023-01-23, which coincided with a jump in the Prior_Up probability to 0.90 and a confirmed large price increase. This event significantly boosted the Bayesian indicators, whereas the quieter days saw the indicators remain relatively stable."",
+  ""combined_narrative"": ""Technical indicators like the SMA_10 and EMA_10 show a clear upward trend, while the MACD histogram remains positive. The Bayesian indicators, particularly the rising Posterior_Up, reinforce this positive outlook. The combination of these factors suggests the stock is in a strong upward trajectory."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Prior_Up=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Prior_Up=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Prior_Up=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Posterior_Trend=0.75"",
+    ""Prior_Up=0.75"",
+    ""Posterior_Up=0.75"",
+    ""Posterior_Trend=0.75"",
+    ""Prior_Up=0.75"",
+    ""Posterior_Up=0.75"",
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Prior_Up=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Prior_Up=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Posterior_Trend=0.75"",
+    ""Prior_Up=0.75"",
+    ""Posterior_Up=0.75"",
+    ""Is_Large_Move=True"",
+    ""SMA_10=137.24314880371094"",
+    ""EMA_10=137.88111662982806"",
+    ""MACD_hist=1.830990234602978""
+  ]
+}
+```"
+zai,2,28,AAPL,2023-02-10 00:00:00,2023-01-30 00:00:00,2023-02-10 00:00:00,10,BULLISH,,0.85,"The combination of a rising Posterior_Trend and high Posterior_Up values suggests continued bullish momentum. Technical indicators like SMA_10 and EMA_10 remain above SMA_20 and EMA_20, supporting the trend, while volatility (Volatility_10d) remains moderate.",,"{""upside_downside_summary"": ""The Posterior_Trend remains positive throughout the window, starting at 0.667 and peaking at 0.75, indicating a sustained bullish bias. Posterior_Up values rise from 0.387 to 0.903, reflecting a growing probability of an upward move, while Prior_Up fluctuates between 0.667 and 0.75."", ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2023-02-02 and 2023-02-03 correspond to significant price increases, driving the Posterior_Up probability to 0.903. Quieter days show stable or declining Posterior_Up values, suggesting less momentum."", ""combined_narrative"": ""The combination of a rising Posterior_Trend and high Posterior_Up values suggests continued bullish momentum. Technical indicators like SMA_10 and EMA_10 remain above SMA_20 and EMA_20, supporting the trend, while volatility (Volatility_10d) remains moderate."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.75"", ""Posterior_Up=0.903"", ""SMA_10=147.48"", ""EMA_10=147.22"", ""Volatility_10d=0.0195""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend remains positive throughout the window, starting at 0.667 and peaking at 0.75, indicating a sustained bullish bias. Posterior_Up values rise from 0.387 to 0.903, reflecting a growing probability of an upward move, while Prior_Up fluctuates between 0.667 and 0.75."",
+  ""large_move_summary"": ""Large-move days (Is_Large_Move=True) on 2023-02-02 and 2023-02-03 correspond to significant price increases, driving the Posterior_Up probability to 0.903. Quieter days show stable or declining Posterior_Up values, suggesting less momentum."",
+  ""combined_narrative"": ""The combination of a rising Posterior_Trend and high Posterior_Up values suggests continued bullish momentum. Technical indicators like SMA_10 and EMA_10 remain above SMA_20 and EMA_20, supporting the trend, while volatility (Volatility_10d) remains moderate."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [
+    ""Posterior_Trend=0.75"",
+    ""Posterior_Up=0.903"",
+    ""SMA_10=147.48"",
+    ""EMA_10=147.22"",
+    ""Volatility_10d=0.0195""
+  ]
+}
+```"
+zai,2,29,AAPL,2023-02-24 00:00:00,2023-02-13 00:00:00,2023-02-24 00:00:00,9,BEARISH,,0.6,"The trend probability has decreased from 0.666 to 0.5, and the probability of an upward move has fallen to 0.234. The prior probability of an up move was 0.5, and the posterior probability is now lower, suggesting a higher likelihood of a decline. The MACD histogram has turned negative, and the RSI has dropped below 50, further supporting a bearish outlook.",,"{""upside_downside_summary"": ""Posterior_Trend shifts from 0.666 to 0.5, indicating a transition from a higher probability of an uptrend to a balanced probability. Posterior_Up declines from 0.666 to 0.5, reflecting a decreasing probability of an upward move."", ""large_move_summary"": ""The large-move day on 2023-02-21 (Is_Large_Move=True) coincides with a significant drop in Posterior_Up to 0.234, while Posterior_Trend remains at 0.416. This event marks a shift in the probability distribution toward downside risk."", ""combined_narrative"": ""The trend probability has decreased from 0.666 to 0.5, and the probability of an upward move has fallen to 0.234. The prior probability of an up move was 0.5, and the posterior probability is now lower, suggesting a higher likelihood of a decline. The MACD histogram has turned negative, and the RSI has dropped below 50, further supporting a bearish outlook."", ""stance"": ""BEARISH"", ""confidence"": 0.6, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.234"", ""RSI_14=48.808"", ""MACD_hist=-1.031965053529198""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend shifts from 0.666 to 0.5, indicating a transition from a higher probability of an uptrend to a balanced probability. Posterior_Up declines from 0.666 to 0.5, reflecting a decreasing probability of an upward move."",
+  ""large_move_summary"": ""The large-move day on 2023-02-21 (Is_Large_Move=True) coincides with a significant drop in Posterior_Up to 0.234, while Posterior_Trend remains at 0.416. This event marks a shift in the probability distribution toward downside risk."",
+  ""combined_narrative"": ""The trend probability has decreased from 0.666 to 0.5, and the probability of an upward move has fallen to 0.234. The prior probability of an up move was 0.5, and the posterior probability is now lower, suggesting a higher likelihood of a decline. The MACD histogram has turned negative, and the RSI has dropped below 50, further supporting a bearish outlook."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.6,
+  ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.234"", ""RSI_14=48.808"", ""MACD_hist=-1.031965053529198""]
+}
+```"
+zai,2,30,AAPL,2023-03-10 00:00:00,2023-02-27 00:00:00,2023-03-10 00:00:00,10,BULLISH,,0.7,"The price action shows a consolidation around the 145-151 range with a recent dip to 146.37. The technical indicators (SMA_10, EMA_10) are trending upward, while the Bayesian indicators (Posterior_Up) have increased from 0.4167 to 0.766 following a large move, suggesting a potential shift in momentum.",,"{""upside_downside_summary"": ""Posterior_Trend remains at 0.5 throughout the window, indicating a neutral stance. Posterior_Up fluctuates between 0.4167 and 0.766, suggesting a slight upward bias that is not yet decisive."", ""large_move_summary"": ""The large move on 2023-03-03 (Is_Large_Move=True) coincides with a spike in Posterior_Up to 0.766, while quieter days show Posterior_Up at 0.4167, highlighting the indicator's sensitivity to volatility."", ""combined_narrative"": ""The price action shows a consolidation around the 145-151 range with a recent dip to 146.37. The technical indicators (SMA_10, EMA_10) are trending upward, while the Bayesian indicators (Posterior_Up) have increased from 0.4167 to 0.766 following a large move, suggesting a potential shift in momentum."", ""stance"": ""BULLISH"", ""confidence"": 0.7, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.766"", ""SMA_10=147.36"", ""EMA_10=147.97"", ""RSI_14=49.80""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains at 0.5 throughout the window, indicating a neutral stance. Posterior_Up fluctuates between 0.4167 and 0.766, suggesting a slight upward bias that is not yet decisive."",
+  ""large_move_summary"": ""The large move on 2023-03-03 (Is_Large_Move=True) coincides with a spike in Posterior_Up to 0.766, while quieter days show Posterior_Up at 0.4167, highlighting the indicator's sensitivity to volatility."",
+  ""combined_narrative"": ""The price action shows a consolidation around the 145-151 range with a recent dip to 146.37. The technical indicators (SMA_10, EMA_10) are trending upward, while the Bayesian indicators (Posterior_Up) have increased from 0.4167 to 0.766 following a large move, suggesting a potential shift in momentum."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.7,
+  ""grounding"": [
+    ""Posterior_Trend=0.5"",
+    ""Posterior_Up=0.766"",
+    ""SMA_10=147.36"",
+    ""EMA_10=147.97"",
+    ""RSI_14=49.80""
+  ]
+}
+```"
+zai,2,31,AAPL,2023-03-24 00:00:00,2023-03-13 00:00:00,2023-03-24 00:00:00,10,BULLISH,,0.75,"The technical indicators, including the rising SMA_10 and EMA_10, and the increasing RSI_14, align with the Bayesian indicators' upward trajectory. The MACD histogram remains positive, reinforcing the bullish momentum observed in the price data.",,"{""upside_downside_summary"": ""The Posterior_Trend and Posterior_Up values increase from 0.5 to 0.75 over the window, indicating a shift toward higher probability for an upward move. This is supported by the Prior_Up remaining constant at 0.6666666666666666, suggesting the trend is driven by the recent price action rather than the initial prior."", ""large_move_summary"": ""There are no large-move days (Is_Large_Move=False) recorded in the window, indicating a period of consolidation and steady price appreciation."", ""combined_narrative"": ""The technical indicators, including the rising SMA_10 and EMA_10, and the increasing RSI_14, align with the Bayesian indicators' upward trajectory. The MACD histogram remains positive, reinforcing the bullish momentum observed in the price data."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.75"", ""Posterior_Up=0.75"", ""SMA_10=153.83043670654297"", ""EMA_10=154.34518908625813"", ""RSI_14=65.89548218456139"", ""MACD_hist=0.6283249389582357""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend and Posterior_Up values increase from 0.5 to 0.75 over the window, indicating a shift toward higher probability for an upward move. This is supported by the Prior_Up remaining constant at 0.6666666666666666, suggesting the trend is driven by the recent price action rather than the initial prior."",
+  ""large_move_summary"": ""There are no large-move days (Is_Large_Move=False) recorded in the window, indicating a period of consolidation and steady price appreciation."",
+  ""combined_narrative"": ""The technical indicators, including the rising SMA_10 and EMA_10, and the increasing RSI_14, align with the Bayesian indicators' upward trajectory. The MACD histogram remains positive, reinforcing the bullish momentum observed in the price data."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.75"",
+    ""Posterior_Up=0.75"",
+    ""SMA_10=153.83043670654297"",
+    ""EMA_10=154.34518908625813"",
+    ""RSI_14=65.89548218456139"",
+    ""MACD_hist=0.6283249389582357""
+  ]
+}
+```"
+zai,2,32,AAPL,2023-04-06 00:00:00,2023-03-27 00:00:00,2023-04-06 00:00:00,9,BULLISH,,0.85,"The technical indicators show a strong upward price momentum, with the price consistently trading above the SMA_10 and SMA_20. The RSI is elevated, and the MACD histogram is positive, reinforcing the bullish signal. The Bayesian indicators confirm this view, with high probabilities assigned to an upward trend and an upward move.",,"{""upside_downside_summary"": ""Posterior_Trend remains consistently bullish at 0.6667, indicating a strong probability of an upward trend. Prior_Up and Posterior_Up both start at 0.6667 and remain stable, suggesting the market views the probability of an upward move as high and persistent."", ""large_move_summary"": ""No large moves (Is_Large_Move=False) are recorded in the window, resulting in a stable narrative without significant volatility shocks."", ""combined_narrative"": ""The technical indicators show a strong upward price momentum, with the price consistently trading above the SMA_10 and SMA_20. The RSI is elevated, and the MACD histogram is positive, reinforcing the bullish signal. The Bayesian indicators confirm this view, with high probabilities assigned to an upward trend and an upward move."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Prior_Up=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Close=162.3086395263672"", ""SMA_10=160.12328033447267"", ""RSI_14=65.6336430901465"", ""MACD_hist=0.3786854708895468""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains consistently bullish at 0.6667, indicating a strong probability of an upward trend. Prior_Up and Posterior_Up both start at 0.6667 and remain stable, suggesting the market views the probability of an upward move as high and persistent."",
+  ""large_move_summary"": ""No large moves (Is_Large_Move=False) are recorded in the window, resulting in a stable narrative without significant volatility shocks."",
+  ""combined_narrative"": ""The technical indicators show a strong upward price momentum, with the price consistently trading above the SMA_10 and SMA_20. The RSI is elevated, and the MACD histogram is positive, reinforcing the bullish signal. The Bayesian indicators confirm this view, with high probabilities assigned to an upward trend and an upward move."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Prior_Up=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Close=162.3086395263672"",
+    ""SMA_10=160.12328033447267"",
+    ""RSI_14=65.6336430901465"",
+    ""MACD_hist=0.3786854708895468""
+  ]
+}
+```"
+zai,2,33,AAPL,2023-04-21 00:00:00,2023-04-10 00:00:00,2023-04-21 00:00:00,10,NEUTRAL,,0.5,"Technical indicators like SMA_10 and EMA_10 show a slight upward trend, but RSI_14 is high (63.28) on April 13, suggesting overbought conditions. The MACD histogram turns negative on April 20, hinting at potential downside pressure. The Bayesian indicators show high upside conviction on April 13 but a drop afterward, indicating uncertainty.",,"{""upside_downside_summary"": ""Posterior_Trend shifts from 0.5 to 0.8205 on April 13, indicating a strong upward bias, while Posterior_Up remains high at 0.8205 on that day. However, the trend reverts to 0.5 on April 14, and Posterior_Up drops to 0.4167, signaling a loss of upside conviction. The prior probability of an up move remains at 0.5 throughout."", ""large_move_summary"": ""The day with Is_Large_Move=True (April 13) coincides with the highest Posterior_Trend (0.8205) and Posterior_Up (0.8205), reflecting a significant upward shift. On quieter days, these probabilities remain at 0.5, showing less conviction."", ""combined_narrative"": ""Technical indicators like SMA_10 and EMA_10 show a slight upward trend, but RSI_14 is high (63.28) on April 13, suggesting overbought conditions. The MACD histogram turns negative on April 20, hinting at potential downside pressure. The Bayesian indicators show high upside conviction on April 13 but a drop afterward, indicating uncertainty."", ""stance"": ""NEUTRAL"", ""confidence"": 0.5, ""grounding"": [""Posterior_Trend=0.8205"", ""Posterior_Up=0.8205"", ""Posterior_Trend=0.5"", ""Posterior_Up=0.4167"", ""RSI_14=63.28"", ""MACD_hist=-0.0207""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend shifts from 0.5 to 0.8205 on April 13, indicating a strong upward bias, while Posterior_Up remains high at 0.8205 on that day. However, the trend reverts to 0.5 on April 14, and Posterior_Up drops to 0.4167, signaling a loss of upside conviction. The prior probability of an up move remains at 0.5 throughout."",
+  ""large_move_summary"": ""The day with Is_Large_Move=True (April 13) coincides with the highest Posterior_Trend (0.8205) and Posterior_Up (0.8205), reflecting a significant upward shift. On quieter days, these probabilities remain at 0.5, showing less conviction."",
+  ""combined_narrative"": ""Technical indicators like SMA_10 and EMA_10 show a slight upward trend, but RSI_14 is high (63.28) on April 13, suggesting overbought conditions. The MACD histogram turns negative on April 20, hinting at potential downside pressure. The Bayesian indicators show high upside conviction on April 13 but a drop afterward, indicating uncertainty."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.5,
+  ""grounding"": [
+    ""Posterior_Trend=0.8205"",
+    ""Posterior_Up=0.8205"",
+    ""Posterior_Trend=0.5"",
+    ""Posterior_Up=0.4167"",
+    ""RSI_14=63.28"",
+    ""MACD_hist=-0.0207""
+  ]
+}
+```"
+zai,2,34,AAPL,2023-05-05 00:00:00,2023-04-24 00:00:00,2023-05-05 00:00:00,10,BULLISH,,0.75,"The technical indicators show a consolidation with the price fluctuating around the SMA_10 and SMA_20, while the RSI remains elevated. The Bayesian indicators, particularly the high Posterior_Trend, suggest the market is leaning towards an upward trajectory, supported by the recent large move.",,"{""upside_downside_summary"": ""Posterior_Trend remains high at 0.7536, indicating a strong probability of an upward trend. Posterior_Up is also elevated at 0.4333, suggesting a higher likelihood of positive price movement compared to the prior probability of 0.5."", ""large_move_summary"": ""The large-move day on 2023-05-05 (Is_Large_Move=True) coincided with a significant jump in Posterior_Up to 0.7536, demonstrating how a strong move can reinforce the Bayesian probability of an upside outcome."", ""combined_narrative"": ""The technical indicators show a consolidation with the price fluctuating around the SMA_10 and SMA_20, while the RSI remains elevated. The Bayesian indicators, particularly the high Posterior_Trend, suggest the market is leaning towards an upward trajectory, supported by the recent large move."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.7536231884057972"", ""Posterior_Up=0.4333333333333334"", ""RSI_14=67.62134192775466"", ""SMA_10=165.19578247070314"", ""SMA_20=163.65855712890624"", ""Is_Large_Move=True""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains high at 0.7536, indicating a strong probability of an upward trend. Posterior_Up is also elevated at 0.4333, suggesting a higher likelihood of positive price movement compared to the prior probability of 0.5."",
+  ""large_move_summary"": ""The large-move day on 2023-05-05 (Is_Large_Move=True) coincided with a significant jump in Posterior_Up to 0.7536, demonstrating how a strong move can reinforce the Bayesian probability of an upside outcome."",
+  ""combined_narrative"": ""The technical indicators show a consolidation with the price fluctuating around the SMA_10 and SMA_20, while the RSI remains elevated. The Bayesian indicators, particularly the high Posterior_Trend, suggest the market is leaning towards an upward trajectory, supported by the recent large move."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.7536231884057972"",
+    ""Posterior_Up=0.4333333333333334"",
+    ""RSI_14=67.62134192775466"",
+    ""SMA_10=165.19578247070314"",
+    ""SMA_20=163.65855712890624"",
+    ""Is_Large_Move=True""
+  ]
+}
+```"
+zai,2,35,AAPL,2023-05-19 00:00:00,2023-05-08 00:00:00,2023-05-19 00:00:00,10,BULLISH,,0.55,"The technical indicators show a consistent upward trend with the price above the 10-day and 20-day SMAs, and the RSI remains elevated. The Bayesian indicators have converged to a 50% probability of an upward move, suggesting a balanced but leaning-positive outlook.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Prior_Up and Posterior_Up increase from 0.33 to 0.5, indicating a shift toward higher probability of an upward move."", ""large_move_summary"": ""The window contains no large moves (Is_Large_Move is False for all days), resulting in a stable and gradual evolution of the Bayesian indicators."", ""combined_narrative"": ""The technical indicators show a consistent upward trend with the price above the 10-day and 20-day SMAs, and the RSI remains elevated. The Bayesian indicators have converged to a 50% probability of an upward move, suggesting a balanced but leaning-positive outlook."", ""stance"": ""BULLISH"", ""confidence"": 0.55, ""grounding"": [""Posterior_Trend=0.5"", ""Posterior_Up=0.5"", ""Prior_Up=0.5"", ""Close=172.89749145507812"", ""SMA_10=170.88713989257812"", ""RSI_14=67.31019374940578""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Prior_Up and Posterior_Up increase from 0.33 to 0.5, indicating a shift toward higher probability of an upward move."",
+  ""large_move_summary"": ""The window contains no large moves (Is_Large_Move is False for all days), resulting in a stable and gradual evolution of the Bayesian indicators."",
+  ""combined_narrative"": ""The technical indicators show a consistent upward trend with the price above the 10-day and 20-day SMAs, and the RSI remains elevated. The Bayesian indicators have converged to a 50% probability of an upward move, suggesting a balanced but leaning-positive outlook."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.55,
+  ""grounding"": [
+    ""Posterior_Trend=0.5"",
+    ""Posterior_Up=0.5"",
+    ""Prior_Up=0.5"",
+    ""Close=172.89749145507812"",
+    ""SMA_10=170.88713989257812"",
+    ""RSI_14=67.31019374940578""
+  ]
+}
+```"
+zai,2,36,AAPL,2023-06-02 00:00:00,2023-05-22 00:00:00,2023-06-02 00:00:00,9,BULLISH,,0.75,"Technical indicators like the SMA_10 and EMA_10 are trending upward, while the RSI_14 remains elevated above 70, signaling strong momentum. The Bayesian indicators reinforce this view, maintaining a high probability of an upward move. The absence of large moves suggests the trend is stable, setting the stage for continued price appreciation.",,"{""upside_downside_summary"": ""The Posterior_Trend and Posterior_Up values remain consistently high at 0.6667 throughout the window, indicating a strong Bayesian probability of an upward trend and price movement. This persistence suggests the market views the current price action as a continuation of a positive trajectory rather than a reversal."", ""large_move_summary"": ""The window contains no days marked as Is_Large_Move, indicating a period of consolidation with no significant volatility shocks to disrupt the established trend."", ""combined_narrative"": ""Technical indicators like the SMA_10 and EMA_10 are trending upward, while the RSI_14 remains elevated above 70, signaling strong momentum. The Bayesian indicators reinforce this view, maintaining a high probability of an upward move. The absence of large moves suggests the trend is stable, setting the stage for continued price appreciation."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.6667"", ""Posterior_Up=0.6667"", ""SMA_10=173.41"", ""EMA_10=174.24"", ""RSI_14=72.95""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend and Posterior_Up values remain consistently high at 0.6667 throughout the window, indicating a strong Bayesian probability of an upward trend and price movement. This persistence suggests the market views the current price action as a continuation of a positive trajectory rather than a reversal."",
+  ""large_move_summary"": ""The window contains no days marked as Is_Large_Move, indicating a period of consolidation with no significant volatility shocks to disrupt the established trend."",
+  ""combined_narrative"": ""Technical indicators like the SMA_10 and EMA_10 are trending upward, while the RSI_14 remains elevated above 70, signaling strong momentum. The Bayesian indicators reinforce this view, maintaining a high probability of an upward move. The absence of large moves suggests the trend is stable, setting the stage for continued price appreciation."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.6667"",
+    ""Posterior_Up=0.6667"",
+    ""SMA_10=173.41"",
+    ""EMA_10=174.24"",
+    ""RSI_14=72.95""
+  ]
+}
+```"
+zai,2,37,AAPL,2023-06-16 00:00:00,2023-06-05 00:00:00,2023-06-16 00:00:00,10,BULLISH,,0.6,"The price action shows a steady upward trend with the Close price rising from 177.26 to 182.53, supported by the SMA_10 and EMA_10 indicators. The MACD and MACD_hist values are positive, reinforcing the bullish momentum. The Bayesian indicators suggest a high probability of an upward move, though the probability remains below 60%.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Prior_Up and Posterior_Up fluctuate between 0.5 and 0.583, indicating a persistent but slightly dampened probability of an upward move."", ""large_move_summary"": ""No days in the window are classified as Is_Large_Move, resulting in a narrative focused on steady price action without significant volatility events."", ""combined_narrative"": ""The price action shows a steady upward trend with the Close price rising from 177.26 to 182.53, supported by the SMA_10 and EMA_10 indicators. The MACD and MACD_hist values are positive, reinforcing the bullish momentum. The Bayesian indicators suggest a high probability of an upward move, though the probability remains below 60%."", ""stance"": ""BULLISH"", ""confidence"": 0.6, ""grounding"": [""Posterior_Trend=0.5833333333333334"", ""Prior_Up=0.5833333333333334"", ""Close=182.5314178466797"", ""SMA_10=179.6609848022461"", ""MACD=3.6730059750687474""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Prior_Up and Posterior_Up fluctuate between 0.5 and 0.583, indicating a persistent but slightly dampened probability of an upward move."",
+  ""large_move_summary"": ""No days in the window are classified as Is_Large_Move, resulting in a narrative focused on steady price action without significant volatility events."",
+  ""combined_narrative"": ""The price action shows a steady upward trend with the Close price rising from 177.26 to 182.53, supported by the SMA_10 and EMA_10 indicators. The MACD and MACD_hist values are positive, reinforcing the bullish momentum. The Bayesian indicators suggest a high probability of an upward move, though the probability remains below 60%."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.6,
+  ""grounding"": [
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Prior_Up=0.5833333333333334"",
+    ""Close=182.5314178466797"",
+    ""SMA_10=179.6609848022461"",
+    ""MACD=3.6730059750687474""
+  ]
+}
+```"
+zai,2,38,AAPL,2023-06-30 00:00:00,2023-06-20 00:00:00,2023-06-30 00:00:00,9,BULLISH,,0.8301886792452831,"The technical indicators show a strong upward momentum, with the 10-day SMA (184.95) significantly above the 20-day SMA (182.11) and the RSI (77.69) indicating overbought conditions. The Bayesian indicators have converged to a high probability of an upward trend (0.83), suggesting the stock is likely to continue its positive trajectory.",,"{""upside_downside_summary"": ""Posterior_Trend remained at 0.5833 for the first six days, indicating a slight upward bias. This shifted to 0.6667 on June 22, and finally to 0.8302 on June 30, reflecting a strengthening probability of an upward move."", ""large_move_summary"": ""The only large-move day in the window was June 30, where the price jumped 4.3% and the Posterior_Up jumped to 0.8302. This day stands in contrast to the quieter days where the trend probability remained stable near 0.5."", ""combined_narrative"": ""The technical indicators show a strong upward momentum, with the 10-day SMA (184.95) significantly above the 20-day SMA (182.11) and the RSI (77.69) indicating overbought conditions. The Bayesian indicators have converged to a high probability of an upward trend (0.83), suggesting the stock is likely to continue its positive trajectory."", ""stance"": ""BULLISH"", ""confidence"": 0.8301886792452831, ""grounding"": [""Posterior_Trend=0.8301886792452831"", ""SMA_10=184.9507629394531"", ""SMA_20=182.1099395751953"", ""RSI_14=77.6864237583264"", ""MACD=4.056670178028298"", ""MACD_hist=0.3981246767535586""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remained at 0.5833 for the first six days, indicating a slight upward bias. This shifted to 0.6667 on June 22, and finally to 0.8302 on June 30, reflecting a strengthening probability of an upward move."",
+  ""large_move_summary"": ""The only large-move day in the window was June 30, where the price jumped 4.3% and the Posterior_Up jumped to 0.8302. This day stands in contrast to the quieter days where the trend probability remained stable near 0.5."",
+  ""combined_narrative"": ""The technical indicators show a strong upward momentum, with the 10-day SMA (184.95) significantly above the 20-day SMA (182.11) and the RSI (77.69) indicating overbought conditions. The Bayesian indicators have converged to a high probability of an upward trend (0.83), suggesting the stock is likely to continue its positive trajectory."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.8301886792452831,
+  ""grounding"": [
+    ""Posterior_Trend=0.8301886792452831"",
+    ""SMA_10=184.9507629394531"",
+    ""SMA_20=182.1099395751953"",
+    ""RSI_14=77.6864237583264"",
+    ""MACD=4.056670178028298"",
+    ""MACD_hist=0.3981246767535586""
+  ]
+}
+```"
+zai,2,39,AAPL,2023-07-14 00:00:00,2023-07-03 00:00:00,2023-07-14 00:00:00,9,BULLISH,,0.75,"The SMA_10 (188.33) and SMA_20 (186.25) are above the SMA_50 (178.50), and the EMA_10 (187.37) is above the EMA_20 (185.61), indicating a short-term bullish trend. The RSI_14 (62.60) is above 60, suggesting the stock is not overbought. The MACD (2.81) is positive but its histogram is negative (-0.50), signaling a weakening bullish momentum. The Bayesian indicators show a stable bullish trend probability.",,"{""upside_downside_summary"": ""Posterior_Trend remains 0.5833333333333334, indicating a persistent bullish bias. Posterior_Up is consistently 0.5, suggesting the probability of an upward move is balanced against a downward move."", ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window, resulting in a neutral narrative for these specific days."", ""combined_narrative"": ""The SMA_10 (188.33) and SMA_20 (186.25) are above the SMA_50 (178.50), and the EMA_10 (187.37) is above the EMA_20 (185.61), indicating a short-term bullish trend. The RSI_14 (62.60) is above 60, suggesting the stock is not overbought. The MACD (2.81) is positive but its histogram is negative (-0.50), signaling a weakening bullish momentum. The Bayesian indicators show a stable bullish trend probability."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""SMA_10=188.32955322265624"", ""SMA_20=186.24729919433597"", ""SMA_50=178.5008364868164"", ""EMA_10=187.37045152626297"", ""EMA_20=185.60956453495425"", ""RSI_14=62.596164324205"", ""MACD=2.80804271404574"", ""MACD_hist=-0.5021753654146126"", ""Posterior_Trend=0.5833333333333334"", ""Posterior_Up=0.5""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains 0.5833333333333334, indicating a persistent bullish bias. Posterior_Up is consistently 0.5, suggesting the probability of an upward move is balanced against a downward move."",
+  ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window, resulting in a neutral narrative for these specific days."",
+  ""combined_narrative"": ""The SMA_10 (188.33) and SMA_20 (186.25) are above the SMA_50 (178.50), and the EMA_10 (187.37) is above the EMA_20 (185.61), indicating a short-term bullish trend. The RSI_14 (62.60) is above 60, suggesting the stock is not overbought. The MACD (2.81) is positive but its histogram is negative (-0.50), signaling a weakening bullish momentum. The Bayesian indicators show a stable bullish trend probability."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""SMA_10=188.32955322265624"",
+    ""SMA_20=186.24729919433597"",
+    ""SMA_50=178.5008364868164"",
+    ""EMA_10=187.37045152626297"",
+    ""EMA_20=185.60956453495425"",
+    ""RSI_14=62.596164324205"",
+    ""MACD=2.80804271404574"",
+    ""MACD_hist=-0.5021753654146126"",
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Up=0.5""
+  ]
+}
+```"
+zai,2,40,AAPL,2023-07-28 00:00:00,2023-07-17 00:00:00,2023-07-28 00:00:00,10,BULLISH,,0.8,"Technical indicators like SMA_10 and EMA_10 are trending upward, while the Bayesian indicators Posterior_Trend and Posterior_Up remain high. This combination suggests the price is likely to continue its upward momentum in the near term.",,"{""upside_downside_summary"": ""Posterior_Trend and Posterior_Up values remain consistently high, indicating a strong probability of an upward trajectory. The Prior_Up values also remain elevated, reinforcing the positive outlook."", ""large_move_summary"": ""No days in the window are classified as Is_Large_Move, suggesting the price action has been relatively contained and orderly."", ""combined_narrative"": ""Technical indicators like SMA_10 and EMA_10 are trending upward, while the Bayesian indicators Posterior_Trend and Posterior_Up remain high. This combination suggests the price is likely to continue its upward momentum in the near term."", ""stance"": ""BULLISH"", ""confidence"": 0.8, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""SMA_10=191.2779708862305"", ""EMA_10=190.9319100519594"", ""Return=0.0135080342886346""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend and Posterior_Up values remain consistently high, indicating a strong probability of an upward trajectory. The Prior_Up values also remain elevated, reinforcing the positive outlook."",
+  ""large_move_summary"": ""No days in the window are classified as Is_Large_Move, suggesting the price action has been relatively contained and orderly."",
+  ""combined_narrative"": ""Technical indicators like SMA_10 and EMA_10 are trending upward, while the Bayesian indicators Posterior_Trend and Posterior_Up remain high. This combination suggests the price is likely to continue its upward momentum in the near term."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.8,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""SMA_10=191.2779708862305"",
+    ""EMA_10=190.9319100519594"",
+    ""Return=0.0135080342886346""
+  ]
+}
+```"
+zai,2,41,AAPL,2023-08-11 00:00:00,2023-07-31 00:00:00,2023-08-11 00:00:00,10,BEARISH,,0.75,"The price has declined from 193.91 to 175.73, with the 10-day SMA (182.67) remaining above the price. The MACD remains negative (-2.62), and the RSI is low (30.02), suggesting continued downside pressure.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.58 to 0.33, indicating a shift from a neutral to a bearish stance. Posterior_Up drops from 0.58 to 0.33, reflecting a decreasing probability of an upward move."", ""large_move_summary"": ""The large move on 2023-08-04 (Is_Large_Move=True) caused a significant drop in Posterior_Up to 0.23, while the subsequent quiet days saw Posterior_Trend and Posterior_Up stabilize at 0.33."", ""combined_narrative"": ""The price has declined from 193.91 to 175.73, with the 10-day SMA (182.67) remaining above the price. The MACD remains negative (-2.62), and the RSI is low (30.02), suggesting continued downside pressure."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.33"", ""Posterior_Up=0.33"", ""Close=175.73"", ""SMA_10=182.67"", ""MACD=-2.62"", ""RSI_14=30.02""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.58 to 0.33, indicating a shift from a neutral to a bearish stance. Posterior_Up drops from 0.58 to 0.33, reflecting a decreasing probability of an upward move."",
+  ""large_move_summary"": ""The large move on 2023-08-04 (Is_Large_Move=True) caused a significant drop in Posterior_Up to 0.23, while the subsequent quiet days saw Posterior_Trend and Posterior_Up stabilize at 0.33."",
+  ""combined_narrative"": ""The price has declined from 193.91 to 175.73, with the 10-day SMA (182.67) remaining above the price. The MACD remains negative (-2.62), and the RSI is low (30.02), suggesting continued downside pressure."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.33"",
+    ""Posterior_Up=0.33"",
+    ""Close=175.73"",
+    ""SMA_10=182.67"",
+    ""MACD=-2.62"",
+    ""RSI_14=30.02""
+  ]
+}
+```"
+zai,2,42,AAPL,2023-08-25 00:00:00,2023-08-14 00:00:00,2023-08-25 00:00:00,10,BULLISH,,0.58,"The technical indicators show a downward trend in price, with the 10-day SMA (175.06) below the 20-day SMA (178.87). However, the Bayesian indicators (Posterior_Trend and Posterior_Up) are trending upward, suggesting the market is pricing in a potential reversal. The MACD histogram is positive, further supporting the bullish outlook.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.33 and rising to 0.58, indicating a persistent bullish bias. Posterior_Up follows a similar trajectory, increasing from 0.33 to 0.58, suggesting a growing probability of an upside move."", ""large_move_summary"": ""The large move on 2023-08-23 (Is_Large_Move=True) coincides with a significant jump in Posterior_Trend to 0.58 and Posterior_Up to 0.74, reflecting the market's reaction to the price action."", ""combined_narrative"": ""The technical indicators show a downward trend in price, with the 10-day SMA (175.06) below the 20-day SMA (178.87). However, the Bayesian indicators (Posterior_Trend and Posterior_Up) are trending upward, suggesting the market is pricing in a potential reversal. The MACD histogram is positive, further supporting the bullish outlook."", ""stance"": ""BULLISH"", ""confidence"": 0.58, ""grounding"": [""Posterior_Trend=0.58"", ""Posterior_Up=0.58"", ""MACD_hist=0.0687319022488237"", ""SMA_10=175.06331939697264"", ""SMA_20=178.86844329833986""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, starting at 0.33 and rising to 0.58, indicating a persistent bullish bias. Posterior_Up follows a similar trajectory, increasing from 0.33 to 0.58, suggesting a growing probability of an upside move."",
+  ""large_move_summary"": ""The large move on 2023-08-23 (Is_Large_Move=True) coincides with a significant jump in Posterior_Trend to 0.58 and Posterior_Up to 0.74, reflecting the market's reaction to the price action."",
+  ""combined_narrative"": ""The technical indicators show a downward trend in price, with the 10-day SMA (175.06) below the 20-day SMA (178.87). However, the Bayesian indicators (Posterior_Trend and Posterior_Up) are trending upward, suggesting the market is pricing in a potential reversal. The MACD histogram is positive, further supporting the bullish outlook."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.58,
+  ""grounding"": [""Posterior_Trend=0.58"", ""Posterior_Up=0.58"", ""MACD_hist=0.0687319022488237"", ""SMA_10=175.06331939697264"", ""SMA_20=178.86844329833986""]
+}
+```"
+zai,2,43,AAPL,2023-09-08 00:00:00,2023-08-28 00:00:00,2023-09-08 00:00:00,9,BULLISH,,0.75,"The SMA_10 and EMA_10 are trending upward, while the RSI_14 remains elevated, suggesting continued bullish momentum. The Bayesian indicators, specifically the high Posterior_Up values, reinforce this view despite a recent pullback.",,"{""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.47 and 0.83, indicating a high probability of an upward move despite recent volatility."", ""large_move_summary"": ""Large-move days on 2023-08-29 and 2023-09-06 saw Posterior_Up spike to 0.84 and 0.47 respectively, contrasting with the lower values of 0.58 and 0.75 on quieter days."", ""combined_narrative"": ""The SMA_10 and EMA_10 are trending upward, while the RSI_14 remains elevated, suggesting continued bullish momentum. The Bayesian indicators, specifically the high Posterior_Up values, reinforce this view despite a recent pullback."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.5833333333333334"", ""Posterior_Up=0.8395061728395062"", ""SMA_10=181.49790649414064"", ""RSI_14=42.52855277490182""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains positive throughout the window, while Posterior_Up fluctuates between 0.47 and 0.83, indicating a high probability of an upward move despite recent volatility."",
+  ""large_move_summary"": ""Large-move days on 2023-08-29 and 2023-09-06 saw Posterior_Up spike to 0.84 and 0.47 respectively, contrasting with the lower values of 0.58 and 0.75 on quieter days."",
+  ""combined_narrative"": ""The SMA_10 and EMA_10 are trending upward, while the RSI_14 remains elevated, suggesting continued bullish momentum. The Bayesian indicators, specifically the high Posterior_Up values, reinforce this view despite a recent pullback."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.5833333333333334"",
+    ""Posterior_Up=0.8395061728395062"",
+    ""SMA_10=181.49790649414064"",
+    ""RSI_14=42.52855277490182""
+  ]
+}
+```"
+zai,2,44,AAPL,2023-09-22 00:00:00,2023-09-11 00:00:00,2023-09-22 00:00:00,10,BULLISH,,0.6,"Technical indicators like the EMA_10 and EMA_20 show price trading below the short-term moving averages, which is a bearish signal. However, the Posterior_Trend and Posterior_Up values remain elevated, suggesting the market is pricing in a higher probability of a reversal or continued upward momentum. This divergence implies that while the immediate technical setup is weak, the Bayesian indicators forecast a potential shift towards the upside.",,"{""upside_downside_summary"": ""Posterior_Trend remains consistently bullish at 0.75, indicating a strong probability of an upward trajectory. Posterior_Up fluctuates between 0.5 and 0.75, suggesting a moderate to high likelihood of positive price movement. The trend implies a higher probability of upside compared to downside over the next period."", ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window. The absence of large moves suggests a period of consolidation or low volatility, with price action driven by smaller, incremental shifts rather than significant shocks."", ""combined_narrative"": ""Technical indicators like the EMA_10 and EMA_20 show price trading below the short-term moving averages, which is a bearish signal. However, the Posterior_Trend and Posterior_Up values remain elevated, suggesting the market is pricing in a higher probability of a reversal or continued upward momentum. This divergence implies that while the immediate technical setup is weak, the Bayesian indicators forecast a potential shift towards the upside."", ""stance"": ""BULLISH"", ""confidence"": 0.6, ""grounding"": [""Posterior_Trend=0.75"", ""Posterior_Up=0.75"", ""EMA_10=174.61833079152558"", ""EMA_20=176.27784780191374"", ""Is_Large_Move=False""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains consistently bullish at 0.75, indicating a strong probability of an upward trajectory. Posterior_Up fluctuates between 0.5 and 0.75, suggesting a moderate to high likelihood of positive price movement. The trend implies a higher probability of upside compared to downside over the next period."",
+  ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window. The absence of large moves suggests a period of consolidation or low volatility, with price action driven by smaller, incremental shifts rather than significant shocks."",
+  ""combined_narrative"": ""Technical indicators like the EMA_10 and EMA_20 show price trading below the short-term moving averages, which is a bearish signal. However, the Posterior_Trend and Posterior_Up values remain elevated, suggesting the market is pricing in a higher probability of a reversal or continued upward momentum. This divergence implies that while the immediate technical setup is weak, the Bayesian indicators forecast a potential shift towards the upside."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.6,
+  ""grounding"": [
+    ""Posterior_Trend=0.75"",
+    ""Posterior_Up=0.75"",
+    ""EMA_10=174.61833079152558"",
+    ""EMA_20=176.27784780191374"",
+    ""Is_Large_Move=False""
+  ]
+}
+```"
+zai,2,45,AAPL,2023-10-06 00:00:00,2023-09-25 00:00:00,2023-10-06 00:00:00,10,BULLISH,,0.6667,"The technical indicators show a consolidation pattern with a slight upward bias, as the price hovers near the 10-day SMA (170.98) while the RSI (47.39) remains in a neutral range. The Bayesian indicators have converged on a bullish stance, with the Posterior_Trend and Posterior_Up both increasing to 0.6667, reflecting a strengthening conviction in an upward trajectory.",,"{""upside_downside_summary"": ""The Posterior_Trend shifts from 0.5 to 0.6667, indicating a growing probability of an uptick. Posterior_Up also rises from 0.5 to 0.6667, suggesting a higher likelihood of positive price movement compared to the prior."", ""large_move_summary"": ""The large-move day on 2023-09-26 (Is_Large_Move=True) coincided with a drop in Posterior_Up to 0.2, highlighting how significant price swings can temporarily alter the Bayesian probability assessment."", ""combined_narrative"": ""The technical indicators show a consolidation pattern with a slight upward bias, as the price hovers near the 10-day SMA (170.98) while the RSI (47.39) remains in a neutral range. The Bayesian indicators have converged on a bullish stance, with the Posterior_Trend and Posterior_Up both increasing to 0.6667, reflecting a strengthening conviction in an upward trajectory."", ""stance"": ""BULLISH"", ""confidence"": 0.6667, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""SMA_10=170.98413696289063"", ""RSI_14=47.39333530845431""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend shifts from 0.5 to 0.6667, indicating a growing probability of an uptick. Posterior_Up also rises from 0.5 to 0.6667, suggesting a higher likelihood of positive price movement compared to the prior."",
+  ""large_move_summary"": ""The large-move day on 2023-09-26 (Is_Large_Move=True) coincided with a drop in Posterior_Up to 0.2, highlighting how significant price swings can temporarily alter the Bayesian probability assessment."",
+  ""combined_narrative"": ""The technical indicators show a consolidation pattern with a slight upward bias, as the price hovers near the 10-day SMA (170.98) while the RSI (47.39) remains in a neutral range. The Bayesian indicators have converged on a bullish stance, with the Posterior_Trend and Posterior_Up both increasing to 0.6667, reflecting a strengthening conviction in an upward trajectory."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.6667,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""SMA_10=170.98413696289063"",
+    ""RSI_14=47.39333530845431""
+  ]
+}
+```"
+zai,2,46,AAPL,2023-10-20 00:00:00,2023-10-09 00:00:00,2023-10-20 00:00:00,10,BEARISH,,0.75,"The price action shows a downward trajectory, with the closing price falling from 176.92 to 170.88. The 10-day Simple Moving Average (SMA_10) is 175.62, while the 20-day SMA (SMA_20) is 173.44, indicating the price is trading below both moving averages. The 14-day Relative Strength Index (RSI_14) has dropped from 55.37 to 40.31, moving into the oversold territory. The Bayesian indicators (Posterior_Trend and Posterior_Up) have decreased, reinforcing the bearish outlook.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.666 to 0.333, indicating a shift in probability toward a downtrend. Posterior_Up drops from 0.666 to 0.333, suggesting a reduced likelihood of an upward move. The trend is currently bearish."", ""large_move_summary"": ""No days in the window are marked as Is_Large_Move, indicating a period of relative stability with no significant price shocks."", ""combined_narrative"": ""The price action shows a downward trajectory, with the closing price falling from 176.92 to 170.88. The 10-day Simple Moving Average (SMA_10) is 175.62, while the 20-day SMA (SMA_20) is 173.44, indicating the price is trading below both moving averages. The 14-day Relative Strength Index (RSI_14) has dropped from 55.37 to 40.31, moving into the oversold territory. The Bayesian indicators (Posterior_Trend and Posterior_Up) have decreased, reinforcing the bearish outlook."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""grounding"": [""Close=170.87741088867188"", ""SMA_10=175.62079162597655"", ""SMA_20=173.4359016418457"", ""RSI_14=40.31182724874135"", ""Posterior_Trend=0.3333333333333333"", ""Posterior_Up=0.3333333333333333""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.666 to 0.333, indicating a shift in probability toward a downtrend. Posterior_Up drops from 0.666 to 0.333, suggesting a reduced likelihood of an upward move. The trend is currently bearish."",
+  ""large_move_summary"": ""No days in the window are marked as Is_Large_Move, indicating a period of relative stability with no significant price shocks."",
+  ""combined_narrative"": ""The price action shows a downward trajectory, with the closing price falling from 176.92 to 170.88. The 10-day Simple Moving Average (SMA_10) is 175.62, while the 20-day SMA (SMA_20) is 173.44, indicating the price is trading below both moving averages. The 14-day Relative Strength Index (RSI_14) has dropped from 55.37 to 40.31, moving into the oversold territory. The Bayesian indicators (Posterior_Trend and Posterior_Up) have decreased, reinforcing the bearish outlook."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Close=170.87741088867188"",
+    ""SMA_10=175.62079162597655"",
+    ""SMA_20=173.4359016418457"",
+    ""RSI_14=40.31182724874135"",
+    ""Posterior_Trend=0.3333333333333333"",
+    ""Posterior_Up=0.3333333333333333""
+  ]
+}
+```"
+zai,2,47,AAPL,2023-11-03 00:00:00,2023-10-23 00:00:00,2023-11-03 00:00:00,10,BULLISH,,0.6666666666666666,"The price action showed a downward trend from October 23 to October 26, followed by a recovery and a strong upward move on November 2. The technical indicators, including the RSI and MACD, support the bullish shift, while the Bayesian indicators confirm the increasing probability of an upside move.",,"{""upside_downside_summary"": ""Posterior_Trend increased from 0.333 to 0.667, indicating a shift toward a bullish bias, while Posterior_Up rose from 0.333 to 0.667, suggesting a higher probability of an upward move. The Prior_Up remained constant at 0.5, reflecting the unchanged prior probability of an up move."", ""large_move_summary"": ""Large-move days occurred on 2023-10-26 and 2023-11-02, which corresponded to significant downward and upward price movements, respectively, and drove the Bayesian indicators to update their probabilities."", ""combined_narrative"": ""The price action showed a downward trend from October 23 to October 26, followed by a recovery and a strong upward move on November 2. The technical indicators, including the RSI and MACD, support the bullish shift, while the Bayesian indicators confirm the increasing probability of an upside move."", ""stance"": ""BULLISH"", ""confidence"": 0.6666666666666666, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Prior_Up=0.5"", ""Is_Large_Move=True (2023-11-02)"", ""RSI_14=56.67658701033778"", ""MACD_hist=0.2369446431892465""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend increased from 0.333 to 0.667, indicating a shift toward a bullish bias, while Posterior_Up rose from 0.333 to 0.667, suggesting a higher probability of an upward move. The Prior_Up remained constant at 0.5, reflecting the unchanged prior probability of an up move."",
+  ""large_move_summary"": ""Large-move days occurred on 2023-10-26 and 2023-11-02, which corresponded to significant downward and upward price movements, respectively, and drove the Bayesian indicators to update their probabilities."",
+  ""combined_narrative"": ""The price action showed a downward trend from October 23 to October 26, followed by a recovery and a strong upward move on November 2. The technical indicators, including the RSI and MACD, support the bullish shift, while the Bayesian indicators confirm the increasing probability of an upside move."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.6666666666666666,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Prior_Up=0.5"",
+    ""Is_Large_Move=True (2023-11-02)"",
+    ""RSI_14=56.67658701033778"",
+    ""MACD_hist=0.2369446431892465""
+  ]
+}
+```"
+zai,2,48,AAPL,2023-11-17 00:00:00,2023-11-06 00:00:00,2023-11-17 00:00:00,10,BULLISH,,0.85,"The technical indicators show a strong upward momentum with the 10-day SMA (183.24) significantly above the 20-day SMA (176.72), and the MACD (3.65) well above its signal line (2.20). This technical strength aligns with the Bayesian indicators, which show a high probability of an upward move (Posterior_Up > 0.9) following the large move. The confluence of these factors suggests the stock is in a strong uptrend and likely to continue rising.",,"{""upside_downside_summary"": ""The Posterior_Trend remains at 0.6666666666666666 throughout the window, indicating a persistent but unchanging probability of an uptick. Posterior_Up fluctuates between 0.6666666666666666 and 0.903225806451613, suggesting a slight upward bias that intensifies on volatile days."", ""large_move_summary"": ""The only large move occurred on 2023-11-10, where the price jumped 2.32% and Posterior_Up spiked to 0.903225806451613. On all other days, the price was relatively flat, with Posterior_Up and Posterior_Trend staying at 0.6666666666666666."", ""combined_narrative"": ""The technical indicators show a strong upward momentum with the 10-day SMA (183.24) significantly above the 20-day SMA (176.72), and the MACD (3.65) well above its signal line (2.20). This technical strength aligns with the Bayesian indicators, which show a high probability of an upward move (Posterior_Up > 0.9) following the large move. The confluence of these factors suggests the stock is in a strong uptrend and likely to continue rising."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.903225806451613"", ""SMA_10=183.24083862304687"", ""SMA_20=176.718106842041"", ""MACD=3.651853629991336"", ""MACD_signal=2.2005728408252767""]}","```json
+{
+  ""upside_downside_summary"": ""The Posterior_Trend remains at 0.6666666666666666 throughout the window, indicating a persistent but unchanging probability of an uptick. Posterior_Up fluctuates between 0.6666666666666666 and 0.903225806451613, suggesting a slight upward bias that intensifies on volatile days."",
+  ""large_move_summary"": ""The only large move occurred on 2023-11-10, where the price jumped 2.32% and Posterior_Up spiked to 0.903225806451613. On all other days, the price was relatively flat, with Posterior_Up and Posterior_Trend staying at 0.6666666666666666."",
+  ""combined_narrative"": ""The technical indicators show a strong upward momentum with the 10-day SMA (183.24) significantly above the 20-day SMA (176.72), and the MACD (3.65) well above its signal line (2.20). This technical strength aligns with the Bayesian indicators, which show a high probability of an upward move (Posterior_Up > 0.9) following the large move. The confluence of these factors suggests the stock is in a strong uptrend and likely to continue rising."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Posterior_Up=0.903225806451613"",
+    ""SMA_10=183.24083862304687"",
+    ""SMA_20=176.718106842041"",
+    ""MACD=3.651853629991336"",
+    ""MACD_signal=2.2005728408252767""
+  ]
+}
+```"
+zai,2,49,AAPL,2023-12-01 00:00:00,2023-11-20 00:00:00,2023-12-01 00:00:00,9,NEUTRAL,,0.65,"The SMA_10 (188.42) and EMA_10 (187.57) are above the SMA_20 (185.18) and EMA_20 (184.90), confirming an uptrend. The RSI_14 (67.59) is approaching overbought territory, suggesting the price is near the upper end of its recent range. The MACD (3.51) is positive but its histogram is negative (-0.05), indicating momentum is slowing.",,"{""upside_downside_summary"": ""Posterior_Trend remains constant at 0.6666666666666666, indicating a persistent bullish bias. Posterior_Up fluctuates between 0.5833333333333334 and 0.5, showing a slight weakening of the bullish probability over the window."", ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window, resulting in a quiet period with minimal volatility."", ""combined_narrative"": ""The SMA_10 (188.42) and EMA_10 (187.57) are above the SMA_20 (185.18) and EMA_20 (184.90), confirming an uptrend. The RSI_14 (67.59) is approaching overbought territory, suggesting the price is near the upper end of its recent range. The MACD (3.51) is positive but its histogram is negative (-0.05), indicating momentum is slowing."", ""stance"": ""NEUTRAL"", ""confidence"": 0.65, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""SMA_10=188.4235641479492"", ""SMA_20=185.17540283203124"", ""RSI_14=67.59098495411595"", ""MACD=3.514420458194337"", ""MACD_hist=-0.0535674892734645""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend remains constant at 0.6666666666666666, indicating a persistent bullish bias. Posterior_Up fluctuates between 0.5833333333333334 and 0.5, showing a slight weakening of the bullish probability over the window."",
+  ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window, resulting in a quiet period with minimal volatility."",
+  ""combined_narrative"": ""The SMA_10 (188.42) and EMA_10 (187.57) are above the SMA_20 (185.18) and EMA_20 (184.90), confirming an uptrend. The RSI_14 (67.59) is approaching overbought territory, suggesting the price is near the upper end of its recent range. The MACD (3.51) is positive but its histogram is negative (-0.05), indicating momentum is slowing."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.65,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""SMA_10=188.4235641479492"",
+    ""SMA_20=185.17540283203124"",
+    ""RSI_14=67.59098495411595"",
+    ""MACD=3.514420458194337"",
+    ""MACD_hist=-0.0535674892734645""
+  ]
+}
+```"
+zai,2,50,AAPL,2023-12-15 00:00:00,2023-12-04 00:00:00,2023-12-15 00:00:00,10,BULLISH,,0.7,"The combination of rising Posterior_Trend and Posterior_Up, alongside a strong price performance, suggests a bullish momentum. The technical indicators (SMA_10, EMA_10) are trending upward, further supporting this view.",,"{""upside_downside_summary"": ""Posterior_Trend and Posterior_Up values increase from 0.5 to 0.6667 over the window, indicating a shift toward higher probability of an upward move. The Prior_Up remains constant at 0.5, suggesting the trend is driven by the recent data rather than prior beliefs."", ""large_move_summary"": ""The only large-move day (Is_Large_Move=True) occurred on 2023-12-05, with a significant price jump from 188.25 to 191.43. This event coincided with a spike in Posterior_Up to 0.81, highlighting its impact on the Bayesian trend."", ""combined_narrative"": ""The combination of rising Posterior_Trend and Posterior_Up, alongside a strong price performance, suggests a bullish momentum. The technical indicators (SMA_10, EMA_10) are trending upward, further supporting this view."", ""stance"": ""BULLISH"", ""confidence"": 0.7, ""grounding"": [""Posterior_Trend=0.6666666666666666"", ""Posterior_Up=0.6666666666666666"", ""Prior_Up=0.5"", ""Is_Large_Move=True"", ""SMA_10=192.66649017333984"", ""EMA_10=193.034172426096""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend and Posterior_Up values increase from 0.5 to 0.6667 over the window, indicating a shift toward higher probability of an upward move. The Prior_Up remains constant at 0.5, suggesting the trend is driven by the recent data rather than prior beliefs."",
+  ""large_move_summary"": ""The only large-move day (Is_Large_Move=True) occurred on 2023-12-05, with a significant price jump from 188.25 to 191.43. This event coincided with a spike in Posterior_Up to 0.81, highlighting its impact on the Bayesian trend."",
+  ""combined_narrative"": ""The combination of rising Posterior_Trend and Posterior_Up, alongside a strong price performance, suggests a bullish momentum. The technical indicators (SMA_10, EMA_10) are trending upward, further supporting this view."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.7,
+  ""grounding"": [
+    ""Posterior_Trend=0.6666666666666666"",
+    ""Posterior_Up=0.6666666666666666"",
+    ""Prior_Up=0.5"",
+    ""Is_Large_Move=True"",
+    ""SMA_10=192.66649017333984"",
+    ""EMA_10=193.034172426096""
+  ]
+}
+```"
+zai,2,51,AAPL,2023-12-29 00:00:00,2023-12-18 00:00:00,2023-12-29 00:00:00,9,BEARISH,,0.75,"Technical indicators show a bearish divergence with the MACD and MACD_hist trending negative, while the RSI is declining from 64.5 to 51.1. The Bayesian indicators (Posterior_Trend and Posterior_Up) have consistently decreased over the window, reflecting a weakening probability of an upside move. This combination of negative momentum and declining Bayesian confidence suggests a higher probability of continued price weakness.",,"{""upside_downside_summary"": ""Posterior_Trend declines from 0.583 to 0.333, indicating a shift from a positive to a neutral probability. Posterior_Up drops from 0.583 to 0.333, suggesting a decreasing likelihood of an upward move. The trend is currently weighted toward the downside."", ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window. The absence of large moves implies the price action was relatively contained, with volatility (Volatility_10d) remaining low."", ""combined_narrative"": ""Technical indicators show a bearish divergence with the MACD and MACD_hist trending negative, while the RSI is declining from 64.5 to 51.1. The Bayesian indicators (Posterior_Trend and Posterior_Up) have consistently decreased over the window, reflecting a weakening probability of an upside move. This combination of negative momentum and declining Bayesian confidence suggests a higher probability of continued price weakness."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""grounding"": [""Posterior_Trend=0.333"", ""Posterior_Up=0.333"", ""RSI_14=51.12135148426651"", ""MACD_hist=-0.8642923724692424"", ""Volatility_10d=0.0049053710383745""]}","```json
+{
+  ""upside_downside_summary"": ""Posterior_Trend declines from 0.583 to 0.333, indicating a shift from a positive to a neutral probability. Posterior_Up drops from 0.583 to 0.333, suggesting a decreasing likelihood of an upward move. The trend is currently weighted toward the downside."",
+  ""large_move_summary"": ""No large-move days (Is_Large_Move=False) were recorded in the window. The absence of large moves implies the price action was relatively contained, with volatility (Volatility_10d) remaining low."",
+  ""combined_narrative"": ""Technical indicators show a bearish divergence with the MACD and MACD_hist trending negative, while the RSI is declining from 64.5 to 51.1. The Bayesian indicators (Posterior_Trend and Posterior_Up) have consistently decreased over the window, reflecting a weakening probability of an upside move. This combination of negative momentum and declining Bayesian confidence suggests a higher probability of continued price weakness."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""grounding"": [
+    ""Posterior_Trend=0.333"",
+    ""Posterior_Up=0.333"",
+    ""RSI_14=51.12135148426651"",
+    ""MACD_hist=-0.8642923724692424"",
+    ""Volatility_10d=0.0049053710383745""
+  ]
+}
+```"

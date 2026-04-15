@@ -1,0 +1,943 @@
+provider,variant,row_index,ticker,date,window_start,window_end,window_n_days,stance,direction,confidence,reason,parse_error,parsed_json,raw_text
+zai,1,0,AAPL,2022-01-14 00:00:00,2022-01-03 00:00:00,2022-01-14 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from 178.10 on January 3 to 169.36 on January 14, a drop of 4.9%. Momentum indicators, including the 10-day SMA (171.13) and EMA (171.29), remained above the price, suggesting a persistent downtrend."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""Price is trading below the 10-day SMA (171.13) and 10-day EMA (171.29), which are both above the current price."", ""The 10-day SMA (171.13) is below the 20-day SMA (null), indicating a bearish crossover pattern."", ""The 10-day volatility (null) is unavailable, but the price decline of 4.9% over 10 days suggests sustained downward pressure.""], ""grounding"": [""Close=169.36"", ""SMA_10=171.13"", ""EMA_10=171.29"", ""Return=-0.049""]}","```json
+{
+  ""window_summary"": ""The price declined from 178.10 on January 3 to 169.36 on January 14, a drop of 4.9%. Momentum indicators, including the 10-day SMA (171.13) and EMA (171.29), remained above the price, suggesting a persistent downtrend."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""Price is trading below the 10-day SMA (171.13) and 10-day EMA (171.29), which are both above the current price."",
+    ""The 10-day SMA (171.13) is below the 20-day SMA (null), indicating a bearish crossover pattern."",
+    ""The 10-day volatility (null) is unavailable, but the price decline of 4.9% over 10 days suggests sustained downward pressure.""
+  ],
+  ""grounding"": [
+    ""Close=169.36"",
+    ""SMA_10=171.13"",
+    ""EMA_10=171.29"",
+    ""Return=-0.049""
+  ]
+}
+```"
+zai,1,1,AAPL,2022-01-28 00:00:00,2022-01-18 00:00:00,2022-01-28 00:00:00,9,BULLISH,,0.7,,,"{""window_summary"": ""The price declined from 166.16 to 155.80 over the first seven days, with volatility decreasing from 0.0138 to 0.0087. The trend reversed sharply on the final day, closing at 166.67 with a 6.98% return and a spike in volatility."", ""stance"": ""BULLISH"", ""confidence"": 0.7, ""reasons"": [""The 10-day SMA (161.13) is below the closing price (166.67), indicating a recent bullish crossover."", ""The 10-day return (0.0698) is positive and significantly higher than the negative returns observed in the previous days."", ""The 10-day volatility (0.0261) increased on the last day, suggesting renewed market interest and potential upward momentum.""], ""grounding"": [""Close=166.67433166503906"", ""Return=0.0697772286803199"", ""Volatility_10d=0.0260768673326936"", ""SMA_10=161.13190765380858""]}","```json
+{
+  ""window_summary"": ""The price declined from 166.16 to 155.80 over the first seven days, with volatility decreasing from 0.0138 to 0.0087. The trend reversed sharply on the final day, closing at 166.67 with a 6.98% return and a spike in volatility."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.7,
+  ""reasons"": [
+    ""The 10-day SMA (161.13) is below the closing price (166.67), indicating a recent bullish crossover."",
+    ""The 10-day return (0.0698) is positive and significantly higher than the negative returns observed in the previous days."",
+    ""The 10-day volatility (0.0261) increased on the last day, suggesting renewed market interest and potential upward momentum.""
+  ],
+  ""grounding"": [
+    ""Close=166.67433166503906"",
+    ""Return=0.0697772286803199"",
+    ""Volatility_10d=0.0260768673326936"",
+    ""SMA_10=161.13190765380858""
+  ]
+}
+```"
+zai,1,2,AAPL,2022-02-11 00:00:00,2022-01-31 00:00:00,2022-02-11 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price action in the window was characterized by a consolidation phase followed by a sharp decline. The stock traded sideways between 168 and 172 for the first half of the period before dropping to 165.23 by the end of the window, marking a net loss of approximately 3.5%."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) peaked at 169.96 on 2022-02-10 and declined to 169.81 on the last day, indicating a downtrend."", ""The MACD line fell from -0.617 to -0.402, while the MACD signal line dropped from -0.617 to -0.402, with the histogram turning negative and expanding."", ""The RSI_14 dropped from 58.41 to 43.92, exiting the neutral zone and entering oversold territory, signaling weakening momentum.""], ""grounding"": [""SMA_10=169.95684051513672"", ""SMA_10=169.81249389648437"", ""MACD=-0.6172569073721661"", ""MACD=-0.4021020770330779"", ""RSI_14=58.41118240766996"", ""RSI_14=43.9175135137968""]}","```json
+{
+  ""window_summary"": ""The price action in the window was characterized by a consolidation phase followed by a sharp decline. The stock traded sideways between 168 and 172 for the first half of the period before dropping to 165.23 by the end of the window, marking a net loss of approximately 3.5%."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) peaked at 169.96 on 2022-02-10 and declined to 169.81 on the last day, indicating a downtrend."",
+    ""The MACD line fell from -0.617 to -0.402, while the MACD signal line dropped from -0.617 to -0.402, with the histogram turning negative and expanding."",
+    ""The RSI_14 dropped from 58.41 to 43.92, exiting the neutral zone and entering oversold territory, signaling weakening momentum.""
+  ],
+  ""grounding"": [
+    ""SMA_10=169.95684051513672"",
+    ""SMA_10=169.81249389648437"",
+    ""MACD=-0.6172569073721661"",
+    ""MACD=-0.4021020770330779"",
+    ""RSI_14=58.41118240766996"",
+    ""RSI_14=43.9175135137968""
+  ]
+}
+```"
+zai,1,3,AAPL,2022-02-25 00:00:00,2022-02-14 00:00:00,2022-02-25 00:00:00,9,NEUTRAL,,0.65,,,"{""window_summary"": ""The price declined from a high of 169.30 on February 15 to a low of 148.93 on February 24, followed by a recovery to 161.52 on February 25. Momentum indicators, including MACD and RSI, deteriorated significantly during the decline and only began to stabilize near the end of the window."", ""stance"": ""NEUTRAL"", ""confidence"": 0.65, ""reasons"": [""The price recovered from the February 24 low, closing above the February 15 open."", ""RSI and MACD signals improved from extreme bearish levels on February 24 to less extreme levels on February 25."", ""The 10-day volatility remained elevated and stable throughout the window, indicating continued uncertainty.""], ""grounding"": [""Close=161.52"", ""Low=148.93"", ""RSI_14=42.67"", ""MACD=-2.14"", ""Volatility_10d=0.01747""]}","```json
+{
+  ""window_summary"": ""The price declined from a high of 169.30 on February 15 to a low of 148.93 on February 24, followed by a recovery to 161.52 on February 25. Momentum indicators, including MACD and RSI, deteriorated significantly during the decline and only began to stabilize near the end of the window."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.65,
+  ""reasons"": [
+    ""The price recovered from the February 24 low, closing above the February 15 open."",
+    ""RSI and MACD signals improved from extreme bearish levels on February 24 to less extreme levels on February 25."",
+    ""The 10-day volatility remained elevated and stable throughout the window, indicating continued uncertainty.""
+  ],
+  ""grounding"": [
+    ""Close=161.52"",
+    ""Low=148.93"",
+    ""RSI_14=42.67"",
+    ""MACD=-2.14"",
+    ""Volatility_10d=0.01747""
+  ]
+}
+```"
+zai,1,4,AAPL,2022-03-11 00:00:00,2022-02-28 00:00:00,2022-03-11 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from 161.78 to 151.60, a drop of 6.28%, while momentum indicators like MACD and RSI deteriorated, suggesting a weakening trend."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) trended downward from 163.38 to 158.45, indicating a bearish price structure."", ""The MACD line remained below the signal line throughout the window, with the histogram growing more negative, confirming bearish momentum."", ""The RSI_14 fell from 43.19 to 35.46, moving further into oversold territory and signaling weakening buying pressure.""], ""grounding"": [""SMA_10=158.4527099609375"", ""MACD=-3.195890553756982"", ""RSI_14=35.46134766829968""]}","```json
+{
+  ""window_summary"": ""The price declined from 161.78 to 151.60, a drop of 6.28%, while momentum indicators like MACD and RSI deteriorated, suggesting a weakening trend."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) trended downward from 163.38 to 158.45, indicating a bearish price structure."",
+    ""The MACD line remained below the signal line throughout the window, with the histogram growing more negative, confirming bearish momentum."",
+    ""The RSI_14 fell from 43.19 to 35.46, moving further into oversold territory and signaling weakening buying pressure.""
+  ],
+  ""grounding"": [
+    ""SMA_10=158.4527099609375"",
+    ""MACD=-3.195890553756982"",
+    ""RSI_14=35.46134766829968""
+  ]
+}
+```"
+zai,1,5,AAPL,2022-03-25 00:00:00,2022-03-14 00:00:00,2022-03-25 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price advanced from 147.58 to 171.19, a gain of 15.9%, while volatility decreased from 2.12% to 1.66% over the 10-day period. Momentum indicators, including RSI and MACD, strengthened significantly, moving from neutral to overbought levels."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""RSI_14 increased from 31.75 to 63.33, indicating strengthening bullish momentum."", ""MACD_hist increased from -1.07 to 2.16, showing a strong positive trend."", ""Close price consistently traded above SMA_10 and SMA_20, confirming an uptrend.""], ""grounding"": [""Close=147.58 to Close=171.19"", ""RSI_14=31.75 to RSI_14=63.33"", ""MACD_hist=-1.07 to MACD_hist=2.16"", ""Close>SMA_10"", ""Close>SMA_20""]}","```json
+{
+  ""window_summary"": ""The price advanced from 147.58 to 171.19, a gain of 15.9%, while volatility decreased from 2.12% to 1.66% over the 10-day period. Momentum indicators, including RSI and MACD, strengthened significantly, moving from neutral to overbought levels."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""RSI_14 increased from 31.75 to 63.33, indicating strengthening bullish momentum."",
+    ""MACD_hist increased from -1.07 to 2.16, showing a strong positive trend."",
+    ""Close price consistently traded above SMA_10 and SMA_20, confirming an uptrend.""
+  ],
+  ""grounding"": [
+    ""Close=147.58 to Close=171.19"",
+    ""RSI_14=31.75 to RSI_14=63.33"",
+    ""MACD_hist=-1.07 to MACD_hist=2.16"",
+    ""Close>SMA_10"",
+    ""Close>SMA_20""
+  ]
+}
+```"
+zai,1,6,AAPL,2022-04-08 00:00:00,2022-03-28 00:00:00,2022-04-08 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from a high of 175.34 on March 29 to a low of 166.65 on April 8, a drop of approximately 5.1%. Momentum indicators, including the MACD and RSI, weakened significantly over the period, with the MACD turning negative and the RSI falling below 50 by the end of the window."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The MACD turned negative on the last day (-0.128), indicating a shift in momentum from positive to negative."", ""The RSI dropped to 49.93 on the last day, falling below the 50 threshold which often signals a shift from bullish to bearish sentiment."", ""The 10-day Simple Moving Average (SMA_10) ended at 171.35, which is below the closing price of 166.65, confirming a downtrend over the window.""], ""grounding"": [""SMA_10=171.345703125"", ""RSI_14=49.92765482340104"", ""MACD=-0.1284246417536421"", ""Close=166.65155029296875""]}","{""window_summary"": ""The price declined from a high of 175.34 on March 29 to a low of 166.65 on April 8, a drop of approximately 5.1%. Momentum indicators, including the MACD and RSI, weakened significantly over the period, with the MACD turning negative and the RSI falling below 50 by the end of the window."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The MACD turned negative on the last day (-0.128), indicating a shift in momentum from positive to negative."", ""The RSI dropped to 49.93 on the last day, falling below the 50 threshold which often signals a shift from bullish to bearish sentiment."", ""The 10-day Simple Moving Average (SMA_10) ended at 171.35, which is below the closing price of 166.65, confirming a downtrend over the window.""], ""grounding"": [""SMA_10=171.345703125"", ""RSI_14=49.92765482340104"", ""MACD=-0.1284246417536421"", ""Close=166.65155029296875""]}"
+zai,1,7,AAPL,2022-04-22 00:00:00,2022-04-11 00:00:00,2022-04-22 00:00:00,9,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from 162.40 to 158.52, a drop of approximately 2.4%, while momentum indicators like MACD and RSI deteriorated significantly, with MACD turning negative and RSI falling below 40."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on April 12, signaling a short-term downtrend."", ""The MACD line dropped below the signal line on April 12 and remained negative throughout the window, indicating weakening momentum."", ""The RSI_14 fell from 43.9 to 39.8, moving out of the neutral zone and into oversold territory, suggesting weakening buying pressure.""], ""grounding"": [""SMA_10=163.34, SMA_20=167.57"", ""MACD=-0.85, MACD_signal=0.23"", ""RSI_14=39.83""]}","```json
+{
+  ""window_summary"": ""The price declined from 162.40 to 158.52, a drop of approximately 2.4%, while momentum indicators like MACD and RSI deteriorated significantly, with MACD turning negative and RSI falling below 40."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on April 12, signaling a short-term downtrend."",
+    ""The MACD line dropped below the signal line on April 12 and remained negative throughout the window, indicating weakening momentum."",
+    ""The RSI_14 fell from 43.9 to 39.8, moving out of the neutral zone and into oversold territory, suggesting weakening buying pressure.""
+  ],
+  ""grounding"": [
+    ""SMA_10=163.34, SMA_20=167.57"",
+    ""MACD=-0.85, MACD_signal=0.23"",
+    ""RSI_14=39.83""
+  ]
+}
+```"
+zai,1,8,AAPL,2022-05-06 00:00:00,2022-04-25 00:00:00,2022-05-06 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from 159.59 to 154.33, a drop of 3.29%, while volatility increased from 0.0177 to 0.0328. Momentum indicators, including the MACD and RSI, remained negative throughout the period."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) trended downward from 162.63 to 156.30, indicating a consistent bearish price structure."", ""The MACD remained negative (-2.57) and the MACD histogram expanded from -1.09 to -0.45, signaling weakening momentum."", ""The 10-day volatility (Volatility_10d) increased from 0.0177 to 0.0328, reflecting rising price instability.""], ""grounding"": [""SMA_10=156.30"", ""MACD=-2.57"", ""Volatility_10d=0.0328""]}","```json
+{
+  ""window_summary"": ""The price declined from 159.59 to 154.33, a drop of 3.29%, while volatility increased from 0.0177 to 0.0328. Momentum indicators, including the MACD and RSI, remained negative throughout the period."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) trended downward from 162.63 to 156.30, indicating a consistent bearish price structure."",
+    ""The MACD remained negative (-2.57) and the MACD histogram expanded from -1.09 to -0.45, signaling weakening momentum."",
+    ""The 10-day volatility (Volatility_10d) increased from 0.0177 to 0.0328, reflecting rising price instability.""
+  ],
+  ""grounding"": [
+    ""SMA_10=156.30"",
+    ""MACD=-2.57"",
+    ""Volatility_10d=0.0328""
+  ]
+}
+```"
+zai,1,9,AAPL,2022-05-20 00:00:00,2022-05-09 00:00:00,2022-05-20 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 149.20 to 135.01, a drop of approximately 9.5%, while momentum indicators like MACD and RSI deteriorated significantly, suggesting a weakening trend."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on May 12, signaling a bearish trend shift."", ""The MACD line remained below the signal line throughout the window, with the histogram turning increasingly negative."", ""The 10-day volatility (Volatility_10d) remained elevated, indicating continued price instability.""], ""grounding"": [""SMA_10=142.59933319091795"", ""SMA_20=149.45125427246094"", ""MACD=-6.488801015236078"", ""MACD_signal=-5.084260381655017"", ""Volatility_10d=0.0310805681817741""]}","```json
+{
+  ""window_summary"": ""The price declined from 149.20 to 135.01, a drop of approximately 9.5%, while momentum indicators like MACD and RSI deteriorated significantly, suggesting a weakening trend."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on May 12, signaling a bearish trend shift."",
+    ""The MACD line remained below the signal line throughout the window, with the histogram turning increasingly negative."",
+    ""The 10-day volatility (Volatility_10d) remained elevated, indicating continued price instability.""
+  ],
+  ""grounding"": [
+    ""SMA_10=142.59933319091795"",
+    ""SMA_20=149.45125427246094"",
+    ""MACD=-6.488801015236078"",
+    ""MACD_signal=-5.084260381655017"",
+    ""Volatility_10d=0.0310805681817741""
+  ]
+}
+```"
+zai,1,10,AAPL,2022-06-03 00:00:00,2022-05-23 00:00:00,2022-06-03 00:00:00,9,BULLISH,,0.75,,,"{""window_summary"": ""The price trend was generally upward, starting at 140.42 and ending at 142.65, with a notable intraday peak of 148.43 on June 2. Momentum indicators, including MACD and RSI, showed a strong upward shift from negative to positive values, culminating in a high RSI of 51.16 on June 2."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""RSI_14 rose from 38.08 to 51.16, indicating increasing buying pressure."", ""MACD_hist turned positive and increased to 1.53 on June 2, signaling strong momentum."", ""Close price consistently traded above the SMA_20 (ranging from 137.72 to 148.37).""], ""grounding"": [""RSI_14=51.15524401396977"", ""MACD_hist=1.533130599876844"", ""Close=148.37091064453125"", ""SMA_20=143.909757232666""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, starting at 140.42 and ending at 142.65, with a notable intraday peak of 148.43 on June 2. Momentum indicators, including MACD and RSI, showed a strong upward shift from negative to positive values, culminating in a high RSI of 51.16 on June 2."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""RSI_14 rose from 38.08 to 51.16, indicating increasing buying pressure."",
+    ""MACD_hist turned positive and increased to 1.53 on June 2, signaling strong momentum."",
+    ""Close price consistently traded above the SMA_20 (ranging from 137.72 to 148.37).""
+  ],
+  ""grounding"": [
+    ""RSI_14=51.15524401396977"",
+    ""MACD_hist=1.533130599876844"",
+    ""Close=148.37091064453125"",
+    ""SMA_20=143.909757232666""
+  ]
+}
+```"
+zai,1,11,AAPL,2022-06-17 00:00:00,2022-06-06 00:00:00,2022-06-17 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 143.40 to 129.09, a drop of 10.1%, driven by a bearish trend where the 10-day SMA (143.03) consistently stayed above the price. Momentum indicators like MACD and RSI deteriorated significantly, with MACD dropping from -2.75 to -5.07 and RSI falling from 45.69 to 36.03, indicating weakening bullish pressure."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day SMA (143.03) remained above the closing price for the entire window, acting as a dynamic resistance level."", ""MACD and MACD_signal lines crossed and stayed below zero, with the MACD histogram deepening to -0.98, signaling sustained selling pressure."", ""RSI declined from 45.69 to 36.03, moving out of the neutral zone and into oversold territory, which typically precedes further downside.""], ""grounding"": [""SMA_10=143.03"", ""Close=129.09"", ""MACD=-5.07"", ""RSI_14=36.03""]}","```json
+{
+  ""window_summary"": ""The price declined from 143.40 to 129.09, a drop of 10.1%, driven by a bearish trend where the 10-day SMA (143.03) consistently stayed above the price. Momentum indicators like MACD and RSI deteriorated significantly, with MACD dropping from -2.75 to -5.07 and RSI falling from 45.69 to 36.03, indicating weakening bullish pressure."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day SMA (143.03) remained above the closing price for the entire window, acting as a dynamic resistance level."",
+    ""MACD and MACD_signal lines crossed and stayed below zero, with the MACD histogram deepening to -0.98, signaling sustained selling pressure."",
+    ""RSI declined from 45.69 to 36.03, moving out of the neutral zone and into oversold territory, which typically precedes further downside.""
+  ],
+  ""grounding"": [
+    ""SMA_10=143.03"",
+    ""Close=129.09"",
+    ""MACD=-5.07"",
+    ""RSI_14=36.03""
+  ]
+}
+```"
+zai,1,12,AAPL,2022-07-01 00:00:00,2022-06-21 00:00:00,2022-07-01 00:00:00,9,NEUTRAL,,0.65,,,"{""window_summary"": ""The price action was characterized by a consolidation phase, starting with a sharp rally from 130.92 to 139.00 on June 21-24, followed by a consolidation and slight decline to 134.16 on June 30. Momentum indicators, including the MACD and RSI, showed a strong upward trend during the initial rally, which then flattened and turned slightly bearish as the price stabilized."", ""stance"": ""NEUTRAL"", ""confidence"": 0.65, ""reasons"": [""The price consolidated between 134.16 and 139.00, failing to break above the June 24 high of 139.00."", ""The MACD and MACD_signal lines converged and flattened, indicating a loss of upward momentum."", ""The 10-day volatility (Volatility_10d) declined from 0.0286 to 0.0196, suggesting reduced price movement.""], ""grounding"": [""Close=139.00021362304688"", ""Close=134.15296936035156"", ""MACD=-2.540567523214776"", ""MACD_signal=-3.29879765102702"", ""Volatility_10d=0.0285543910878631"", ""Volatility_10d=0.0196337116335776""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a consolidation phase, starting with a sharp rally from 130.92 to 139.00 on June 21-24, followed by a consolidation and slight decline to 134.16 on June 30. Momentum indicators, including the MACD and RSI, showed a strong upward trend during the initial rally, which then flattened and turned slightly bearish as the price stabilized."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.65,
+  ""reasons"": [
+    ""The price consolidated between 134.16 and 139.00, failing to break above the June 24 high of 139.00."",
+    ""The MACD and MACD_signal lines converged and flattened, indicating a loss of upward momentum."",
+    ""The 10-day volatility (Volatility_10d) declined from 0.0286 to 0.0196, suggesting reduced price movement.""
+  ],
+  ""grounding"": [
+    ""Close=139.00021362304688"",
+    ""Close=134.15296936035156"",
+    ""MACD=-2.540567523214776"",
+    ""MACD_signal=-3.29879765102702"",
+    ""Volatility_10d=0.0285543910878631"",
+    ""Volatility_10d=0.0196337116335776""
+  ]
+}
+```"
+zai,1,13,AAPL,2022-07-15 00:00:00,2022-07-05 00:00:00,2022-07-15 00:00:00,9,BULLISH,,0.85,,,"{""window_summary"": ""The price of AAPL exhibited a strong upward trend, rising from 138.90 on 2022-07-05 to 147.35 on 2022-07-15, with a cumulative return of 6.16%. Momentum indicators, including RSI and MACD, strengthened significantly over the period, while volatility decreased."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""RSI_14 increased from 50.84 to 61.08, indicating strengthening bullish momentum."", ""MACD moved from -1.88 to 1.36, crossing above its signal line to signal positive momentum."", ""Price consistently closed above the SMA_20 (135.74 to 138.33) and SMA_50 (143.07 to 141.03), confirming an uptrend.""], ""grounding"": [""Close=138.90 (2022-07-05)"", ""Close=147.35 (2022-07-15)"", ""Return=0.0616"", ""RSI_14=50.84 (2022-07-05)"", ""RSI_14=61.08 (2022-07-15)"", ""MACD=-1.88 (2022-07-05)"", ""MACD=1.36 (2022-07-15)"", ""SMA_20=135.74 (2022-07-05)"", ""SMA_20=138.33 (2022-07-15)""]}","```json
+{
+  ""window_summary"": ""The price of AAPL exhibited a strong upward trend, rising from 138.90 on 2022-07-05 to 147.35 on 2022-07-15, with a cumulative return of 6.16%. Momentum indicators, including RSI and MACD, strengthened significantly over the period, while volatility decreased."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""RSI_14 increased from 50.84 to 61.08, indicating strengthening bullish momentum."",
+    ""MACD moved from -1.88 to 1.36, crossing above its signal line to signal positive momentum."",
+    ""Price consistently closed above the SMA_20 (135.74 to 138.33) and SMA_50 (143.07 to 141.03), confirming an uptrend.""
+  ],
+  ""grounding"": [
+    ""Close=138.90 (2022-07-05)"",
+    ""Close=147.35 (2022-07-15)"",
+    ""Return=0.0616"",
+    ""RSI_14=50.84 (2022-07-05)"",
+    ""RSI_14=61.08 (2022-07-15)"",
+    ""MACD=-1.88 (2022-07-05)"",
+    ""MACD=1.36 (2022-07-15)"",
+    ""SMA_20=135.74 (2022-07-05)"",
+    ""SMA_20=138.33 (2022-07-15)""
+  ]
+}
+```"
+zai,1,14,AAPL,2022-07-29 00:00:00,2022-07-18 00:00:00,2022-07-29 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price trend was upward, starting at 144.31 and ending at 159.46, with a net gain of 3.45%. Momentum indicators, including the 10-day SMA, EMA, and MACD, all showed a consistent upward trajectory, while volatility remained relatively low."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day SMA (151.28) and EMA (151.73) are both trending upward and are currently above the 20-day SMA (146.86), indicating a strong bullish trend."", ""The MACD (4.02) and MACD signal (2.83) are both positive and increasing, with the histogram growing, suggesting strong upward momentum."", ""The RSI (70.17) is in the upper range, indicating the stock is overbought, which often precedes continued price appreciation in a strong uptrend.""], ""grounding"": [""Close=159.45872497558594"", ""SMA_10=151.28022003173828"", ""EMA_10=151.730702813002"", ""MACD=4.016054227114978"", ""RSI_14=70.16633785588546""]}","```json
+{
+  ""window_summary"": ""The price trend was upward, starting at 144.31 and ending at 159.46, with a net gain of 3.45%. Momentum indicators, including the 10-day SMA, EMA, and MACD, all showed a consistent upward trajectory, while volatility remained relatively low."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day SMA (151.28) and EMA (151.73) are both trending upward and are currently above the 20-day SMA (146.86), indicating a strong bullish trend."",
+    ""The MACD (4.02) and MACD signal (2.83) are both positive and increasing, with the histogram growing, suggesting strong upward momentum."",
+    ""The RSI (70.17) is in the upper range, indicating the stock is overbought, which often precedes continued price appreciation in a strong uptrend.""
+  ],
+  ""grounding"": [
+    ""Close=159.45872497558594"",
+    ""SMA_10=151.28022003173828"",
+    ""EMA_10=151.730702813002"",
+    ""MACD=4.016054227114978"",
+    ""RSI_14=70.16633785588546""
+  ]
+}
+```"
+zai,1,15,AAPL,2022-08-12 00:00:00,2022-08-01 00:00:00,2022-08-12 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price trend was generally upward, with the close price rising from 158.48 to 169.10, supported by a rising 10-day Simple Moving Average (SMA_10) from 152.70 to 162.87. Momentum indicators, including RSI_14 and MACD, showed a strengthening trend, with RSI_14 increasing from 68.06 to 74.62 and MACD rising from 4.33 to 5.95. Volatility remained relatively contained, with the 10-day volatility metric decreasing from 0.01735 to 0.01635."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day SMA_10 (152.70 to 162.87) is trending upward and remains above the 20-day SMA_20 (147.97 to 157.07), indicating a positive short-term trend."", ""RSI_14 has been rising steadily from 68.06 to 74.62, staying in the bullish zone and showing increasing buying pressure."", ""MACD has increased from 4.33 to 5.95, and the MACD histogram has expanded from 1.20 to 0.75, signaling strengthening momentum.""], ""grounding"": [""Close=169.1032257080078"", ""SMA_10=162.86611785888672"", ""SMA_20=157.0731689453125"", ""RSI_14=74.61618643903402"", ""MACD=5.950084489177044"", ""Volatility_10d=0.016347135490353""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, with the close price rising from 158.48 to 169.10, supported by a rising 10-day Simple Moving Average (SMA_10) from 152.70 to 162.87. Momentum indicators, including RSI_14 and MACD, showed a strengthening trend, with RSI_14 increasing from 68.06 to 74.62 and MACD rising from 4.33 to 5.95. Volatility remained relatively contained, with the 10-day volatility metric decreasing from 0.01735 to 0.01635."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day SMA_10 (152.70 to 162.87) is trending upward and remains above the 20-day SMA_20 (147.97 to 157.07), indicating a positive short-term trend."",
+    ""RSI_14 has been rising steadily from 68.06 to 74.62, staying in the bullish zone and showing increasing buying pressure."",
+    ""MACD has increased from 4.33 to 5.95, and the MACD histogram has expanded from 1.20 to 0.75, signaling strengthening momentum.""
+  ],
+  ""grounding"": [
+    ""Close=169.1032257080078"",
+    ""SMA_10=162.86611785888672"",
+    ""SMA_20=157.0731689453125"",
+    ""RSI_14=74.61618643903402"",
+    ""MACD=5.950084489177044"",
+    ""Volatility_10d=0.016347135490353""
+  ]
+}
+```"
+zai,1,16,AAPL,2022-08-26 00:00:00,2022-08-15 00:00:00,2022-08-26 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price trend was generally upward, peaking at 171.51 on August 17 before declining to 160.77 by the window's end. Momentum indicators, including the MACD and RSI, showed a strong bullish trend in the first half of the window, which reversed to bearish in the latter half."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The MACD turned negative on August 22 and continued to decline, with the histogram dropping below -1.0."", ""The RSI dropped from 76.52 to 48.99, crossing below the 50 threshold."", ""The 10-day SMA (167.28) is currently below the 20-day SMA (165.07), indicating a bearish crossover.""], ""grounding"": [""Close=171.51"", ""Close=160.77"", ""MACD=-1.3307678241092171"", ""RSI_14=48.98873733889331"", ""SMA_10=167.27758331298827"", ""SMA_20=165.0718505859375""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, peaking at 171.51 on August 17 before declining to 160.77 by the window's end. Momentum indicators, including the MACD and RSI, showed a strong bullish trend in the first half of the window, which reversed to bearish in the latter half."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The MACD turned negative on August 22 and continued to decline, with the histogram dropping below -1.0."",
+    ""The RSI dropped from 76.52 to 48.99, crossing below the 50 threshold."",
+    ""The 10-day SMA (167.28) is currently below the 20-day SMA (165.07), indicating a bearish crossover.""
+  ],
+  ""grounding"": [
+    ""Close=171.51"",
+    ""Close=160.77"",
+    ""MACD=-1.3307678241092171"",
+    ""RSI_14=48.98873733889331"",
+    ""SMA_10=167.27758331298827"",
+    ""SMA_20=165.0718505859375""
+  ]
+}
+```"
+zai,1,17,AAPL,2022-09-09 00:00:00,2022-08-29 00:00:00,2022-09-09 00:00:00,9,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 158.57 to 154.63, a drop of approximately 2.5%, while momentum indicators like MACD and RSI deteriorated significantly, turning negative by the end of the period."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The MACD value turned negative (-1.51) and the MACD histogram remained deep in negative territory (-1.67), indicating sustained downward momentum."", ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20), a bearish signal often associated with short-term downtrends."", ""The RSI_14 value dropped to 43.8, moving out of the neutral zone and into the lower range, suggesting weakening buying pressure.""], ""grounding"": [""Close=154.6297149658203"", ""MACD=-1.5123080836869178"", ""MACD_hist=-1.6657405542555663"", ""SMA_10=154.9755889892578"", ""SMA_20=161.54320220947267"", ""RSI_14=43.80813278782459""]}","```json
+{
+  ""window_summary"": ""The price declined from 158.57 to 154.63, a drop of approximately 2.5%, while momentum indicators like MACD and RSI deteriorated significantly, turning negative by the end of the period."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The MACD value turned negative (-1.51) and the MACD histogram remained deep in negative territory (-1.67), indicating sustained downward momentum."",
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20), a bearish signal often associated with short-term downtrends."",
+    ""The RSI_14 value dropped to 43.8, moving out of the neutral zone and into the lower range, suggesting weakening buying pressure.""
+  ],
+  ""grounding"": [
+    ""Close=154.6297149658203"",
+    ""MACD=-1.5123080836869178"",
+    ""MACD_hist=-1.6657405542555663"",
+    ""SMA_10=154.9755889892578"",
+    ""SMA_20=161.54320220947267"",
+    ""RSI_14=43.80813278782459""
+  ]
+}
+```"
+zai,1,18,AAPL,2022-09-23 00:00:00,2022-09-12 00:00:00,2022-09-23 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 160.58 to 147.81, a drop of 7.96%, while momentum indicators like MACD and RSI deteriorated significantly, suggesting a sustained downtrend."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on 2022-09-13, signaling a bearish trend shift."", ""The MACD line remained below the signal line throughout the window, with the histogram remaining negative and deepening."", ""The RSI_14 dropped from 54.43 to 40.08, moving from neutral territory into the oversold range.""], ""grounding"": [""Close=160.5841827392578"", ""Close=147.810546875"", ""SMA_10=154.95691680908203"", ""SMA_20=161.11725006103515"", ""MACD=-1.0603729057634157"", ""MACD_signal=-0.0893286046977643"", ""RSI_14=54.4268239120491"", ""RSI_14=40.07744362155413""]}","```json
+{
+  ""window_summary"": ""The price declined from 160.58 to 147.81, a drop of 7.96%, while momentum indicators like MACD and RSI deteriorated significantly, suggesting a sustained downtrend."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on 2022-09-13, signaling a bearish trend shift."",
+    ""The MACD line remained below the signal line throughout the window, with the histogram remaining negative and deepening."",
+    ""The RSI_14 dropped from 54.43 to 40.08, moving from neutral territory into the oversold range.""
+  ],
+  ""grounding"": [
+    ""Close=160.5841827392578"",
+    ""Close=147.810546875"",
+    ""SMA_10=154.95691680908203"",
+    ""SMA_20=161.11725006103515"",
+    ""MACD=-1.0603729057634157"",
+    ""MACD_signal=-0.0893286046977643"",
+    ""RSI_14=54.4268239120491"",
+    ""RSI_14=40.07744362155413""
+  ]
+}
+```"
+zai,1,19,AAPL,2022-10-07 00:00:00,2022-09-26 00:00:00,2022-10-07 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 148.14 to 137.65, a drop of 7.1%, driven by a bearish trend in the 10-day Simple Moving Average (SMA_10) which fell from 150.46 to 142.82. Momentum indicators, including MACD and RSI_14, deteriorated significantly, with MACD dropping from -2.55 to -4.16 and RSI_14 falling from 40.67 to 35.51, indicating weakening bullish pressure. Volatility increased from 0.0235 to 0.0260, reflecting heightened price instability during the period."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day SMA (142.82) is below the 20-day SMA (147.26), indicating a bearish trend."", ""MACD (-4.16) is below its signal line (-3.65) and has trended lower over the window."", ""RSI_14 (35.51) is in the oversold territory, suggesting continued selling pressure.""], ""grounding"": [""SMA_10=142.82098999023438"", ""SMA_20=147.26228408813478"", ""MACD=-4.158668742601122"", ""MACD_signal=-3.6492299908767976"", ""RSI_14=35.51011740944287"", ""Close=137.6505889892578""]}","```json
+{
+  ""window_summary"": ""The price declined from 148.14 to 137.65, a drop of 7.1%, driven by a bearish trend in the 10-day Simple Moving Average (SMA_10) which fell from 150.46 to 142.82. Momentum indicators, including MACD and RSI_14, deteriorated significantly, with MACD dropping from -2.55 to -4.16 and RSI_14 falling from 40.67 to 35.51, indicating weakening bullish pressure. Volatility increased from 0.0235 to 0.0260, reflecting heightened price instability during the period."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day SMA (142.82) is below the 20-day SMA (147.26), indicating a bearish trend."",
+    ""MACD (-4.16) is below its signal line (-3.65) and has trended lower over the window."",
+    ""RSI_14 (35.51) is in the oversold territory, suggesting continued selling pressure.""
+  ],
+  ""grounding"": [
+    ""SMA_10=142.82098999023438"",
+    ""SMA_20=147.26228408813478"",
+    ""MACD=-4.158668742601122"",
+    ""MACD_signal=-3.6492299908767976"",
+    ""RSI_14=35.51011740944287"",
+    ""Close=137.6505889892578""
+  ]
+}
+```"
+zai,1,20,AAPL,2022-10-21 00:00:00,2022-10-10 00:00:00,2022-10-21 00:00:00,10,NEUTRAL,,0.65,,,"{""window_summary"": ""The price action was characterized by a consolidation phase with a slight downward bias, oscillating between 135.97 and 141.25. Momentum indicators, specifically MACD and RSI, showed a clear divergence, with RSI rising to overbought levels while MACD remained negative, suggesting weakening bullish pressure."", ""stance"": ""NEUTRAL"", ""confidence"": 0.65, ""reasons"": [""RSI_14 increased from 33.98 to 51.36, indicating rising price strength, but MACD remained negative throughout the window."", ""MACD_hist oscillated from negative to positive, but the MACD and MACD_signal lines remained below zero."", ""Price volatility decreased from 0.0259 to 0.0203, suggesting a period of low uncertainty.""], ""grounding"": [""RSI_14=51.36266905159177"", ""MACD=-2.4894979126295027"", ""MACD_signal=-3.4927203311772"", ""MACD_hist=1.0032224185476974"", ""Volatility_10d=0.0203068217619656""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a consolidation phase with a slight downward bias, oscillating between 135.97 and 141.25. Momentum indicators, specifically MACD and RSI, showed a clear divergence, with RSI rising to overbought levels while MACD remained negative, suggesting weakening bullish pressure."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.65,
+  ""reasons"": [
+    ""RSI_14 increased from 33.98 to 51.36, indicating rising price strength, but MACD remained negative throughout the window."",
+    ""MACD_hist oscillated from negative to positive, but the MACD and MACD_signal lines remained below zero."",
+    ""Price volatility decreased from 0.0259 to 0.0203, suggesting a period of low uncertainty.""
+  ],
+  ""grounding"": [
+    ""RSI_14=51.36266905159177"",
+    ""MACD=-2.4894979126295027"",
+    ""MACD_signal=-3.4927203311772"",
+    ""MACD_hist=1.0032224185476974"",
+    ""Volatility_10d=0.0203068217619656""
+  ]
+}
+```"
+zai,1,21,AAPL,2022-11-04 00:00:00,2022-10-24 00:00:00,2022-11-04 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price action was characterized by a sharp upward move from October 24 to October 28, followed by a steady decline over the subsequent four days. Momentum indicators, including the MACD and RSI, peaked during the October 28 rally and subsequently deteriorated as the price fell, with the RSI dropping below 50."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The MACD histogram turned negative on November 4, indicating bearish momentum."", ""The RSI fell below 50 on November 4, suggesting weakening buying pressure."", ""The price closed below the 10-day Simple Moving Average (SMA_10) on November 4.""], ""grounding"": [""MACD_hist=-0.3940660818497024"", ""RSI_14=40.56360117453848"", ""Close=136.19595336914062"", ""SMA_10=145.2449951171875""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a sharp upward move from October 24 to October 28, followed by a steady decline over the subsequent four days. Momentum indicators, including the MACD and RSI, peaked during the October 28 rally and subsequently deteriorated as the price fell, with the RSI dropping below 50."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The MACD histogram turned negative on November 4, indicating bearish momentum."",
+    ""The RSI fell below 50 on November 4, suggesting weakening buying pressure."",
+    ""The price closed below the 10-day Simple Moving Average (SMA_10) on November 4.""
+  ],
+  ""grounding"": [
+    ""MACD_hist=-0.3940660818497024"",
+    ""RSI_14=40.56360117453848"",
+    ""Close=136.19595336914062"",
+    ""SMA_10=145.2449951171875""
+  ]
+}
+```"
+zai,1,22,AAPL,2022-11-18 00:00:00,2022-11-07 00:00:00,2022-11-18 00:00:00,10,BULLISH,,0.75,,,"{""window_summary"": ""The price trend was generally upward, with a notable rally on November 10 that pushed the close to a 10-day high of 144.55. However, the momentum indicators, specifically MACD and RSI, remained negative or near zero throughout the period, failing to confirm the price strength until the very end of the window."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on November 10, signaling a short-term bullish trend."", ""The MACD histogram turned positive on November 17 and expanded further on November 18, indicating a shift in momentum."", ""The RSI (RSI_14) rose from a low of 37.56 to a high of 56.07, breaking out of the oversold range.""], ""grounding"": [""Close=144.55194091796875"", ""SMA_10=141.8206024169922"", ""SMA_20=142.39351272583008"", ""MACD_hist=1.044573545251184"", ""RSI_14=56.06569331983256""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, with a notable rally on November 10 that pushed the close to a 10-day high of 144.55. However, the momentum indicators, specifically MACD and RSI, remained negative or near zero throughout the period, failing to confirm the price strength until the very end of the window."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on November 10, signaling a short-term bullish trend."",
+    ""The MACD histogram turned positive on November 17 and expanded further on November 18, indicating a shift in momentum."",
+    ""The RSI (RSI_14) rose from a low of 37.56 to a high of 56.07, breaking out of the oversold range.""
+  ],
+  ""grounding"": [
+    ""Close=144.55194091796875"",
+    ""SMA_10=141.8206024169922"",
+    ""SMA_20=142.39351272583008"",
+    ""MACD_hist=1.044573545251184"",
+    ""RSI_14=56.06569331983256""
+  ]
+}
+```"
+zai,1,23,AAPL,2022-12-02 00:00:00,2022-11-21 00:00:00,2022-12-02 00:00:00,9,BULLISH,,0.75,,,"{""window_summary"": ""The price action was characterized by a consolidation phase with a slight upward bias, fluctuating between a low of 138.34 and a high of 146.77. Momentum indicators, including the 10-day Exponential Moving Average (EMA_10) and the 10-day Simple Moving Average (SMA_10), consistently tracked above the 20-day averages, indicating a prevailing uptrend. Despite a sharp intraday spike on November 30th, the closing prices remained relatively stable, suggesting a period of accumulation."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day EMA (EMA_10) and SMA_10 remained above the 20-day EMA (EMA_20) and SMA_20 throughout the window, maintaining a bullish trend structure."", ""The 10-day volatility (Volatility_10d) decreased from 0.0332 to 0.0226, indicating a stabilization of price action and reduced uncertainty."", ""The MACD histogram turned positive on November 22nd and remained positive for the remainder of the window, signaling sustained buying pressure.""], ""grounding"": [""EMA_10=145.51, EMA_20=144.49"", ""SMA_10=145.48, SMA_20=143.90"", ""Volatility_10d=0.0332, Volatility_10d=0.0226"", ""MACD_hist=0.8287, MACD_hist=0.7747, MACD_hist=0.5376, MACD_hist=-0.3556, MACD_hist=-0.2029, MACD_hist=-0.0819, MACD_hist=-0.0359""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a consolidation phase with a slight upward bias, fluctuating between a low of 138.34 and a high of 146.77. Momentum indicators, including the 10-day Exponential Moving Average (EMA_10) and the 10-day Simple Moving Average (SMA_10), consistently tracked above the 20-day averages, indicating a prevailing uptrend. Despite a sharp intraday spike on November 30th, the closing prices remained relatively stable, suggesting a period of accumulation."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day EMA (EMA_10) and SMA_10 remained above the 20-day EMA (EMA_20) and SMA_20 throughout the window, maintaining a bullish trend structure."",
+    ""The 10-day volatility (Volatility_10d) decreased from 0.0332 to 0.0226, indicating a stabilization of price action and reduced uncertainty."",
+    ""The MACD histogram turned positive on November 22nd and remained positive for the remainder of the window, signaling sustained buying pressure.""
+  ],
+  ""grounding"": [
+    ""EMA_10=145.51, EMA_20=144.49"",
+    ""SMA_10=145.48, SMA_20=143.90"",
+    ""Volatility_10d=0.0332, Volatility_10d=0.0226"",
+    ""MACD_hist=0.8287, MACD_hist=0.7747, MACD_hist=0.5376, MACD_hist=-0.3556, MACD_hist=-0.2029, MACD_hist=-0.0819, MACD_hist=-0.0359""
+  ]
+}
+```"
+zai,1,24,AAPL,2022-12-16 00:00:00,2022-12-05 00:00:00,2022-12-16 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 144.32 to 132.39, a drop of 8.2%, driven by a bearish trend in the MACD histogram and a widening spread between the 10-day and 20-day Simple Moving Averages."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The MACD histogram turned negative and expanded to -1.02, indicating accelerating downward momentum."", ""The 10-day SMA (139.71) fell below the 20-day SMA (142.60), a bearish crossover."", ""The RSI dropped to 35.86, entering oversold territory, suggesting continued selling pressure.""], ""grounding"": [""Close=132.3870391845703"", ""MACD_hist=-1.0156241730023383"", ""SMA_10=139.70664825439454"", ""SMA_20=142.59680633544923"", ""RSI_14=35.85642019255275""]}","```json
+{
+  ""window_summary"": ""The price declined from 144.32 to 132.39, a drop of 8.2%, driven by a bearish trend in the MACD histogram and a widening spread between the 10-day and 20-day Simple Moving Averages."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The MACD histogram turned negative and expanded to -1.02, indicating accelerating downward momentum."",
+    ""The 10-day SMA (139.71) fell below the 20-day SMA (142.60), a bearish crossover."",
+    ""The RSI dropped to 35.86, entering oversold territory, suggesting continued selling pressure.""
+  ],
+  ""grounding"": [
+    ""Close=132.3870391845703"",
+    ""MACD_hist=-1.0156241730023383"",
+    ""SMA_10=139.70664825439454"",
+    ""SMA_20=142.59680633544923"",
+    ""RSI_14=35.85642019255275""
+  ]
+}
+```"
+zai,1,25,AAPL,2022-12-30 00:00:00,2022-12-19 00:00:00,2022-12-30 00:00:00,9,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from 132.98 to 124.05, a drop of approximately 6.6%, while volatility remained relatively low. Momentum indicators, including the 10-day SMA, 10-day EMA, and MACD, consistently trended downward over the period. The RSI oscillated between 29.7 and 39.8, indicating a weakening but not oversold state."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) declined from 138.30 to 129.36, consistently trading below the closing price and signaling a bearish trend."", ""The MACD line remained below the signal line throughout the window, with the histogram shrinking from -1.30 to -0.79, indicating persistent downward momentum."", ""The 10-day Exponential Moving Average (EMA_10) dropped from 137.55 to 130.02, confirming the bearish price action and lack of bullish support.""], ""grounding"": [""SMA_10=129.35860366821288"", ""SMA_10=138.30316009521485"", ""MACD=-4.3350645265488765"", ""MACD_signal=-3.5445717275047914"", ""EMA_10=130.0239609901911"", ""EMA_10=137.54779939630683""]}","{""window_summary"": ""The price declined from 132.98 to 124.05, a drop of approximately 6.6%, while volatility remained relatively low. Momentum indicators, including the 10-day SMA, 10-day EMA, and MACD, consistently trended downward over the period. The RSI oscillated between 29.7 and 39.8, indicating a weakening but not oversold state."",""stance"": ""BEARISH"",""confidence"": 0.75,""reasons"": [""The 10-day Simple Moving Average (SMA_10) declined from 138.30 to 129.36, consistently trading below the closing price and signaling a bearish trend."", ""The MACD line remained below the signal line throughout the window, with the histogram shrinking from -1.30 to -0.79, indicating persistent downward momentum."", ""The 10-day Exponential Moving Average (EMA_10) dropped from 137.55 to 130.02, confirming the bearish price action and lack of bullish support.""],""grounding"": [""SMA_10=129.35860366821288"",""SMA_10=138.30316009521485"",""MACD=-4.3350645265488765"",""MACD_signal=-3.5445717275047914"",""EMA_10=130.0239609901911"",""EMA_10=137.54779939630683""]}"
+zai,1,26,AAPL,2023-01-13 00:00:00,2023-01-03 00:00:00,2023-01-13 00:00:00,9,BULLISH,,0.75,,,"{""window_summary"": ""The price action was characterized by a consolidation phase with a slight upward bias, moving from a low of 122.21 to a high of 132.79. Momentum indicators, including RSI and MACD, showed a clear trend of increasing strength, culminating in positive readings on the final day."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on January 11, signaling a short-term bullish trend."", ""The MACD histogram turned positive on January 12 and continued to expand on January 13, indicating accelerating bullish momentum."", ""The RSI_14 value rose from 32.34 to 51.16, moving out of the oversold territory and into a bullish range.""], ""grounding"": [""SMA_10=127.8045"", ""SMA_20=128.9049"", ""MACD=-2.2854"", ""RSI_14=51.1553""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a consolidation phase with a slight upward bias, moving from a low of 122.21 to a high of 132.79. Momentum indicators, including RSI and MACD, showed a clear trend of increasing strength, culminating in positive readings on the final day."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on January 11, signaling a short-term bullish trend."",
+    ""The MACD histogram turned positive on January 12 and continued to expand on January 13, indicating accelerating bullish momentum."",
+    ""The RSI_14 value rose from 32.34 to 51.16, moving out of the oversold territory and into a bullish range.""
+  ],
+  ""grounding"": [
+    ""SMA_10=127.8045"",
+    ""SMA_20=128.9049"",
+    ""MACD=-2.2854"",
+    ""RSI_14=51.1553""
+  ]
+}
+```"
+zai,1,27,AAPL,2023-01-27 00:00:00,2023-01-17 00:00:00,2023-01-27 00:00:00,9,BULLISH,,0.85,,,"{""window_summary"": ""The price exhibited a strong upward trend, rising from 133.79 to 143.63, while momentum indicators like MACD and RSI improved significantly over the 9-day period."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on January 20, signaling a bullish trend shift."", ""The MACD line rose from -1.78 to 1.95, crossing above the signal line to generate a positive histogram, indicating increasing buying pressure."", ""RSI_14 increased from 53.2 to 67.9, moving out of neutral territory and into the bullish zone without showing signs of overbought exhaustion.""], ""grounding"": [""Close=143.6267852783203"", ""SMA_10=137.24314880371094"", ""SMA_20=132.27039794921876"", ""MACD=1.9487039315524728"", ""RSI_14=67.93154493259465""]}","```json
+{
+  ""window_summary"": ""The price exhibited a strong upward trend, rising from 133.79 to 143.63, while momentum indicators like MACD and RSI improved significantly over the 9-day period."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on January 20, signaling a bullish trend shift."",
+    ""The MACD line rose from -1.78 to 1.95, crossing above the signal line to generate a positive histogram, indicating increasing buying pressure."",
+    ""RSI_14 increased from 53.2 to 67.9, moving out of neutral territory and into the bullish zone without showing signs of overbought exhaustion.""
+  ],
+  ""grounding"": [
+    ""Close=143.6267852783203"",
+    ""SMA_10=137.24314880371094"",
+    ""SMA_20=132.27039794921876"",
+    ""MACD=1.9487039315524728"",
+    ""RSI_14=67.93154493259465""
+  ]
+}
+```"
+zai,1,28,AAPL,2023-02-10 00:00:00,2023-01-30 00:00:00,2023-02-10 00:00:00,10,NEUTRAL,,0.65,,,"{""window_summary"": ""The price trend was generally upward, peaking at 152.06 on 2023-02-03 before consolidating and declining slightly by the end of the window. Momentum indicators, including the SMA_10 and EMA_10, consistently tracked above the SMA_20 and EMA_20, indicating a strong underlying trend, though the MACD histogram narrowed significantly by the final day."", ""stance"": ""NEUTRAL"", ""confidence"": 0.65, ""reasons"": [""The SMA_10 and EMA_10 remained above the SMA_20 and EMA_20 throughout the window, signaling a sustained uptrend."", ""The MACD histogram contracted from a high of 1.75 on 2023-02-03 to 0.73 on 2023-02-10, suggesting waning momentum."", ""The price experienced a pullback from the 2023-02-03 high of 152.06 to 148.85, with a negative return on the final day.""], ""grounding"": [""SMA_10=147.48"", ""SMA_20=142.36"", ""EMA_10=147.22"", ""EMA_20=143.49"", ""MACD_hist=0.73"", ""Close=148.85""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, peaking at 152.06 on 2023-02-03 before consolidating and declining slightly by the end of the window. Momentum indicators, including the SMA_10 and EMA_10, consistently tracked above the SMA_20 and EMA_20, indicating a strong underlying trend, though the MACD histogram narrowed significantly by the final day."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.65,
+  ""reasons"": [
+    ""The SMA_10 and EMA_10 remained above the SMA_20 and EMA_20 throughout the window, signaling a sustained uptrend."",
+    ""The MACD histogram contracted from a high of 1.75 on 2023-02-03 to 0.73 on 2023-02-10, suggesting waning momentum."",
+    ""The price experienced a pullback from the 2023-02-03 high of 152.06 to 148.85, with a negative return on the final day.""
+  ],
+  ""grounding"": [
+    ""SMA_10=147.48"",
+    ""SMA_20=142.36"",
+    ""EMA_10=147.22"",
+    ""EMA_20=143.49"",
+    ""MACD_hist=0.73"",
+    ""Close=148.85""
+  ]
+}
+```"
+zai,1,29,AAPL,2023-02-24 00:00:00,2023-02-13 00:00:00,2023-02-24 00:00:00,9,BEARISH,,0.75,,,"{""window_summary"": ""The price action was characterized by a consolidation phase, starting with a high of 153.28 on 2023-02-15 and ending at 144.61 on 2023-02-24, resulting in a net decline of approximately 5.6% over the window. Momentum indicators, including the MACD and RSI, showed a clear deterioration from positive to negative territory, with the MACD dropping from 4.42 to 2.36 and the RSI falling from 66.5 to 48.8."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on 2023-02-16, signaling a shift in short-term trend."", ""The MACD line fell below its signal line on 2023-02-22, indicating weakening momentum and a potential continuation of the downtrend."", ""The RSI declined from 66.5 to 48.8, moving out of the overbought zone and into neutral territory.""], ""grounding"": [""SMA_10=150.77, SMA_20=146.09 (2023-02-16)"", ""MACD=4.39, MACD_signal=4.08 (2023-02-16)"", ""MACD=2.36, MACD_signal=3.39 (2023-02-24)"", ""RSI=66.50, RSI=48.81 (2023-02-13, 2023-02-24)"", ""Close=153.28, Close=144.61 (2023-02-15, 2023-02-24)""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a consolidation phase, starting with a high of 153.28 on 2023-02-15 and ending at 144.61 on 2023-02-24, resulting in a net decline of approximately 5.6% over the window. Momentum indicators, including the MACD and RSI, showed a clear deterioration from positive to negative territory, with the MACD dropping from 4.42 to 2.36 and the RSI falling from 66.5 to 48.8."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on 2023-02-16, signaling a shift in short-term trend."",
+    ""The MACD line fell below its signal line on 2023-02-22, indicating weakening momentum and a potential continuation of the downtrend."",
+    ""The RSI declined from 66.5 to 48.8, moving out of the overbought zone and into neutral territory.""
+  ],
+  ""grounding"": [
+    ""SMA_10=150.77, SMA_20=146.09 (2023-02-16)"",
+    ""MACD=4.39, MACD_signal=4.08 (2023-02-16)"",
+    ""MACD=2.36, MACD_signal=3.39 (2023-02-24)"",
+    ""RSI=66.50, RSI=48.81 (2023-02-13, 2023-02-24)"",
+    ""Close=153.28, Close=144.61 (2023-02-15, 2023-02-24)""
+  ]
+}
+```"
+zai,1,30,AAPL,2023-03-10 00:00:00,2023-02-27 00:00:00,2023-03-10 00:00:00,10,NEUTRAL,,0.6,,,"{""window_summary"": ""The price declined from 145.81 to 146.38, showing a slight recovery after a dip to 142.94. Momentum indicators, including RSI and MACD, oscillated between overbought and oversold conditions, reflecting high volatility."", ""stance"": ""NEUTRAL"", ""confidence"": 0.6, ""reasons"": [""RSI_14 moved from 51.16 to 49.80, indicating the stock is neither overbought nor oversold."", ""MACD_hist remained negative throughout the window, suggesting weak upward momentum."", ""Close price was relatively flat, with a small negative return of -0.0139.""], ""grounding"": [""Close=146.38"", ""RSI_14=49.80"", ""MACD_hist=-0.3541"", ""Return=-0.0139""]}","```json
+{
+  ""window_summary"": ""The price declined from 145.81 to 146.38, showing a slight recovery after a dip to 142.94. Momentum indicators, including RSI and MACD, oscillated between overbought and oversold conditions, reflecting high volatility."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.6,
+  ""reasons"": [
+    ""RSI_14 moved from 51.16 to 49.80, indicating the stock is neither overbought nor oversold."",
+    ""MACD_hist remained negative throughout the window, suggesting weak upward momentum."",
+    ""Close price was relatively flat, with a small negative return of -0.0139.""
+  ],
+  ""grounding"": [
+    ""Close=146.38"",
+    ""RSI_14=49.80"",
+    ""MACD_hist=-0.3541"",
+    ""Return=-0.0139""
+  ]
+}
+```"
+zai,1,31,AAPL,2023-03-24 00:00:00,2023-03-13 00:00:00,2023-03-24 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price advanced from 148.32 to 157.96, a gain of 6.53%, while momentum indicators like MACD and RSI strengthened significantly over the 10-day period. Volatility decreased from 0.0171 to 0.0091, indicating a trend of rising prices with decreasing uncertainty. The 10-day Simple Moving Average (SMA_10) consistently tracked above the 20-day SMA (SMA_20), confirming an upward price trajectory."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""MACD and MACD_hist values increased from negative to positive, indicating a shift from bearish to bullish momentum."", ""RSI_14 rose from 53.31 to 65.90, moving out of neutral territory into the bullish zone."", ""SMA_10 remained above SMA_20 throughout the window, and the price closed above both moving averages.""], ""grounding"": [""Close=157.96160888671875"", ""SMA_10=153.83043670654297"", ""SMA_20=150.5962905883789"", ""RSI_14=65.89548218456139"", ""MACD=2.9377670439173187"", ""MACD_hist=0.6283249389582357"", ""Volatility_10d=0.0091489314606977""]}","{""window_summary"": ""The price advanced from 148.32 to 157.96, a gain of 6.53%, while momentum indicators like MACD and RSI strengthened significantly over the 10-day period. Volatility decreased from 0.0171 to 0.0091, indicating a trend of rising prices with decreasing uncertainty. The 10-day Simple Moving Average (SMA_10) consistently tracked above the 20-day SMA (SMA_20), confirming an upward price trajectory."",""stance"": ""BULLISH"",""confidence"": 0.85,""reasons"": [""MACD and MACD_hist values increased from negative to positive, indicating a shift from bearish to bullish momentum."", ""RSI_14 rose from 53.31 to 65.90, moving out of neutral territory into the bullish zone."", ""SMA_10 remained above SMA_20 throughout the window, and the price closed above both moving averages.""],""grounding"": [""Close=157.96160888671875"",""SMA_10=153.83043670654297"",""SMA_20=150.5962905883789"",""RSI_14=65.89548218456139"",""MACD=2.9377670439173187"",""MACD_hist=0.6283249389582357"",""Volatility_10d=0.0091489314606977""]}"
+zai,1,32,AAPL,2023-04-06 00:00:00,2023-03-27 00:00:00,2023-04-06 00:00:00,9,BULLISH,,0.75,,,"{""window_summary"": ""The price trend was upward, starting at 156.02 and ending at 162.31, with a net gain of 6.29. Momentum indicators like MACD and RSI generally supported this advance, though the RSI peaked at 71.21 and showed signs of cooling by the end of the window."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) consistently closed above the 20-day SMA (SMA_20), indicating a short-term uptrend."", ""The MACD line remained above the signal line throughout the window, with the histogram showing positive momentum."", ""The price closed above the 10-day SMA on the final day, maintaining the bullish structure.""], ""grounding"": [""Close=162.3086395263672"", ""SMA_10=160.12328033447267"", ""SMA_20=156.39774627685546"", ""MACD=3.784738561774077"", ""RSI_14=65.6336430901465""]}","```json
+{
+  ""window_summary"": ""The price trend was upward, starting at 156.02 and ending at 162.31, with a net gain of 6.29. Momentum indicators like MACD and RSI generally supported this advance, though the RSI peaked at 71.21 and showed signs of cooling by the end of the window."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) consistently closed above the 20-day SMA (SMA_20), indicating a short-term uptrend."",
+    ""The MACD line remained above the signal line throughout the window, with the histogram showing positive momentum."",
+    ""The price closed above the 10-day SMA on the final day, maintaining the bullish structure.""
+  ],
+  ""grounding"": [
+    ""Close=162.3086395263672"",
+    ""SMA_10=160.12328033447267"",
+    ""SMA_20=156.39774627685546"",
+    ""MACD=3.784738561774077"",
+    ""RSI_14=65.6336430901465""
+  ]
+}
+```"
+zai,1,33,AAPL,2023-04-21 00:00:00,2023-04-10 00:00:00,2023-04-21 00:00:00,10,BULLISH,,0.75,,,"{""window_summary"": ""The price moved in a narrow range between 157.81 and 165.24, with a slight upward trend. Momentum indicators, including RSI and MACD, showed a strong bullish divergence as price declined while momentum improved."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""RSI_14 declined from 66.30 to 58.62 while price fell, indicating weakening selling pressure."", ""MACD_hist turned positive on the last day, signaling a shift in momentum."", ""SMA_10 remained above SMA_20 throughout the window, supporting the bullish stance.""], ""grounding"": [""RSI_14=66.29722633760124"", ""RSI_14=58.61634942338289"", ""MACD_hist=0.0073419133666297"", ""MACD_hist=-0.1677540898306015"", ""SMA_10=161.80097503662108"", ""SMA_10=162.12133178710937"", ""SMA_20=160.3874526977539"", ""SMA_20=161.122306060791""]}","```json
+{
+  ""window_summary"": ""The price moved in a narrow range between 157.81 and 165.24, with a slight upward trend. Momentum indicators, including RSI and MACD, showed a strong bullish divergence as price declined while momentum improved."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""RSI_14 declined from 66.30 to 58.62 while price fell, indicating weakening selling pressure."",
+    ""MACD_hist turned positive on the last day, signaling a shift in momentum."",
+    ""SMA_10 remained above SMA_20 throughout the window, supporting the bullish stance.""
+  ],
+  ""grounding"": [
+    ""RSI_14=66.29722633760124"",
+    ""RSI_14=58.61634942338289"",
+    ""MACD_hist=0.0073419133666297"",
+    ""MACD_hist=-0.1677540898306015"",
+    ""SMA_10=161.80097503662108"",
+    ""SMA_10=162.12133178710937"",
+    ""SMA_20=160.3874526977539"",
+    ""SMA_20=161.122306060791""
+  ]
+}
+```"
+zai,1,34,AAPL,2023-05-05 00:00:00,2023-04-24 00:00:00,2023-05-05 00:00:00,10,BULLISH,,0.75,,,"{""window_summary"": ""The price moved from 162.97 to 171.09, a net gain of 4.98%, while volatility increased from 0.0126 to 0.0185. Momentum indicators, including the 10-day SMA and MACD, shifted from bearish to bullish, with the MACD histogram turning positive on the final day."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on May 2, signaling a short-term trend reversal."", ""The MACD histogram turned positive on May 5 (0.0615), indicating a shift from negative momentum to positive momentum."", ""The RSI_14 rose to 67.62 on the last day, approaching the overbought threshold of 70, which suggests strong buying pressure.""], ""grounding"": [""Close=171.0913848876953"", ""Return=0.0469269298803787"", ""Volatility_10d=0.0184532144705316"", ""SMA_10=165.19578247070314"", ""SMA_20=163.65855712890624"", ""MACD_hist=0.0614669143920152"", ""RSI_14=67.62134192775466""]}","```json
+{
+  ""window_summary"": ""The price moved from 162.97 to 171.09, a net gain of 4.98%, while volatility increased from 0.0126 to 0.0185. Momentum indicators, including the 10-day SMA and MACD, shifted from bearish to bullish, with the MACD histogram turning positive on the final day."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed above the 20-day SMA (SMA_20) on May 2, signaling a short-term trend reversal."",
+    ""The MACD histogram turned positive on May 5 (0.0615), indicating a shift from negative momentum to positive momentum."",
+    ""The RSI_14 rose to 67.62 on the last day, approaching the overbought threshold of 70, which suggests strong buying pressure.""
+  ],
+  ""grounding"": [
+    ""Close=171.0913848876953"",
+    ""Return=0.0469269298803787"",
+    ""Volatility_10d=0.0184532144705316"",
+    ""SMA_10=165.19578247070314"",
+    ""SMA_20=163.65855712890624"",
+    ""MACD_hist=0.0614669143920152"",
+    ""RSI_14=67.62134192775466""
+  ]
+}
+```"
+zai,1,35,AAPL,2023-05-19 00:00:00,2023-05-08 00:00:00,2023-05-19 00:00:00,10,BULLISH,,0.75,,,"{""window_summary"": ""The price action was characterized by a consolidation phase with a slight upward bias, fluctuating between a low of 168.79 and a high of 172.98. Momentum indicators, including the 10-day Simple Moving Average (SMA_10) and the 10-day Exponential Moving Average (EMA_10), consistently tracked above the 20-day moving averages (SMA_20, EMA_20), indicating a prevailing uptrend."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) and 10-day Exponential Moving Average (EMA_10) remained above their respective 20-day moving averages (SMA_20, EMA_20) throughout the window, signaling a sustained uptrend."", ""The 10-day Exponential Moving Average (EMA_10) was higher than the 10-day Simple Moving Average (SMA_10) on all dates, indicating positive momentum."", ""The 10-day volatility (Volatility_10d) decreased significantly from 0.0185 to 0.0069, suggesting reduced price swings and a stabilization of the trend.""], ""grounding"": [""SMA_10=170.88713989257812"", ""SMA_20=168.0414611816406"", ""EMA_10=170.53858599674837"", ""EMA_20=168.41957386320396"", ""Volatility_10d=0.0069583142538916""]}","```json
+{
+  ""window_summary"": ""The price action was characterized by a consolidation phase with a slight upward bias, fluctuating between a low of 168.79 and a high of 172.98. Momentum indicators, including the 10-day Simple Moving Average (SMA_10) and the 10-day Exponential Moving Average (EMA_10), consistently tracked above the 20-day moving averages (SMA_20, EMA_20), indicating a prevailing uptrend."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) and 10-day Exponential Moving Average (EMA_10) remained above their respective 20-day moving averages (SMA_20, EMA_20) throughout the window, signaling a sustained uptrend."",
+    ""The 10-day Exponential Moving Average (EMA_10) was higher than the 10-day Simple Moving Average (SMA_10) on all dates, indicating positive momentum."",
+    ""The 10-day volatility (Volatility_10d) decreased significantly from 0.0185 to 0.0069, suggesting reduced price swings and a stabilization of the trend.""
+  ],
+  ""grounding"": [
+    ""SMA_10=170.88713989257812"",
+    ""SMA_20=168.0414611816406"",
+    ""EMA_10=170.53858599674837"",
+    ""EMA_20=168.41957386320396"",
+    ""Volatility_10d=0.0069583142538916""
+  ]
+}
+```"
+zai,1,36,AAPL,2023-06-02 00:00:00,2023-05-22 00:00:00,2023-06-02 00:00:00,9,BULLISH,,0.85,,,"{""window_summary"": ""The price advanced from 171.95 to 178.61, a gain of 3.89%, while volatility remained low. Momentum indicators, including RSI and MACD, strengthened significantly over the period."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""RSI_14 increased from 63.77 to 72.95, indicating strengthening bullish momentum."", ""MACD_hist rose from -0.0158 to 0.3975, showing a clear shift from negative to positive momentum."", ""SMA_10 crossed above SMA_20, a classic bullish signal.""], ""grounding"": [""Close=178.61"", ""RSI_14=72.95"", ""MACD_hist=0.3975"", ""SMA_10=173.41"", ""SMA_20=172.06""]}","```json
+{
+  ""window_summary"": ""The price advanced from 171.95 to 178.61, a gain of 3.89%, while volatility remained low. Momentum indicators, including RSI and MACD, strengthened significantly over the period."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""RSI_14 increased from 63.77 to 72.95, indicating strengthening bullish momentum."",
+    ""MACD_hist rose from -0.0158 to 0.3975, showing a clear shift from negative to positive momentum."",
+    ""SMA_10 crossed above SMA_20, a classic bullish signal.""
+  ],
+  ""grounding"": [
+    ""Close=178.61"",
+    ""RSI_14=72.95"",
+    ""MACD_hist=0.3975"",
+    ""SMA_10=173.41"",
+    ""SMA_20=172.06""
+  ]
+}
+```"
+zai,1,37,AAPL,2023-06-16 00:00:00,2023-06-05 00:00:00,2023-06-16 00:00:00,10,BULLISH,,0.75,,,"{""window_summary"": ""The price trend was generally upward, with the closing price rising from 177.26 to 182.53, a net gain of 2.96%. Momentum indicators, including the 10-day SMA and EMA, consistently tracked above the 20-day averages, and the MACD histogram remained positive throughout the period."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day SMA (179.66) and EMA (180.04) are both above the 20-day SMA (176.53) and EMA (177.22), indicating a strong short-term uptrend."", ""The MACD (3.67) remained significantly above its signal line (3.33) with a positive histogram (0.34), suggesting sustained bullish momentum."", ""The RSI_14 (70.04) is in the upper range, indicating the stock is overbought but has maintained strength without showing signs of immediate reversal.""], ""grounding"": [""Close=182.5314178466797"", ""SMA_10=179.6609848022461"", ""SMA_20=176.53440322875977"", ""EMA_10=180.04059165776977"", ""EMA_20=177.21941253198855"", ""RSI_14=70.04149607066104"", ""MACD=3.6730059750687474"", ""MACD_signal=3.3343725034766"", ""MACD_hist=0.3386334715921473""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, with the closing price rising from 177.26 to 182.53, a net gain of 2.96%. Momentum indicators, including the 10-day SMA and EMA, consistently tracked above the 20-day averages, and the MACD histogram remained positive throughout the period."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day SMA (179.66) and EMA (180.04) are both above the 20-day SMA (176.53) and EMA (177.22), indicating a strong short-term uptrend."",
+    ""The MACD (3.67) remained significantly above its signal line (3.33) with a positive histogram (0.34), suggesting sustained bullish momentum."",
+    ""The RSI_14 (70.04) is in the upper range, indicating the stock is overbought but has maintained strength without showing signs of immediate reversal.""
+  ],
+  ""grounding"": [
+    ""Close=182.5314178466797"",
+    ""SMA_10=179.6609848022461"",
+    ""SMA_20=176.53440322875977"",
+    ""EMA_10=180.04059165776977"",
+    ""EMA_20=177.21941253198855"",
+    ""RSI_14=70.04149607066104"",
+    ""MACD=3.6730059750687474"",
+    ""MACD_signal=3.3343725034766"",
+    ""MACD_hist=0.3386334715921473""
+  ]
+}
+```"
+zai,1,38,AAPL,2023-06-30 00:00:00,2023-06-20 00:00:00,2023-06-30 00:00:00,9,BULLISH,,0.85,,,"{""window_summary"": ""The price exhibited a strong upward trend, rising from 182.62 to 191.46, with volatility increasing towards the end of the window. Momentum indicators, including RSI and MACD, showed a consistent bullish divergence, with RSI rising above 70 and MACD histogram expanding significantly."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""RSI_14 crossed above 70, indicating strong buying pressure."", ""MACD_hist expanded from 0.257 to 0.398, signaling accelerating momentum."", ""Close price consistently remained above the SMA_20 and SMA_50.""], ""grounding"": [""Close=191.46450805664065"", ""RSI_14=77.6864237583264"", ""MACD_hist=0.3981246767535586"", ""SMA_20=182.1099395751953"", ""SMA_50=174.25059356689454"", ""Return=0.02310249160217""]}","```json
+{
+  ""window_summary"": ""The price exhibited a strong upward trend, rising from 182.62 to 191.46, with volatility increasing towards the end of the window. Momentum indicators, including RSI and MACD, showed a consistent bullish divergence, with RSI rising above 70 and MACD histogram expanding significantly."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""RSI_14 crossed above 70, indicating strong buying pressure."",
+    ""MACD_hist expanded from 0.257 to 0.398, signaling accelerating momentum."",
+    ""Close price consistently remained above the SMA_20 and SMA_50.""
+  ],
+  ""grounding"": [
+    ""Close=191.46450805664065"",
+    ""RSI_14=77.6864237583264"",
+    ""MACD_hist=0.3981246767535586"",
+    ""SMA_20=182.1099395751953"",
+    ""SMA_50=174.25059356689454"",
+    ""Return=0.02310249160217""
+  ]
+}
+```"
+zai,1,39,AAPL,2023-07-14 00:00:00,2023-07-03 00:00:00,2023-07-14 00:00:00,9,NEUTRAL,,0.7,,,"{""window_summary"": ""The price remained range-bound between approximately $185.65 and $190.48, with the 10-day Simple Moving Average (SMA_10) acting as a dynamic resistance level. Momentum indicators, including RSI_14 and MACD, showed a consistent downtrend, with the MACD histogram turning negative and the RSI falling below 65 by the end of the period. Volatility was low and stable, averaging around 0.0108, indicating a consolidation phase rather than a breakout."", ""stance"": ""NEUTRAL"", ""confidence"": 0.7, ""reasons"": [""RSI_14 declined from 72.26 to 62.60, indicating weakening bullish momentum."", ""MACD turned negative (-0.502) with a negative histogram, suggesting bearish pressure."", ""Price failed to break above the SMA_10 (peaking at 191.38) and closed below it on the last day.""], ""grounding"": [""RSI_14=62.596164324205"", ""MACD=-0.5021753654146126"", ""SMA_10=188.32955322265624"", ""Close=188.2269287109375""]}","{""window_summary"": ""The price remained range-bound between approximately $185.65 and $190.48, with the 10-day Simple Moving Average (SMA_10) acting as a dynamic resistance level. Momentum indicators, including RSI_14 and MACD, showed a consistent downtrend, with the MACD histogram turning negative and the RSI falling below 65 by the end of the period. Volatility was low and stable, averaging around 0.0108, indicating a consolidation phase rather than a breakout."", ""stance"": ""NEUTRAL"", ""confidence"": 0.7, ""reasons"": [""RSI_14 declined from 72.26 to 62.60, indicating weakening bullish momentum."", ""MACD turned negative (-0.502) with a negative histogram, suggesting bearish pressure."", ""Price failed to break above the SMA_10 (peaking at 191.38) and closed below it on the last day.""], ""grounding"": [""RSI_14=62.596164324205"", ""MACD=-0.5021753654146126"", ""SMA_10=188.32955322265624"", ""Close=188.2269287109375""]}"
+zai,1,40,AAPL,2023-07-28 00:00:00,2023-07-17 00:00:00,2023-07-28 00:00:00,10,NEUTRAL,,0.7,,,"{""window_summary"": ""The price remained relatively stable within a narrow range, oscillating between 189.46 and 193.30. Momentum indicators showed a gradual weakening of the bullish trend, with the MACD histogram turning negative and the RSI declining from a high of 70.15 to 65.44."", ""stance"": ""NEUTRAL"", ""confidence"": 0.7, ""reasons"": [""The MACD histogram turned negative on 2023-07-20 and remained negative throughout the window, indicating weakening momentum."", ""The RSI declined from 70.15 on 2023-07-19 to 65.44 on 2023-07-28, suggesting the stock is losing bullish momentum."", ""The 10-day return was negative on four of the ten days, and the 10-day volatility was relatively stable, indicating a lack of directional conviction.""], ""grounding"": [""MACD_hist=-0.2886199329880563"", ""MACD_hist=-0.1855364049187882"", ""MACD_hist=-0.0539981208876918"", ""RSI_14=70.15331820766372"", ""RSI_14=65.44284388099922"", ""Return=-0.0100972845239941"", ""Return=-0.0061617734881095"", ""Return=0.0042200301389305"", ""Return=0.0045137111967481"", ""Return=0.0045449254294029"", ""Return=-0.0065809343175036"", ""Return=0.0135080342886346"", ""Volatility_10d=0.0085576750216622"", ""Volatility_10d=0.0081349197182414"", ""Volatility_10d=0.0080039993395311"", ""Volatility_10d=0.0088588525907241"", ""Volatility_10d=0.0088816604294479"", ""Volatility_10d=0.007932024224976"", ""Volatility_10d=0.0077539655344976"", ""Volatility_10d=0.0074916162883163"", ""Volatility_10d=0.0079835202657679"", ""Volatility_10d=0.0088381027751226""]}","```json
+{
+  ""window_summary"": ""The price remained relatively stable within a narrow range, oscillating between 189.46 and 193.30. Momentum indicators showed a gradual weakening of the bullish trend, with the MACD histogram turning negative and the RSI declining from a high of 70.15 to 65.44."",
+  ""stance"": ""NEUTRAL"",
+  ""confidence"": 0.7,
+  ""reasons"": [
+    ""The MACD histogram turned negative on 2023-07-20 and remained negative throughout the window, indicating weakening momentum."",
+    ""The RSI declined from 70.15 on 2023-07-19 to 65.44 on 2023-07-28, suggesting the stock is losing bullish momentum."",
+    ""The 10-day return was negative on four of the ten days, and the 10-day volatility was relatively stable, indicating a lack of directional conviction.""
+  ],
+  ""grounding"": [
+    ""MACD_hist=-0.2886199329880563"",
+    ""MACD_hist=-0.1855364049187882"",
+    ""MACD_hist=-0.0539981208876918"",
+    ""RSI_14=70.15331820766372"",
+    ""RSI_14=65.44284388099922"",
+    ""Return=-0.0100972845239941"",
+    ""Return=-0.0061617734881095"",
+    ""Return=0.0042200301389305"",
+    ""Return=0.0045137111967481"",
+    ""Return=0.0045449254294029"",
+    ""Return=-0.0065809343175036"",
+    ""Return=0.0135080342886346"",
+    ""Volatility_10d=0.0085576750216622"",
+    ""Volatility_10d=0.0081349197182414"",
+    ""Volatility_10d=0.0080039993395311"",
+    ""Volatility_10d=0.0088588525907241"",
+    ""Volatility_10d=0.0088816604294479"",
+    ""Volatility_10d=0.007932024224976"",
+    ""Volatility_10d=0.0077539655344976"",
+    ""Volatility_10d=0.0074916162883163"",
+    ""Volatility_10d=0.0079835202657679"",
+    ""Volatility_10d=0.0088381027751226""
+  ]
+}
+```"
+zai,1,41,AAPL,2023-08-11 00:00:00,2023-07-31 00:00:00,2023-08-11 00:00:00,10,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 193.91 to 175.73, a drop of 9.4%, driven by a bearish trend where the 10-day SMA (182.67) consistently traded below the 20-day SMA (186.98). Momentum indicators deteriorated significantly, with the MACD turning deeply negative (-2.12) and the RSI falling from 66.6 to 30.0, indicating weakening buying pressure."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) is below the 20-day SMA (SMA_20), indicating a short-term downtrend."", ""The MACD value is negative (-2.12) and the MACD histogram is negative, suggesting bearish momentum."", ""The RSI has dropped to 30.0, approaching the oversold threshold, which often precedes further downside.""], ""grounding"": [""Close=175.73049926757812"", ""SMA_10=182.67356719970704"", ""SMA_20=186.97576904296875"", ""MACD=-2.6213016774616165"", ""RSI_14=30.018829190991056""]}","```json
+{
+  ""window_summary"": ""The price declined from 193.91 to 175.73, a drop of 9.4%, driven by a bearish trend where the 10-day SMA (182.67) consistently traded below the 20-day SMA (186.98). Momentum indicators deteriorated significantly, with the MACD turning deeply negative (-2.12) and the RSI falling from 66.6 to 30.0, indicating weakening buying pressure."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) is below the 20-day SMA (SMA_20), indicating a short-term downtrend."",
+    ""The MACD value is negative (-2.12) and the MACD histogram is negative, suggesting bearish momentum."",
+    ""The RSI has dropped to 30.0, approaching the oversold threshold, which often precedes further downside.""
+  ],
+  ""grounding"": [
+    ""Close=175.73049926757812"",
+    ""SMA_10=182.67356719970704"",
+    ""SMA_20=186.97576904296875"",
+    ""MACD=-2.6213016774616165"",
+    ""RSI_14=30.018829190991056""
+  ]
+}
+```"
+zai,1,42,AAPL,2023-08-25 00:00:00,2023-08-14 00:00:00,2023-08-25 00:00:00,10,BULLISH,,0.75,,,"{""window_summary"": ""The price declined from 177.38 to 171.98 on August 17, the lowest point in the window, before recovering to 176.54 by the end. Momentum indicators, including the MACD and RSI, moved from strongly negative to positive, signaling a shift from bearish pressure to bullish recovery."", ""stance"": ""BULLISH"", ""confidence"": 0.75, ""reasons"": [""RSI moved from a low of 27.52 to a high of 47.35, indicating increasing buying pressure."", ""MACD turned positive from -1.48 to +0.07, confirming the shift in momentum."", ""Price closed above the 10-day SMA (175.06) on the final day, breaking a short-term downtrend.""], ""grounding"": [""RSI_14=47.3481828535499"", ""RSI_14=27.519800011984813"", ""MACD=0.0687319022488237"", ""MACD=-1.4847961250386184"", ""Close=176.54100036621094"", ""SMA_10=175.06331939697264""]}","```json
+{
+  ""window_summary"": ""The price declined from 177.38 to 171.98 on August 17, the lowest point in the window, before recovering to 176.54 by the end. Momentum indicators, including the MACD and RSI, moved from strongly negative to positive, signaling a shift from bearish pressure to bullish recovery."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""RSI moved from a low of 27.52 to a high of 47.35, indicating increasing buying pressure."",
+    ""MACD turned positive from -1.48 to +0.07, confirming the shift in momentum."",
+    ""Price closed above the 10-day SMA (175.06) on the final day, breaking a short-term downtrend.""
+  ],
+  ""grounding"": [
+    ""RSI_14=47.3481828535499"",
+    ""RSI_14=27.519800011984813"",
+    ""MACD=0.0687319022488237"",
+    ""MACD=-1.4847961250386184"",
+    ""Close=176.54100036621094"",
+    ""SMA_10=175.06331939697264""
+  ]
+}
+```"
+zai,1,43,AAPL,2023-09-08 00:00:00,2023-08-28 00:00:00,2023-09-08 00:00:00,9,BEARISH,,0.75,,,"{""window_summary"": ""The price trend was generally upward, peaking at 185.69 on August 31 before declining to 176.12 on September 8. Momentum indicators, including the MACD and RSI, showed a strong positive divergence in late August that reversed to negative by the window's end."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The MACD turned negative on September 7 (-0.079) and remained negative on September 8 (-0.450), indicating weakening momentum."", ""The RSI dropped from a high of 62.12 on September 1 to 41.42 on September 7, entering oversold territory."", ""The price closed below the 10-day Simple Moving Average (SMA_10) on September 7 (175.50 vs 181.32) and remained below it on September 8 (176.12 vs 181.50).""], ""grounding"": [""MACD=-0.0788782539394787"", ""MACD=-0.4497004438878775"", ""RSI_14=41.419420439371"", ""RSI_14=42.52855277490182"", ""Close=175.50314331054688"", ""Close=176.115966796875"", ""SMA_10=181.3199935913086"", ""SMA_10=181.49790649414064""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward, peaking at 185.69 on August 31 before declining to 176.12 on September 8. Momentum indicators, including the MACD and RSI, showed a strong positive divergence in late August that reversed to negative by the window's end."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The MACD turned negative on September 7 (-0.079) and remained negative on September 8 (-0.450), indicating weakening momentum."",
+    ""The RSI dropped from a high of 62.12 on September 1 to 41.42 on September 7, entering oversold territory."",
+    ""The price closed below the 10-day Simple Moving Average (SMA_10) on September 7 (175.50 vs 181.32) and remained below it on September 8 (176.12 vs 181.50).""
+  ],
+  ""grounding"": [
+    ""MACD=-0.0788782539394787"",
+    ""MACD=-0.4497004438878775"",
+    ""RSI_14=41.419420439371"",
+    ""RSI_14=42.52855277490182"",
+    ""Close=175.50314331054688"",
+    ""Close=176.115966796875"",
+    ""SMA_10=181.3199935913086"",
+    ""SMA_10=181.49790649414064""
+  ]
+}
+```"
+zai,1,44,AAPL,2023-09-22 00:00:00,2023-09-11 00:00:00,2023-09-22 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price declined from 177.28 to 172.77, a drop of 2.53%, while volatility decreased from 0.0188 to 0.0123. Momentum indicators, including MACD and RSI, trended lower, indicating weakening bullish pressure."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on September 12, signaling a bearish trend."", ""The MACD value dropped from -0.64 to -2.03, and the MACD histogram remained negative throughout the window."", ""The 10-day volatility (Volatility_10d) decreased from 0.0188 to 0.0123, suggesting a stabilization of price action in a downtrend.""], ""grounding"": [""SMA_10=174.14606323242188"", ""SMA_20=177.82198486328124"", ""MACD=-2.0287461499243307"", ""Volatility_10d=0.0123063757730976""]}","```json
+{
+  ""window_summary"": ""The price declined from 177.28 to 172.77, a drop of 2.53%, while volatility decreased from 0.0188 to 0.0123. Momentum indicators, including MACD and RSI, trended lower, indicating weakening bullish pressure."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on September 12, signaling a bearish trend."",
+    ""The MACD value dropped from -0.64 to -2.03, and the MACD histogram remained negative throughout the window."",
+    ""The 10-day volatility (Volatility_10d) decreased from 0.0188 to 0.0123, suggesting a stabilization of price action in a downtrend.""
+  ],
+  ""grounding"": [
+    ""SMA_10=174.14606323242188"",
+    ""SMA_20=177.82198486328124"",
+    ""MACD=-2.0287461499243307"",
+    ""Volatility_10d=0.0123063757730976""
+  ]
+}
+```"
+zai,1,45,AAPL,2023-10-06 00:00:00,2023-09-25 00:00:00,2023-10-06 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price declined from 174.04 to 171.79, a drop of 1.3%, before rallying to 175.43 by the end of the window. Momentum indicators, including MACD and RSI, moved from negative to positive territory, signaling a shift from bearish to bullish pressure."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""RSI_14 increased from 36.45 to 52.60, crossing the 50 threshold and indicating rising buying interest."", ""MACD_hist turned positive from -0.54 to 0.52, confirming the momentum shift."", ""Price broke above the 10-day SMA (171.25) on the last day, a key bullish signal.""], ""grounding"": [""Close=174.04, Close=171.79, Close=175.43"", ""RSI_14=36.45, RSI_14=52.60"", ""MACD_hist=-0.54, MACD_hist=0.52"", ""SMA_10=171.25""]}","```json
+{
+  ""window_summary"": ""The price declined from 174.04 to 171.79, a drop of 1.3%, before rallying to 175.43 by the end of the window. Momentum indicators, including MACD and RSI, moved from negative to positive territory, signaling a shift from bearish to bullish pressure."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""RSI_14 increased from 36.45 to 52.60, crossing the 50 threshold and indicating rising buying interest."",
+    ""MACD_hist turned positive from -0.54 to 0.52, confirming the momentum shift."",
+    ""Price broke above the 10-day SMA (171.25) on the last day, a key bullish signal.""
+  ],
+  ""grounding"": [
+    ""Close=174.04, Close=171.79, Close=175.43"",
+    ""RSI_14=36.45, RSI_14=52.60"",
+    ""MACD_hist=-0.54, MACD_hist=0.52"",
+    ""SMA_10=171.25""
+  ]
+}
+```"
+zai,1,46,AAPL,2023-10-20 00:00:00,2023-10-09 00:00:00,2023-10-20 00:00:00,10,BEARISH,,0.75,,,"{""window_summary"": ""The price trend was generally upward from October 9 to October 12, peaking at 178.62, followed by a decline to 170.88 by October 20. Momentum indicators, including the 10-day SMA and MACD, showed a similar pattern of rising to positive territory in early October before turning negative by the end of the window."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) peaked at 174.09 on October 12 and declined to 175.62 by October 20, indicating a weakening short-term trend."", ""The MACD value turned negative (-0.41) on the last day, down from a positive high of 1.13 on October 12, signaling a loss of momentum."", ""The RSI_14 dropped from a high of 58.39 on October 12 to 40.31 on October 20, moving out of the overbought territory and into a more neutral to bearish range.""], ""grounding"": [""SMA_10=175.62"", ""MACD=-0.4134665783590208"", ""RSI_14=40.31182724874135""]}","```json
+{
+  ""window_summary"": ""The price trend was generally upward from October 9 to October 12, peaking at 178.62, followed by a decline to 170.88 by October 20. Momentum indicators, including the 10-day SMA and MACD, showed a similar pattern of rising to positive territory in early October before turning negative by the end of the window."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) peaked at 174.09 on October 12 and declined to 175.62 by October 20, indicating a weakening short-term trend."",
+    ""The MACD value turned negative (-0.41) on the last day, down from a positive high of 1.13 on October 12, signaling a loss of momentum."",
+    ""The RSI_14 dropped from a high of 58.39 on October 12 to 40.31 on October 20, moving out of the overbought territory and into a more neutral to bearish range.""
+  ],
+  ""grounding"": [
+    ""SMA_10=175.62"",
+    ""MACD=-0.4134665783590208"",
+    ""RSI_14=40.31182724874135""
+  ]
+}
+```"
+zai,1,47,AAPL,2023-11-03 00:00:00,2023-10-23 00:00:00,2023-11-03 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price declined from 171.00 to 164.96 on October 26, the lowest point in the window, before recovering to 175.51 on November 2. Momentum indicators, including the MACD and RSI, moved from negative to strongly positive, signaling a shift from a downtrend to an uptrend."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""The MACD histogram turned positive on November 2, indicating a shift from negative momentum to positive momentum."", ""The RSI increased from 30.33 to 56.68, moving out of the oversold zone and into bullish territory."", ""The price closed above the 10-day SMA (170.20) on November 3, confirming the recovery from the October 26 low.""], ""grounding"": [""Close=164.956787109375"", ""Close=175.5130615234375"", ""MACD_hist=-0.2284446890433189"", ""MACD_hist=0.2369446431892465"", ""RSI_14=30.33478519881885"", ""RSI_14=56.67658701033778"", ""SMA_10=170.19537506103515""]}","```json
+{
+  ""window_summary"": ""The price declined from 171.00 to 164.96 on October 26, the lowest point in the window, before recovering to 175.51 on November 2. Momentum indicators, including the MACD and RSI, moved from negative to strongly positive, signaling a shift from a downtrend to an uptrend."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The MACD histogram turned positive on November 2, indicating a shift from negative momentum to positive momentum."",
+    ""The RSI increased from 30.33 to 56.68, moving out of the oversold zone and into bullish territory."",
+    ""The price closed above the 10-day SMA (170.20) on November 3, confirming the recovery from the October 26 low.""
+  ],
+  ""grounding"": [
+    ""Close=164.956787109375"",
+    ""Close=175.5130615234375"",
+    ""MACD_hist=-0.2284446890433189"",
+    ""MACD_hist=0.2369446431892465"",
+    ""RSI_14=30.33478519881885"",
+    ""RSI_14=56.67658701033778"",
+    ""SMA_10=170.19537506103515""
+  ]
+}
+```"
+zai,1,48,AAPL,2023-11-17 00:00:00,2023-11-06 00:00:00,2023-11-17 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price advanced from 177.15 to 187.74, a gain of 6.0%, while volatility remained low. Momentum indicators, including MACD and RSI, strengthened significantly over the period, culminating in a strong bullish divergence on the final day."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""MACD histogram expanded from -0.77 to 1.45, indicating accelerating bullish momentum."", ""RSI_14 rose from 59.17 to 71.18, moving into overbought territory."", ""Price closed above the SMA_10 (183.24) and SMA_20 (176.72), confirming an uptrend.""], ""grounding"": [""Close=187.7396545410156"", ""MACD_hist=1.4512807891660595"", ""RSI_14=71.178659927896"", ""SMA_10=183.24083862304687"", ""SMA_20=176.718106842041""]}","```json
+{
+  ""window_summary"": ""The price advanced from 177.15 to 187.74, a gain of 6.0%, while volatility remained low. Momentum indicators, including MACD and RSI, strengthened significantly over the period, culminating in a strong bullish divergence on the final day."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""MACD histogram expanded from -0.77 to 1.45, indicating accelerating bullish momentum."",
+    ""RSI_14 rose from 59.17 to 71.18, moving into overbought territory."",
+    ""Price closed above the SMA_10 (183.24) and SMA_20 (176.72), confirming an uptrend.""
+  ],
+  ""grounding"": [
+    ""Close=187.7396545410156"",
+    ""MACD_hist=1.4512807891660595"",
+    ""RSI_14=71.178659927896"",
+    ""SMA_10=183.24083862304687"",
+    ""SMA_20=176.718106842041""
+  ]
+}
+```"
+zai,1,49,AAPL,2023-12-01 00:00:00,2023-11-20 00:00:00,2023-12-01 00:00:00,9,BEARISH,,0.75,,,"{""window_summary"": ""The price remained relatively stable, oscillating between $187.28 and $190.95, while momentum indicators showed a gradual weakening of bullish pressure, culminating in a negative MACD histogram on the final day."", ""stance"": ""BEARISH"", ""confidence"": 0.75, ""reasons"": [""The MACD histogram turned negative on the last day, indicating a shift in momentum from bullish to bearish."", ""The 10-day Simple Moving Average (SMA_10) has been trending downwards over the window, suggesting a loss of short-term upward momentum."", ""The RSI_14 has declined from a high of 73.31 to 67.59, moving away from overbought territory and signaling reduced buying pressure.""], ""grounding"": [""MACD_hist=-0.0535674892734645"", ""SMA_10=188.4235641479492"", ""RSI_14=67.59098495411595""]}","```json
+{
+  ""window_summary"": ""The price remained relatively stable, oscillating between $187.28 and $190.95, while momentum indicators showed a gradual weakening of bullish pressure, culminating in a negative MACD histogram on the final day."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.75,
+  ""reasons"": [
+    ""The MACD histogram turned negative on the last day, indicating a shift in momentum from bullish to bearish."",
+    ""The 10-day Simple Moving Average (SMA_10) has been trending downwards over the window, suggesting a loss of short-term upward momentum."",
+    ""The RSI_14 has declined from a high of 73.31 to 67.59, moving away from overbought territory and signaling reduced buying pressure.""
+  ],
+  ""grounding"": [
+    ""MACD_hist=-0.0535674892734645"",
+    ""SMA_10=188.4235641479492"",
+    ""RSI_14=67.59098495411595""
+  ]
+}
+```"
+zai,1,50,AAPL,2023-12-15 00:00:00,2023-12-04 00:00:00,2023-12-15 00:00:00,10,BULLISH,,0.85,,,"{""window_summary"": ""The price advanced from 187.48 to 195.54, a gain of 4.29%, with volatility remaining low. Momentum indicators like MACD and RSI strengthened significantly over the period."", ""stance"": ""BULLISH"", ""confidence"": 0.85, ""reasons"": [""Price closed above the 20-day SMA (190.55) and the 10-day SMA (192.67) on the final day."", ""MACD turned positive and rose to 0.17, breaking above the signal line."", ""RSI remained in the 60-70 range, indicating sustained buying pressure.""], ""grounding"": [""Close=195.53863525390625"", ""SMA_10=192.66649017333984"", ""SMA_20=190.5450271606445"", ""MACD=0.1707897971812695"", ""RSI_14=67.99169944430511""]}","```json
+{
+  ""window_summary"": ""The price advanced from 187.48 to 195.54, a gain of 4.29%, with volatility remaining low. Momentum indicators like MACD and RSI strengthened significantly over the period."",
+  ""stance"": ""BULLISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""Price closed above the 20-day SMA (190.55) and the 10-day SMA (192.67) on the final day."",
+    ""MACD turned positive and rose to 0.17, breaking above the signal line."",
+    ""RSI remained in the 60-70 range, indicating sustained buying pressure.""
+  ],
+  ""grounding"": [
+    ""Close=195.53863525390625"",
+    ""SMA_10=192.66649017333984"",
+    ""SMA_20=190.5450271606445"",
+    ""MACD=0.1707897971812695"",
+    ""RSI_14=67.99169944430511""
+  ]
+}
+```"
+zai,1,51,AAPL,2023-12-29 00:00:00,2023-12-18 00:00:00,2023-12-29 00:00:00,9,BEARISH,,0.85,,,"{""window_summary"": ""The price declined from 193.88 to 190.55 over the 9-day window, with a net return of -1.77%. Momentum indicators, including MACD and RSI, deteriorated significantly, with MACD dropping from 3.58 to 1.56 and RSI falling from 62.68 to 51.12."", ""stance"": ""BEARISH"", ""confidence"": 0.85, ""reasons"": [""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on 2023-12-22, signaling a bearish trend shift."", ""The MACD value dropped from 3.58 to 1.56, and the MACD histogram remained deeply negative (-0.86) at the end of the window."", ""The RSI declined from 62.68 to 51.12, moving out of the overbought territory and indicating weakening price momentum.""], ""grounding"": [""SMA_10=193.13, SMA_20=192.31"", ""MACD=1.56, MACD_signal=2.42"", ""RSI=51.12"", ""Close=190.55""]}","```json
+{
+  ""window_summary"": ""The price declined from 193.88 to 190.55 over the 9-day window, with a net return of -1.77%. Momentum indicators, including MACD and RSI, deteriorated significantly, with MACD dropping from 3.58 to 1.56 and RSI falling from 62.68 to 51.12."",
+  ""stance"": ""BEARISH"",
+  ""confidence"": 0.85,
+  ""reasons"": [
+    ""The 10-day Simple Moving Average (SMA_10) crossed below the 20-day SMA (SMA_20) on 2023-12-22, signaling a bearish trend shift."",
+    ""The MACD value dropped from 3.58 to 1.56, and the MACD histogram remained deeply negative (-0.86) at the end of the window."",
+    ""The RSI declined from 62.68 to 51.12, moving out of the overbought territory and indicating weakening price momentum.""
+  ],
+  ""grounding"": [
+    ""SMA_10=193.13, SMA_20=192.31"",
+    ""MACD=1.56, MACD_signal=2.42"",
+    ""RSI=51.12"",
+    ""Close=190.55""
+  ]
+}
+```"

@@ -7,7 +7,7 @@ This repo does two things:
 
 The key idea for the project: **we are not letting the LLM use news or outside context**—only the numbers we give it.
 
-## What files matter (mental map)
+## What files matter
 
 - **`stock_data.py`**: downloads raw daily prices for a small list of tickers and writes:
   - `stock_raw_data.csv`
@@ -22,7 +22,7 @@ The key idea for the project: **we are not letting the LLM use news or outside c
   - `llm/json_parsing.py`: “best effort” JSON extraction (we look for the last JSON object in the response)
   - `llm/call_once_stock.py`: one call + retry logic when parsing fails
 
-## Pipeline overview (plain English)
+## Pipeline overview 
 
 ### Step A — Build the dataset (`stock_data.py`)
 
@@ -100,7 +100,7 @@ Expected outputs in the repo root:
 - `stock_with_technical_indicators.csv`
 - `stock_with_technical_bayesian.csv`
 
-### 2) Run the LLM per day (one call per row)
+### 2) Run the LLM per day 
 
 Variant 1/2/3 correspond to different prompt formats (see `llm/prompts.py`). Variants 2 and 3 expect Bayesian columns, so they usually use `stock_with_technical_bayesian.csv`.
 
@@ -178,7 +178,7 @@ On some Windows/PowerShell versions, `&&` is not supported. If you want to run v
 cmd /c "cd /d C:\path\to\DS440-Project && python -u run_llm_stock.py --provider zai --variant 2 --mode window --window-by calendar --window-calendar-days 14 --progress-every 1 --heartbeat-every 1 --max-retries 8 --resume --resume-jsonl llm_zai_v2_win-c14_ALL_stock_with_technical_bayesian_20260427_174610.jsonl && python -u run_llm_stock.py --provider zai --variant 3 --mode window --window-by calendar --window-calendar-days 14 --progress-every 1 --heartbeat-every 1 --max-retries 8 --input stock_with_technical_bayesian.csv"
 ```
 
-### 7) Understanding the outputs
+### 7) outputs
 
 For each run, the script writes two files:
 

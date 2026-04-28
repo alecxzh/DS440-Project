@@ -97,14 +97,13 @@ def build_prompt(row: Mapping[str, Any], variant: Variant) -> str:
             "Missing values appear as null. Treat null as 'unavailable' and do NOT quote or mention null/nan in the output.\n\n"
             "INPUT (DATA)\n"
             + header
-            + "\nDEFINITIONS (use these)\n"
-            + '- "BULLISH": indicators collectively lean toward upward drift over the next few days.\n'
-            + '- "BEARISH": indicators collectively lean toward downward drift over the next few days.\n'
-            + '- "NEUTRAL": mixed/flat signals; no clear directional edge.\n\n'
-            + "TASK\n"
+            + "\nTASK\n"
             + "1. Describe the short-term trend and momentum in simple terms (no jargon unless briefly defined).\n"
-            + '2. Choose ONE stance: "BULLISH", "BEARISH", or "NEUTRAL".\n'
-            + "3. Give 2–3 plausible, data-grounded reasons the price could move up or down in the next few days.\n"
+            + '2. Choose exactly one direction for the next ~3 days: "UP" or "DOWN".\n'
+            + "   - UP: you believe rising is more likely than falling.\n"
+            + "   - DOWN: you believe falling is more likely than rising.\n"
+            + "   You MUST choose one even if signals are mixed; in that case, pick the slightly more likely direction and lower confidence.\n"
+            + "3. Give 2–3 plausible, data-grounded reasons.\n"
             + "   Each reason must reference specific fields from the INPUT (e.g., SMA relationships, MACD vs signal, RSI level, recent return/volatility).\n\n"
             + "RESPONSE FORMAT (MANDATORY)\n"
             + "- Output exactly ONE JSON object on the LAST line.\n"
@@ -113,7 +112,7 @@ def build_prompt(row: Mapping[str, Any], variant: Variant) -> str:
             + "JSON SCHEMA (must match)\n"
             + '{\n'
             + '  "trend_summary": "<1-3 sentences>",\n'
-            + '  "stance": "BULLISH" | "BEARISH" | "NEUTRAL",\n'
+            + '  "direction": "UP" | "DOWN",\n'
             + '  "confidence": <number between 0 and 1>,\n'
             + '  "reasons": ["<reason 1>", "<reason 2>", "<reason 3 optional>"],\n'
             + '  "grounding": ["<field=value>", "<field=value>", "..."]\n'
@@ -140,15 +139,13 @@ def build_prompt(row: Mapping[str, Any], variant: Variant) -> str:
             + '- "Prior_Up": baseline/upside probability before accounting for today’s return shock.\n'
             + '- "Posterior_Up": updated upside probability after accounting for today’s move (when a large-move event occurs).\n'
             + '- "Is_Large_Move": whether today’s return magnitude is unusually large (event flag).\n'
-            + '- "BULLISH": combined signals lean toward upward drift over the next few days.\n'
-            + '- "BEARISH": combined signals lean toward downward drift over the next few days.\n'
-            + '- "NEUTRAL": mixed/flat signals; no clear directional edge.\n\n'
             + "TASK\n"
             + "1. In plain language, explain what Posterior_Trend, Prior_Up, and Posterior_Up imply about upside vs downside.\n"
             + "2. If Is_Large_Move is true, explain how a large one-day move should change the outlook versus recent days.\n"
             + "   If Is_Large_Move is false, say that no special event update is implied.\n"
             + "3. Combine the technical + Bayesian indicators into one short narrative about likely behavior over the next few days.\n"
-            + '4. Choose ONE stance: "BULLISH", "BEARISH", or "NEUTRAL".\n\n'
+            + '4. Choose exactly one direction for the next ~3 days: "UP" or "DOWN".\n'
+            + "   You MUST choose one even if signals are mixed; in that case, pick the slightly more likely direction and lower confidence.\n\n"
             + "RESPONSE FORMAT (MANDATORY)\n"
             + "- Output exactly ONE JSON object on the LAST line.\n"
             + "- Output NOTHING else (no markdown, no code fences).\n"
@@ -158,7 +155,7 @@ def build_prompt(row: Mapping[str, Any], variant: Variant) -> str:
             + '  "upside_downside_summary": "<1-3 sentences>",\n'
             + '  "large_move_effect": "<1-3 sentences>",\n'
             + '  "combined_narrative": "<2-5 sentences>",\n'
-            + '  "stance": "BULLISH" | "BEARISH" | "NEUTRAL",\n'
+            + '  "direction": "UP" | "DOWN",\n'
             + '  "confidence": <number between 0 and 1>,\n'
             + '  "grounding": ["<field=value>", "<field=value>", "..."]\n'
             + "}\n"
@@ -254,7 +251,8 @@ def build_window_prompt(rows: Sequence[Mapping[str, Any]], variant: Variant) -> 
             + window_header
             + "\nTASK (WINDOW)\n"
             + "1. Summarize how price and momentum evolved over this entire window (not just the last day).\n"
-            + '2. Choose ONE stance for the *next few trading days after the last date in the window*: "BULLISH", "BEARISH", or "NEUTRAL".\n'
+            + '2. Choose exactly one label for price direction over the *next ~5 trading days after the last date in the window*: "UP" or "DOWN".\n'
+            + "   You MUST choose one even if signals are mixed; in that case, pick the slightly more likely direction and lower confidence.\n"
             + "3. Give 2–3 reasons grounded in patterns across the window (e.g., moving-average crosses, MACD/RSI evolution, return/volatility).\n\n"
             + "RESPONSE FORMAT (MANDATORY)\n"
             + "- Output exactly ONE JSON object on the LAST line.\n"
@@ -262,7 +260,7 @@ def build_window_prompt(rows: Sequence[Mapping[str, Any]], variant: Variant) -> 
             + "JSON SCHEMA (must match)\n"
             + "{\n"
             + '  "window_summary": "<2-4 sentences>",\n'
-            + '  "stance": "BULLISH" | "BEARISH" | "NEUTRAL",\n'
+            + '  "direction": "UP" | "DOWN",\n'
             + '  "confidence": <number between 0 and 1>,\n'
             + '  "reasons": ["<reason 1>", "<reason 2>", "<reason 3 optional>"],\n'
             + '  "grounding": ["<field=value>", "..."]\n'
@@ -281,7 +279,8 @@ def build_window_prompt(rows: Sequence[Mapping[str, Any]], variant: Variant) -> 
             + "1. Explain how Posterior_Trend, Prior_Up, and Posterior_Up evolve over the window and what they imply for upside vs downside.\n"
             + "2. Note any large-move days (Is_Large_Move) and how they affect the narrative versus quieter days.\n"
             + "3. Combine technical + Bayesian into one narrative about likely behavior over the *next few trading days after the last date*.\n"
-            + '4. Choose ONE stance: "BULLISH", "BEARISH", or "NEUTRAL".\n\n'
+            + '4. Choose exactly one label for price direction over the *next ~5 trading days after the last date in the window*: "UP" or "DOWN".\n'
+            + "   You MUST choose one even if signals are mixed; in that case, pick the slightly more likely direction and lower confidence.\n\n"
             + "RESPONSE FORMAT (MANDATORY)\n"
             + "- Output exactly ONE JSON object on the LAST line.\n"
             + "- Output NOTHING else (no markdown, no code fences).\n\n"
@@ -290,7 +289,7 @@ def build_window_prompt(rows: Sequence[Mapping[str, Any]], variant: Variant) -> 
             + '  "upside_downside_summary": "<2-4 sentences>",\n'
             + '  "large_move_summary": "<1-3 sentences>",\n'
             + '  "combined_narrative": "<2-5 sentences>",\n'
-            + '  "stance": "BULLISH" | "BEARISH" | "NEUTRAL",\n'
+            + '  "direction": "UP" | "DOWN",\n'
             + '  "confidence": <number between 0 and 1>,\n'
             + '  "grounding": ["<field=value>", "..."]\n'
             + "}\n"

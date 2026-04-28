@@ -4,14 +4,45 @@ import argparse
 import csv
 import json
 import os
+import random
+import re
+import sys
+import threading
+import time
 from datetime import datetime
-from typing import Any, Dict
+from typing import Any, Callable, Dict, Optional, Tuple, TypeVar
 
 import pandas as pd
 
 from llm.call_once_stock import call_stock_once, call_window_once
 from llm.providers import ProviderName, build_llm
 from llm.prompts import Variant
+
+
+_RL_RE = re.compile(r"(429|rate limit|ratelimit|overload|temporarily overloaded|quota|throttl)", re.IGNORECASE)
+
+T = TypeVar("T")
+
+
+def _with_wait_heartbeat(label: str, every_s: float, fn: Callable[[], T]) -> T:
+    """
+    LLM calls can block for a long time with no intermediate prints; this keeps the terminal informative.
+    """
+    stop = threading.Event()
+    start = time.time()
+
+    def _loop() -> None:
+        while not stop.wait(timeout=float(every_s)):
+            dt = int(time.time() - start)
+            print(f"{label} | still waiting... {dt}s", flush=True)
+
+    th = threading.Thread(target=_loop, name="llm-wait-heartbeat", daemon=True)
+    th.start()
+    try:
+        return fn()
+    finally:
+        stop.set()
+        th.join(timeout=1.0)
 
 
 def _json_default(obj: Any) -> Any:
@@ -26,10 +57,165 @@ def _default_output_path(provider: str, variant: int) -> str:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     return f"llm_outputs_{provider}_v{variant}_{ts}.jsonl"
 
+
+def _safe_slug(s: str) -> str:
+    """
+    Keep filenames readable across OSes.
+    - allow alnum, dash, underscore
+    - collapse other chars to '-'
+    """
+    out = []
+    prev_dash = False
+    for ch in (s or "").strip():
+        ok = ch.isalnum() or ch in {"-", "_"}
+        if ok:
+            out.append(ch)
+            prev_dash = False
+            continue
+        if not prev_dash:
+            out.append("-")
+            prev_dash = True
+    slug = "".join(out).strip("-")
+    return slug or "NA"
+
+
+def _default_output_path_v2(
+    *,
+    provider: str,
+    variant: int,
+    mode: str,
+    input_path: str,
+    ticker: str | None,
+    window_by: str,
+    cal_span: int,
+    cal_step: int,
+    trading_n: int,
+    trading_step: int,
+) -> str:
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    inp = os.path.splitext(os.path.basename(input_path or ""))[0] or "input"
+    inp = _safe_slug(inp)
+    t = _safe_slug(ticker) if ticker else "ALL"
+
+    if mode == "window":
+        if window_by == "calendar":
+            win = f"win-c{int(cal_span)}"
+            if int(cal_step) != int(cal_span):
+                win += f"-s{int(cal_step)}"
+        else:
+            win = f"win-t{int(trading_n)}"
+            if int(trading_step) != int(trading_n):
+                win += f"-s{int(trading_step)}"
+    else:
+        win = "per-row"
+
+    return f"llm_{provider}_v{int(variant)}_{win}_{t}_{inp}_{ts}.jsonl"
+
 def _default_output_csv_path(jsonl_path: str) -> str:
     if jsonl_path.lower().endswith(".jsonl"):
         return jsonl_path[:-6] + ".csv"
     return jsonl_path + ".csv"
+
+
+def _window_key(ticker: str, window_start: Any, window_end: Any) -> Tuple[str, str, str, int]:
+    t = str(ticker)
+    ws = pd.to_datetime(window_start, errors="coerce")
+    we = pd.to_datetime(window_end, errors="coerce")
+    ws_s = "" if pd.isna(ws) else str(ws.normalize())
+    we_s = "" if pd.isna(we) else str(we.normalize())
+    return (t, ws_s, we_s, -1)
+
+
+def _infer_resume_state_from_jsonl(
+    jsonl_path: str,
+    *,
+    expected_provider: str,
+    expected_variant: int,
+    work_per_ticker: dict[str, list[Any]],
+    mode: str,
+) -> Tuple[int, Optional[str], int, set[Tuple[str, str, str, int]]]:
+    """
+    Returns:
+    - line_count: number of JSONL lines for this provider+variant (continue row_index from here)
+    - resume_ticker: first ticker (in sorted tickers order) that still has unfinished work
+    - resume_local_completed: number of leading planned units already successfully completed for resume_ticker
+    - seen_ok_keys: successful window keys seen in the file (used for prefix matching)
+    """
+    line_count = 0
+    seen_ok: set[Tuple[str, str, str, int]] = set()
+
+    with open(jsonl_path, "r", encoding="utf-8") as rf:
+        for line in rf:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except Exception:
+                continue
+            if str(obj.get("provider")) != str(expected_provider):
+                continue
+            if int(obj.get("variant") or -1) != int(expected_variant):
+                continue
+
+            line_count += 1
+            if obj.get("parse_error") is not None:
+                continue
+            if obj.get("parsed") is None:
+                continue
+
+            if mode == "window":
+                k = _window_key(str(obj.get("ticker") or ""), obj.get("window_start"), obj.get("window_end"))
+                n = obj.get("window_n_days")
+                try:
+                    nn = int(n) if n is not None and str(n).strip() != "" else -1
+                except Exception:
+                    nn = -1
+                seen_ok.add((k[0], k[1], k[2], nn))
+
+    tickers = sorted(work_per_ticker.keys())
+    resume_ticker: Optional[str] = None
+    resume_local_completed = 0
+
+    if mode != "window":
+        # Per-row resume needs a different keying scheme; keep safe default: do not auto-skip.
+        return int(line_count), None, 0, seen_ok
+
+    for t in tickers:
+        units = work_per_ticker.get(t, [])
+        prefix_done = 0
+        for ch in units:
+            if not ch:
+                break
+            ws = ch[0].get("Date")
+            we = ch[-1].get("Date")
+            key = _window_key(str(t), ws, we)
+            key2 = (key[0], key[1], key[2], int(len(ch)))
+            if key2 in seen_ok:
+                prefix_done += 1
+                continue
+            break
+
+        if prefix_done < len(units):
+            resume_ticker = t
+            resume_local_completed = int(prefix_done)
+            break
+
+    # If everything is already complete, still return the last ticker with full completion.
+    if resume_ticker is None and tickers:
+        resume_ticker = tickers[-1]
+        resume_local_completed = len(work_per_ticker.get(resume_ticker, []))
+
+    return int(line_count), resume_ticker, int(resume_local_completed), seen_ok
+
+
+def _maybe_rate_limit_cooldown(parse_error: str | None) -> None:
+    if not parse_error:
+        return
+    if not _RL_RE.search(parse_error):
+        return
+    # Extra cooldown between windows/rows when the provider is throttling us.
+    time.sleep(min(60.0, 2.0 + random.uniform(0.0, 1.25)))
 
 
 def _flatten_for_csv(
@@ -58,23 +244,34 @@ def _flatten_for_csv(
         "raw_text": raw_text,
         "parsed_json": json.dumps(parsed, ensure_ascii=False) if parsed is not None else "",
         # common “analysis-friendly” fields (may be blank depending on variant)
-        "stance": "",
         "direction": "",
         "confidence": "",
         "reason": "",
     }
 
     if isinstance(parsed, dict):
-        if "stance" in parsed:
-            out["stance"] = parsed.get("stance", "")
         if "direction" in parsed:
             out["direction"] = parsed.get("direction", "")
         if "confidence" in parsed:
             out["confidence"] = parsed.get("confidence", "")
-        if "reason" in parsed:
+        # normalize the main narrative field for analysis
+        if "reason" in parsed and parsed.get("reason"):
             out["reason"] = parsed.get("reason", "")
-        if "combined_narrative" in parsed and not out["reason"]:
+        elif "combined_narrative" in parsed and parsed.get("combined_narrative"):
             out["reason"] = parsed.get("combined_narrative", "")
+        elif "trend_summary" in parsed or "reasons" in parsed:
+            parts: list[str] = []
+            ts = parsed.get("trend_summary")
+            if isinstance(ts, str) and ts.strip():
+                parts.append(ts.strip())
+            rs = parsed.get("reasons")
+            if isinstance(rs, list):
+                reasons = [str(x).strip() for x in rs if str(x).strip()]
+                if reasons:
+                    parts.append("Reasons: " + " | ".join(reasons))
+            out["reason"] = " ".join(parts).strip()
+        elif "window_summary" in parsed and parsed.get("window_summary"):
+            out["reason"] = parsed.get("window_summary", "")
     return out
 
 
@@ -142,6 +339,16 @@ def _chunk_rows_calendar(
 
 
 def main() -> None:
+    # On some Windows setups, stdout can be fully-block-buffered even in a terminal,
+    # which makes progress prints appear "stuck" until a large buffer fills.
+    for _stream in (getattr(sys, "stdout", None), getattr(sys, "stderr", None)):
+        reconf = getattr(_stream, "reconfigure", None)
+        if callable(reconf):
+            try:
+                reconf(line_buffering=True)
+            except Exception:
+                pass
+
     # Load .env if present (API keys, etc.). Safe no-op if file missing.
     try:
         from dotenv import load_dotenv  # type: ignore
@@ -166,12 +373,40 @@ def main() -> None:
     ap.add_argument("--output", default=None, help="Output JSONL path (default: timestamped).")
     ap.add_argument("--output-csv", default=None, help="Optional flattened CSV output path.")
     ap.add_argument(
+        "--resume-jsonl",
+        default=None,
+        help="Resume from an existing JSONL output (use with --resume). Skips already-finished tickers/chunks.",
+    )
+    ap.add_argument(
+        "--resume",
+        action="store_true",
+        help="Append to existing outputs instead of overwriting. Requires --resume-jsonl (or an explicit --output path that exists).",
+    )
+    ap.add_argument(
+        "--max-retries",
+        type=int,
+        default=6,
+        help="Per-call retries inside llm.call_once_stock (default 6). Increase if you hit transient rate limits.",
+    )
+    ap.add_argument(
+        "--heartbeat-every",
+        type=float,
+        default=10.0,
+        help="While waiting on the LLM HTTP call, print a heartbeat line every N seconds (default 10).",
+    )
+    ap.add_argument(
         "--skip-missing",
         action="store_true",
         help="Skip rows with missing required indicator fields (avoids early-window nulls).",
     )
     ap.add_argument("--limit", type=int, default=0, help="Optional row limit (0 = all).")
     ap.add_argument("--where-ticker", default=None, help="Optional filter, e.g. MSFT.")
+    ap.add_argument(
+        "--progress-every",
+        type=int,
+        default=10,
+        help="Print progress every N calls (default 10). Use 1 for very chatty output.",
+    )
     ap.add_argument(
         "--mode",
         choices=["per-row", "window"],
@@ -219,6 +454,9 @@ def main() -> None:
     provider: ProviderName = args.provider
     if not args.all_variants and args.variant is None:
         ap.error("Either provide --variant {1,2,3} or use --all-variants.")
+    if args.all_variants and args.resume and args.resume_jsonl and not args.output:
+        ap.error("--resume-jsonl with --all-variants is ambiguous (each variant writes a different file). "
+                 "Re-run with --variant <n> pointing at that variant's JSONL, or pass an explicit per-run --output scheme.")
     variants_to_run = [1, 2, 3] if args.all_variants else [int(args.variant)]
 
     df = pd.read_csv(args.input)
@@ -240,7 +478,6 @@ def main() -> None:
         "window_start",
         "window_end",
         "window_n_days",
-        "stance",
         "direction",
         "confidence",
         "reason",
@@ -287,142 +524,254 @@ def main() -> None:
 
             rows = [r for r in base_rows if _row_ok(r)]
 
+        # --- run ticker-by-ticker for visibility and easier debugging ---
+        if args.where_ticker:
+            tickers = [str(args.where_ticker)]
+        else:
+            tickers = sorted({str(r.get("Ticker")) for r in rows if r.get("Ticker") is not None})
+
+        if args.resume and not args.resume_jsonl and not args.output:
+            ap.error("--resume requires --resume-jsonl (or an explicit existing --output path).")
+
+        if args.output:
+            out_path = str(args.output)
+        elif args.resume and args.resume_jsonl:
+            out_path = str(args.resume_jsonl)
+        else:
+            out_path = _default_output_path_v2(
+                provider=provider,
+                variant=int(variant),
+                mode=str(args.mode),
+                input_path=str(args.input),
+                ticker=str(args.where_ticker) if args.where_ticker else None,
+                window_by=str(args.window_by),
+                cal_span=int(cal_span),
+                cal_step=int(cal_step),
+                trading_n=int(args.window_trading_days),
+                trading_step=int(step_trading),
+            )
+
+        # Precompute per-ticker work units so we can show useful progress.
+        work_per_ticker: dict[str, list[Any]] = {}
         if args.mode == "window":
-            chunks = []
-            if args.where_ticker:
-                chunk_src = [r for r in rows if r.get("Ticker") == args.where_ticker]
+            for t in tickers:
+                trows = [r for r in rows if str(r.get("Ticker")) == t]
                 if args.window_by == "calendar":
                     chunks = _chunk_rows_calendar(
-                        chunk_src,
+                        trows,
                         span_calendar_days=cal_span,
                         step_calendar_days=cal_step,
                         min_trading_rows=int(args.min_window_days),
                     )
                 else:
                     chunks = _chunk_rows(
-                        chunk_src,
+                        trows,
                         window_days=int(args.window_trading_days),
                         step_days=step_trading,
                         min_window_days=int(args.min_window_days),
                     )
-            else:
-                by_ticker: dict[str, list[dict]] = {}
-                for r in rows:
-                    t = r.get("Ticker")
-                    if t is None:
-                        continue
-                    by_ticker.setdefault(str(t), []).append(r)
-                for _t, trows in sorted(by_ticker.items()):
-                    if args.window_by == "calendar":
-                        chunks.extend(
-                            _chunk_rows_calendar(
-                                trows,
-                                span_calendar_days=cal_span,
-                                step_calendar_days=cal_step,
-                                min_trading_rows=int(args.min_window_days),
-                            )
-                        )
-                    else:
-                        chunks.extend(
-                            _chunk_rows(
-                                trows,
-                                window_days=int(args.window_trading_days),
-                                step_days=step_trading,
-                                min_window_days=int(args.min_window_days),
-                            )
-                        )
-            if limit_n:
-                chunks = chunks[:limit_n]
-            total = len(chunks)
-            if args.window_by == "calendar":
-                suf = f"_c{cal_span}"
-            else:
-                suf = f"_t{int(args.window_trading_days)}"
-            out_path = args.output or _default_output_path(provider, int(variant)).replace(".jsonl", f"{suf}.jsonl")
+                if limit_n:
+                    chunks = chunks[:limit_n]
+                work_per_ticker[t] = chunks
+            total = sum(len(vv) for vv in work_per_ticker.values())
         else:
-            if limit_n:
-                rows = rows[:limit_n]
-            total = len(rows)
-            out_path = args.output or _default_output_path(provider, int(variant))
+            for t in tickers:
+                trows = [r for r in rows if str(r.get("Ticker")) == t]
+                if limit_n:
+                    trows = trows[:limit_n]
+                work_per_ticker[t] = trows
+            total = sum(len(vv) for vv in work_per_ticker.values())
 
         out_csv_path = args.output_csv or _default_output_csv_path(out_path)
 
+        resume_global_done = 0
+        resume_ticker: Optional[str] = None
+        resume_local_completed = 0
+        if args.resume:
+            if not os.path.exists(out_path):
+                ap.error(f"--resume specified but output JSONL does not exist: {out_path}")
+            resume_global_done, resume_ticker, resume_local_completed, _seen_ok = _infer_resume_state_from_jsonl(
+                out_path,
+                expected_provider=str(provider),
+                expected_variant=int(variant),
+                work_per_ticker=work_per_ticker,
+                mode=str(args.mode),
+            )
+            if resume_ticker is None:
+                print(f"v{variant}: resume found nothing to do (already complete).", flush=True)
+                continue
+
         ok = 0
-        with open(out_path, "w", encoding="utf-8") as f, open(out_csv_path, "w", encoding="utf-8", newline="") as cf:
+        file_mode = "a" if args.resume else "w"
+        csv_exists = os.path.exists(out_csv_path) and os.path.getsize(out_csv_path) > 0
+
+        with open(out_path, file_mode, encoding="utf-8") as f, open(out_csv_path, file_mode, encoding="utf-8", newline="") as cf:
             cw = csv.DictWriter(cf, fieldnames=csv_fieldnames)
-            cw.writeheader()
+            if file_mode == "w" or not csv_exists:
+                cw.writeheader()
 
-            if args.mode == "window":
-                for idx, chunk in enumerate(chunks):
-                    res = call_window_once(llm=llm, rows=chunk, variant=variant, max_retries=3)
-                    w_start = str(chunk[0].get("Date"))
-                    w_end = str(chunk[-1].get("Date"))
-                    rep_row = {
-                        "Ticker": chunk[0].get("Ticker"),
-                        "Date": w_end,
-                    }
+            done = int(resume_global_done)
+            if args.resume:
+                try:
+                    with open(out_path, "r", encoding="utf-8") as rf:
+                        for line in rf:
+                            line = line.strip()
+                            if not line:
+                                continue
+                            try:
+                                obj = json.loads(line)
+                            except Exception:
+                                continue
+                            if str(obj.get("provider")) != str(provider):
+                                continue
+                            if int(obj.get("variant") or -1) != int(variant):
+                                continue
+                            if obj.get("parse_error") is None and obj.get("parsed") is not None:
+                                ok += 1
+                except Exception:
+                    ok = 0
 
-                    record: Dict[str, Any] = {
-                        "provider": provider,
-                        "variant": int(variant),
-                        "row_index": int(idx),
-                        "ticker": rep_row.get("Ticker"),
-                        "date": rep_row.get("Date"),
-                        "window_start": w_start,
-                        "window_end": w_end,
-                        "window_n_days": len(chunk),
-                        "parsed": res.parsed,
-                        "parse_error": res.parse_error,
-                        "raw_text": res.raw_text,
-                    }
+            for t in tickers:
+                units = work_per_ticker.get(t, [])
+                planned_units = len(units)
+                resume_base = 0
+                if args.resume and resume_ticker:
+                    if t < resume_ticker:
+                        continue
+                    if t == resume_ticker and resume_local_completed > 0:
+                        resume_base = int(resume_local_completed)
+                        units = units[int(resume_local_completed) :]
 
-                    if res.parsed is not None:
-                        ok += 1
+                print(
+                    f"v{variant} {args.mode}: ticker={t} | units={len(units)}/{planned_units} | output={out_path} | resume={bool(args.resume)}",
+                    flush=True,
+                )
 
-                    f.write(json.dumps(record, ensure_ascii=False, default=_json_default) + "\n")
-                    cw.writerow(
-                        _flatten_for_csv(
-                            provider,
-                            int(variant),
-                            int(idx),
-                            rep_row,
-                            res.parsed,
-                            res.parse_error,
-                            res.raw_text,
-                            window_start=w_start,
-                            window_end=w_end,
-                            window_n=len(chunk),
+                if args.mode == "window":
+                    for local_idx, chunk in enumerate(units):
+                        abs_i0 = int(resume_base) + int(local_idx) + 1
+                        print(
+                            f"v{variant} window: calling_llm ticker={t} {abs_i0}/{planned_units} | "
+                            f"rows={len(chunk)} | window={chunk[0].get('Date')}..{chunk[-1].get('Date')}",
+                            flush=True,
                         )
-                    )
+                        hb_every = float(args.heartbeat_every) if float(args.heartbeat_every) > 0 else 10.0
+                        hb_label = (
+                            f"v{variant} window: waiting_on_llm ticker={t} {abs_i0}/{planned_units} | "
+                            f"rows={len(chunk)}"
+                        )
+                        res = _with_wait_heartbeat(
+                            hb_label,
+                            hb_every,
+                            lambda: call_window_once(
+                                llm=llm,
+                                rows=chunk,
+                                variant=variant,
+                                max_retries=int(args.max_retries),
+                            ),
+                        )
+                        w_start = str(chunk[0].get("Date"))
+                        w_end = str(chunk[-1].get("Date"))
+                        rep_row = {"Ticker": chunk[0].get("Ticker"), "Date": w_end}
 
-                    if (idx + 1) % 10 == 0 or (idx + 1) == total:
-                        print(f"v{variant} window: {idx+1}/{total} done | parsed_ok={ok}")
-            else:
-                for idx, row in enumerate(rows):
-                    res = call_stock_once(llm=llm, row=row, variant=variant, max_retries=3)
+                        record: Dict[str, Any] = {
+                            "provider": provider,
+                            "variant": int(variant),
+                            "row_index": int(done),
+                            "ticker": rep_row.get("Ticker"),
+                            "date": rep_row.get("Date"),
+                            "window_start": w_start,
+                            "window_end": w_end,
+                            "window_n_days": len(chunk),
+                            "parsed": res.parsed,
+                            "parse_error": res.parse_error,
+                            "raw_text": res.raw_text,
+                        }
 
-                    record = {
-                        "provider": provider,
-                        "variant": int(variant),
-                        "row_index": int(idx),
-                        "ticker": row.get("Ticker"),
-                        "date": row.get("Date"),
-                        "window_start": "",
-                        "window_end": "",
-                        "window_n_days": "",
-                        "parsed": res.parsed,
-                        "parse_error": res.parse_error,
-                        "raw_text": res.raw_text,
-                    }
+                        if res.parsed is not None:
+                            ok += 1
 
-                    if res.parsed is not None:
-                        ok += 1
+                        f.write(json.dumps(record, ensure_ascii=False, default=_json_default) + "\n")
+                        f.flush()
+                        cw.writerow(
+                            _flatten_for_csv(
+                                provider,
+                                int(variant),
+                                int(done),
+                                rep_row,
+                                res.parsed,
+                                res.parse_error,
+                                res.raw_text,
+                                window_start=w_start,
+                                window_end=w_end,
+                                window_n=len(chunk),
+                            )
+                        )
+                        cf.flush()
 
-                    f.write(json.dumps(record, ensure_ascii=False, default=_json_default) + "\n")
-                    cw.writerow(_flatten_for_csv(provider, int(variant), int(idx), row, res.parsed, res.parse_error, res.raw_text))
+                        done += 1
+                        _maybe_rate_limit_cooldown(res.parse_error)
+                        abs_i = int(resume_base) + int(local_idx) + 1
+                        if args.progress_every > 0 and ((local_idx + 1) % int(args.progress_every) == 0 or done == total):
+                            print(
+                                f"v{variant} window: {done}/{total} done | ticker={t} {abs_i}/{planned_units} | parsed_ok={ok}",
+                                flush=True,
+                            )
+                else:
+                    for local_idx, row in enumerate(units):
+                        abs_i0 = int(resume_base) + int(local_idx) + 1
+                        print(
+                            f"v{variant}: calling_llm ticker={t} {abs_i0}/{planned_units} | date={row.get('Date')}",
+                            flush=True,
+                        )
+                        hb_every = float(args.heartbeat_every) if float(args.heartbeat_every) > 0 else 10.0
+                        hb_label = f"v{variant}: waiting_on_llm ticker={t} {abs_i0}/{planned_units}"
+                        res = _with_wait_heartbeat(
+                            hb_label,
+                            hb_every,
+                            lambda: call_stock_once(
+                                llm=llm,
+                                row=row,
+                                variant=variant,
+                                max_retries=int(args.max_retries),
+                            ),
+                        )
 
-                    if (idx + 1) % 25 == 0 or (idx + 1) == total:
-                        print(f"v{variant}: {idx+1}/{total} done | parsed_ok={ok}")
+                        record = {
+                            "provider": provider,
+                            "variant": int(variant),
+                            "row_index": int(done),
+                            "ticker": row.get("Ticker"),
+                            "date": row.get("Date"),
+                            "window_start": "",
+                            "window_end": "",
+                            "window_n_days": "",
+                            "parsed": res.parsed,
+                            "parse_error": res.parse_error,
+                            "raw_text": res.raw_text,
+                        }
+
+                        if res.parsed is not None:
+                            ok += 1
+
+                        f.write(json.dumps(record, ensure_ascii=False, default=_json_default) + "\n")
+                        f.flush()
+                        cw.writerow(_flatten_for_csv(provider, int(variant), int(done), row, res.parsed, res.parse_error, res.raw_text))
+                        cf.flush()
+
+                        done += 1
+                        _maybe_rate_limit_cooldown(res.parse_error)
+                        abs_i = int(resume_base) + int(local_idx) + 1
+                        if args.progress_every > 0 and ((local_idx + 1) % int(args.progress_every) == 0 or done == total):
+                            print(
+                                f"v{variant}: {done}/{total} done | ticker={t} {abs_i}/{planned_units} | parsed_ok={ok}",
+                                flush=True,
+                            )
+
+                # once we finish the resumed ticker once, don't keep slicing for later variants
+                if args.resume and resume_ticker and t == resume_ticker:
+                    resume_local_completed = 0
+                    resume_ticker = None
 
         print(f"v{variant}: wrote {total} records to {out_path} (parsed_ok={ok}).")
         print(f"v{variant}: wrote flattened CSV to {out_csv_path}.")

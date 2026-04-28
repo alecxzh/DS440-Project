@@ -75,12 +75,14 @@ ZAI_API_KEY=...
 # Optional Z.ai settings
 # ZAI_MODEL=glm-4.7-flash
 # ZAI_THINKING=disabled
+# ZAI_TIMEOUT_SECS=180
 ```
 
 Notes:
 
 - **Multiple keys / rotation**: set `GROQ_API_KEYS`, `GEMINI_API_KEYS`, or `ZAI_API_KEYS` as **comma- or newline-separated** lists. If those are present, the runner will rotate keys on common quota/auth errors.
 - **No secrets in git**: `.env` should stay local (don’t commit it).
+- **Z.ai timeout**: `ZAI_TIMEOUT_SECS` (or `ZAI_TIMEOUT`) sets the HTTP timeout for Z.ai calls. Without a timeout, a stalled network read can look like a “stuck terminal”.
 
 ## How to run (copy/paste)
 
@@ -101,6 +103,11 @@ Expected outputs in the repo root:
 ### 2) Run the LLM per day (one call per row)
 
 Variant 1/2/3 correspond to different prompt formats (see `llm/prompts.py`). Variants 2 and 3 expect Bayesian columns, so they usually use `stock_with_technical_bayesian.csv`.
+
+All variants are configured to return a **binary** predicted next-day movement:
+
+- `direction`: **`"UP"`** or **`"DOWN"`**
+- plus a `confidence` field and variant-specific rationale fields
 
 Example: **Gemini**, variant 3, only MSFT, first 25 rows:
 
@@ -136,17 +143,55 @@ Example: 10 trading-day windows (sliding by 5 trading days):
 python run_llm_stock.py --provider groq --variant 2 --mode window --window-by trading --window-trading-days 10 --window-step-days 5 --where-ticker TSLA --input stock_with_technical_bayesian.csv
 ```
 
-### 4) Understanding the outputs
+### 4) Progress, “terminal not moving”, and long calls
+
+The runner prints progress before each LLM call (`calling_llm ...`). If a provider takes a long time to respond, you can enable a **heartbeat** that prints while waiting so the terminal stays “alive”:
+
+```bash
+python run_llm_stock.py --provider zai --variant 2 --mode window --window-by calendar --window-calendar-days 14 --progress-every 1 --heartbeat-every 1 --input stock_with_technical_bayesian.csv
+```
+
+- `--progress-every N`: print a summary line every \(N\) completed calls (use `1` for very chatty output).
+- `--heartbeat-every S`: while waiting on a single HTTP call, print `waiting_on_llm ... still waiting...` every \(S\) seconds.
+
+### 5) Resume an interrupted run (v2/v3 window mode)
+
+If a run is interrupted (manual stop, crash, throttling, etc.), you can **resume** by appending to the existing JSONL. The script will skip work it can prove was already successfully completed.
+
+Example: resume a specific v2 run:
+
+```bash
+python run_llm_stock.py --provider zai --variant 2 --input stock_with_technical_bayesian.csv --mode window --window-by calendar --window-calendar-days 14 --progress-every 1 --heartbeat-every 1 --max-retries 8 --resume --resume-jsonl llm_zai_v2_win-c14_ALL_stock_with_technical_bayesian_20260427_174610.jsonl
+```
+
+Resume notes:
+
+- Resume is **ticker-by-ticker** (sorted tickers), not interleaved.
+- In window mode, completion is tracked by **(ticker, window_start, window_end, window_n_days)** from previously written records.
+- Outputs are flushed to disk after each record so you can watch files grow in real time.
+
+### 6) Windows chaining (PowerShell gotcha)
+
+On some Windows/PowerShell versions, `&&` is not supported. If you want to run v2 then v3 only if v2 succeeds, use `cmd /c`:
+
+```bat
+cmd /c "cd /d C:\path\to\DS440-Project && python -u run_llm_stock.py --provider zai --variant 2 --mode window --window-by calendar --window-calendar-days 14 --progress-every 1 --heartbeat-every 1 --max-retries 8 --resume --resume-jsonl llm_zai_v2_win-c14_ALL_stock_with_technical_bayesian_20260427_174610.jsonl && python -u run_llm_stock.py --provider zai --variant 3 --mode window --window-by calendar --window-calendar-days 14 --progress-every 1 --heartbeat-every 1 --max-retries 8 --input stock_with_technical_bayesian.csv"
+```
+
+### 7) Understanding the outputs
 
 For each run, the script writes two files:
 
-- **JSONL**: `llm_outputs_<provider>_v<variant>_<timestamp>.jsonl`
+- **JSONL**: default filename is readable and encodes run settings:
+  - window mode: `llm_<provider>_v<variant>_win-c<days>_ALL_<inputStem>_<timestamp>.jsonl`
+  - per-row mode: `llm_<provider>_v<variant>_per-row_ALL_<inputStem>_<timestamp>.jsonl`
   - each line is a JSON object containing:
     - `parsed`: the parsed JSON response (or `null` if parsing failed)
     - `parse_error`: why parsing failed (or `null`)
     - `raw_text`: the raw model output (useful to debug bad formatting)
 - **CSV**: same name but `.csv`
-  - includes helpful columns like `stance`, `direction`, `confidence`, `reason` when present
+  - includes helpful columns like `direction`, `confidence`, `reason` (variant-specific rationale is normalized into `reason`)
+  - in window mode you also get `window_start`, `window_end`, `window_n_days`
 
 ## Common issues / quick fixes
 
@@ -157,6 +202,10 @@ For each run, the script writes two files:
 ```bash
 python run_llm_stock.py --provider gemini --variant 3 --skip-missing --limit 50
 ```
+
+- **Terminal “not moving”**:
+  - If you see `calling_llm ...` then nothing: that’s one long HTTP call. Use `--heartbeat-every 1` to get wait prints.
+  - If you see heartbeats counting up for a very long time: increase `ZAI_TIMEOUT_SECS` (slow network/provider) or decrease it (fail faster and retry sooner), and consider increasing `--max-retries`.
 
 ## Notes / extra
 

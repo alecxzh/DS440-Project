@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import random
+import re
+import time
 from dataclasses import dataclass
 from typing import Any, Mapping, Optional, Sequence
 
@@ -14,6 +17,20 @@ class StockCallResult:
     raw_text: str
     parsed: Optional[dict]
     parse_error: Optional[str]
+
+
+_OVERLOAD_RE = re.compile(r"(429|rate limit|ratelimit|overload|temporarily overloaded|quota|throttl)", re.IGNORECASE)
+
+
+def _should_backoff_llm_error(msg: str) -> bool:
+    return bool(_OVERLOAD_RE.search(msg or ""))
+
+
+def _retry_sleep_seconds(attempt: int) -> float:
+    # attempt is 0-based; backoff grows modestly to avoid hammering overloaded APIs.
+    base = min(30.0, 0.75 * (2**attempt))
+    jitter = random.uniform(0.0, 0.35)
+    return float(base + jitter)
 
 
 def call_stock_once(
@@ -47,6 +64,8 @@ def call_stock_once(
             last_raw = resp.text
         except Exception as e:
             last_err = f"LLM call error: {e}"
+            if attempt < max_retries - 1 and _should_backoff_llm_error(last_err):
+                time.sleep(_retry_sleep_seconds(attempt))
             continue
 
         parsed = parse_json_from_llm(last_raw)
@@ -54,6 +73,8 @@ def call_stock_once(
             return StockCallResult(prompt=prompt, raw_text=last_raw, parsed=parsed.obj, parse_error=None)
 
         last_err = parsed.error or "Unknown parse error"
+        if attempt < max_retries - 1:
+            time.sleep(_retry_sleep_seconds(attempt))
 
     return StockCallResult(prompt=base_prompt, raw_text=last_raw, parsed=None, parse_error=last_err)
 
@@ -85,6 +106,8 @@ def call_window_once(
             last_raw = resp.text
         except Exception as e:
             last_err = f"LLM call error: {e}"
+            if attempt < max_retries - 1 and _should_backoff_llm_error(last_err):
+                time.sleep(_retry_sleep_seconds(attempt))
             continue
 
         parsed = parse_json_from_llm(last_raw)
@@ -92,6 +115,8 @@ def call_window_once(
             return StockCallResult(prompt=prompt, raw_text=last_raw, parsed=parsed.obj, parse_error=None)
 
         last_err = parsed.error or "Unknown parse error"
+        if attempt < max_retries - 1:
+            time.sleep(_retry_sleep_seconds(attempt))
 
     return StockCallResult(prompt=base_prompt, raw_text=last_raw, parsed=None, parse_error=last_err)
 

@@ -264,6 +264,14 @@ def _zai_extra_body() -> dict:
     return {"thinking": {"type": "disabled"}}
 
 
+def _zai_http_timeout_s() -> float:
+    raw = os.getenv("ZAI_TIMEOUT_SECS") or os.getenv("ZAI_TIMEOUT")
+    if raw and str(raw).strip():
+        return float(str(raw).strip())
+    # OpenAI python SDK uses httpx under the hood; without an explicit timeout a hung TCP read can look "stuck".
+    return 180.0
+
+
 class ZaiLLM(BaseLLM):
     """GLM via Z.ai OpenAI-compatible endpoint."""
 
@@ -278,13 +286,13 @@ class ZaiLLM(BaseLLM):
         base = os.getenv("ZAI_BASE_URL") or self.config.base_url
         from openai import OpenAI  # lazy import
 
-        self._client = OpenAI(api_key=key, base_url=base)
+        self._client = OpenAI(api_key=key, base_url=base, timeout=_zai_http_timeout_s())
 
     @staticmethod
     def _effective_temperature(t: float) -> float:
-        # Z.ai docs: temperature=0 is not valid for OpenAI-style calls; use a small epsilon.
+        # Prefer deterministic behavior (temperature=0) when requested.
         if t <= 0:
-            return 0.01
+            return 0.0
         return min(float(t), 0.99)
 
     def generate(self, prompt: str) -> LLMResponse:
@@ -316,11 +324,11 @@ class RotatingZaiLLM(BaseLLM):
 
         self._OpenAI = OpenAI
         self._base_url = base
-        self._client = self._OpenAI(api_key=self.api_keys[self._idx], base_url=base)
+        self._client = self._OpenAI(api_key=self.api_keys[self._idx], base_url=base, timeout=_zai_http_timeout_s())
 
     def _rotate(self) -> None:
         self._idx = (self._idx + 1) % len(self.api_keys)
-        self._client = self._OpenAI(api_key=self.api_keys[self._idx], base_url=self._base_url)
+        self._client = self._OpenAI(api_key=self.api_keys[self._idx], base_url=self._base_url, timeout=_zai_http_timeout_s())
 
     def generate(self, prompt: str) -> LLMResponse:
         last_exc: Optional[Exception] = None
